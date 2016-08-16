@@ -1,0 +1,7 @@
+{
+    "name": "ws_server",
+    "dependencies": {
+        "express": "2.5.10",
+        "ws"     : "1.1.1"
+    }
+}

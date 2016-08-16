@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    border: 0 none;
+    cursor: default;
+    line-height: inherit;
+    font-size: 14px;
+    font-weight: inherit;
+    font-family: "Trebuchet MS";
+}
+.room {
+    width: 1000px;
+    height: 620px;
+    position: absolute;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    opacity: 1;
+    pointer-events: auto;
+    display: none;
+    border: solid 1px black;
+}
+.obj {
+    position: absolute;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    pointer-events: inherit;
+}
+.spr {
+    position: absolute;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    pointer-events: inherit;
+}
+.txt {
+    position: absolute;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: default;
+    overflow: hidden;
+    pointer-events: inherit;
+}
+.tmr {
+    display: none;
+}
+.text_field {
+    width:          197px;
+    height:         36px;
+    border:         none;
+    border-right:   1px solid #dadde3;
+    padding:        0 15px 0 15px;
+    position: absolute;
+    border-radius:  10px 0 0 10px;
+    outline:        none;
+    left: 8px;
+    top: 8px;
+    cursor: text;
+}
+.send_message {
+    width:          296px;
+    height:         52px;
+    background:     #db7093;
+    margin:         0;
+    padding:        0;
+    top: 568px;
+    left: 0px;
+    position: absolute;
+}
