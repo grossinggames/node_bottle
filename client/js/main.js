@@ -39,6 +39,15 @@ window.onload = function () {
         var socket     = new WebSocket("wss://" + window.location.hostname + ":" + window.location.port);
         socket.onopen  = function() {
             //console.log("Websocket connect");
+            VK.api("users.get", {fields: "photo_100"}, function(data) { 
+                if (data && data.response && data.response[0] 
+                && data.response[0].photo_100 && data.response[0].first_name) {
+                    socket.send( JSON.stringify({
+                            photo: data.response[0].photo_100,
+                            first_name: data.response[0].first_name
+                    }) );
+                }
+            });
         };
 
         socket.onclose = function(event) {

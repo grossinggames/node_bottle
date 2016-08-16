@@ -13,12 +13,14 @@ function addMessage(client, message) {
     // Пользователь указал ссылку на аву
     if (message["photo"]) {
         client.photo = message.photo;
+        console.log("client.photo " + client.photo);
         //sendStateGroup(client);
     }
 
     // Пользователь указал свое имя
     if (message["first_name"]) {
         client.first_name = message.first_name;
+        console.log("client.first_name " + client.first_name);
     }
 
     // Пользователь отправил сообщение
