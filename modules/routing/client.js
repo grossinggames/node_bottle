@@ -15,14 +15,14 @@ function addClient(client) {
     } else {
         group = addGroup(client);
     }
-    console.log("Добавлен в группу: " + group + "\n");
+    //console.log("Добавлен в группу: " + group + "\n");
     return true;
 }
 
 // Удалить клиента из группы
 function removeClient(client) {
     if (client.group && client.slot) {
-        console.log("Удален из группы: " + client.group + "\n");
+        //console.log("Удален из группы: " + client.group + "\n");
         availableGroups[client.group] = availableGroups[client.group] || [];
         availableGroups[client.group].push(client.slot);
         delete groups[client.group].slots[client.slot];
