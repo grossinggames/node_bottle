@@ -67,28 +67,28 @@ function StopAllSounds() {
 
 // Остановить все Sfx
 function StopAllSfx() {
-    for (path in sounds["sfx"]) {
+    for (var path in sounds["sfx"]) {
         StopSound(path);
     };
 }
 
 // Остановить все Env
 function StopAllEnv() {
-    for (path in sounds["env"]) {
+    for (var path in sounds["env"]) {
         StopSound(path);
     };
 }
 
 // Остановить все Snd
 function StopAllSnd() {
-    for (path in sounds["snd"]) {
+    for (var path in sounds["snd"]) {
         StopSound(path);
     };
 }
 
 // Остановить все Voc
 function StopAllVoc() {
-    for (path in sounds["voc"]) {
+    for (var path in sounds["voc"]) {
         StopSound(path);
     };
 }
@@ -229,7 +229,7 @@ function ObjGet(objname) {
     var obj = document.getElementById(objname);
     var result = {};
 
-    for (key in properties) {
+    for (var key in properties) {
         switch (properties[key]) {
             case "id":
                 result[key] = obj.id;

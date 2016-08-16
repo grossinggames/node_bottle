@@ -1,4 +1,17 @@
 window.onload = function () {
+    /* global ObjGet */
+    /* global ObjSet */
+    /* global ObjAnimate */
+    /* global VK */
+    /* global SwitchRoom */
+    /* global CustomEvent */
+    /* global rooms */
+    /* global currentRoom */
+    /* global tmr_global */
+    /* global TIME_UPDATE */
+    /* global ShowModalWindow */
+    /* global HideModalWindow */
+    
     // Инициализация вк
     VK.init(function() {
 
@@ -61,7 +74,7 @@ window.onload = function () {
         // Анимация после загрузки
         //ObjAnimate("spr_bottle_floor", "alp", 0, 0, function() { }, [ 0,0,0, 0.5,0,1 ]);
         //ObjAnimate("spr_bottle_chat", "alp", 0, 0, function() {}, [ 0,0,0, 0.5,0,1 ]);
-/*
+
         ObjAnimate("spr_bottle_button_change_bottle", "scale_x", 0, 0, function() { }, [ 0,0,1, 0.5,0,1, 0.6,0,1.1, 0.7,0,1 ]);
         ObjAnimate("spr_bottle_button_change_bottle", "scale_y", 0, 0, function() { }, [ 0,0,1, 0.5,0,1, 0.6,0,1.1, 0.7,0,1 ]);
 
@@ -82,7 +95,7 @@ window.onload = function () {
             spr_bottle_chat_field.innerHTML += '<li style="background-color: #bc96dc">Добро пожаловать в Сладкий Поцелуй!</li>';
             //HideModalWindow();
         }, [ 0,0,1, 1.1,0,1, 1.2,0,1.1, 1.3,0,1 ]);
-*/
+
         /*
         var slot1 = ObjGet("spr_bottle_slot_1");
         ObjAnimate("spr_bottle_slot_1", "pos_x", 0, 0, function() {}, [ 0,0,slot1.pos_x, 0.8,0,450, 1.5,0,450, 2.3,0,slot1.pos_x ]);
@@ -396,13 +409,10 @@ window.onload = function () {
             }
         };
 
-
         ObjSet("spr_bottle_sending_input",
         {
             popup: "Написать сообщение",
         });
-
-
 
     // ********************************************** Позиции **********************************************
     // Настройки слотов
