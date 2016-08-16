@@ -1,4 +1,4 @@
-var groups = [];
+var groups = module.parent.exports.groups;
 var availableGroups = [];
 var counter = 0;
 
@@ -43,7 +43,8 @@ function changeGroup(client) {
 module.exports = {
     addClient:    addClient,
     changeGroup:  changeGroup,
-    removeClient: removeClient
+    removeClient: removeClient,
+    groups:       groups
 };
 
 

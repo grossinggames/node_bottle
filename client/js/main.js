@@ -3,7 +3,7 @@ window.onload = function () {
 //    VK.init(function() {
 
         // API initialization succeeded
-        //console.log('Успеная регстрация вконтакте');
+        //console.log("Успеная регстрация вконтакте");
 
         // Настройки служебные
         SwitchRoom("room_bottle");
@@ -23,26 +23,40 @@ window.onload = function () {
         }, TIME_UPDATE);
 
         // Websocket соединение
-	    var socket     = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port);
-	    socket.onopen  = function() {
-	        console.log("Websocket connect");
-	    };
+        var socket     = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port);
+        socket.onopen  = function() {
+            console.log("Websocket connect");
+        };
 
-	    socket.onclose = function(event) {
-	      if (event.wasClean) {
-	        console.log("Close connect");
-	      } else {
-	        console.log("Websocet connect break");
-	      }
-	      console.log('Code: ' + event.code + ' reason: ' + event.reason);
-	    };
+        socket.onclose = function(event) {
+          if (event.wasClean) {
+            console.log("Close connect");
+          } else {
+            console.log("Websocet connect break");
+          }
+          console.log("Code: " + event.code + " reason: " + event.reason);
+        };
 
-	    socket.onmessage = function (event) {
-	    };
+        socket.onmessage = function (event) {
+            try {
+                var message = JSON.parse(event.data);
 
-	    socket.onerror = function(error) {
-	      console.log("Error " + error.message);
-	    };
+                // Новое сообщение
+                //if ( (message["msg"]) && (message["first_name"]) ) {
+                    //spr_bottle_chat_field.innerHTML += "<li><strong>"" + message.first_name + ": </strong>" + message.msg + "</li>";
+                if ( (message["msg"]) ) {
+                    spr_bottle_chat_field.innerHTML += "<li>" + message.msg + "</li>";
+                    spr_bottle_chat_field.scrollTop =  spr_bottle_chat_field.scrollHeight;
+                }
+            } catch(err) {
+                console.log("socket.onmessage Error description: " + err.message);
+                return;
+            }
+        };
+
+        socket.onerror = function(error) {
+          console.log("Error " + error.message);
+        };
 
         // Анимация после загрузки
         //ObjAnimate("spr_bottle_floor", "alp", 0, 0, function() { }, [ 0,0,0, 0.5,0,1 ]);
@@ -348,11 +362,9 @@ window.onload = function () {
 
         function SendMessage() {
             var msg = spr_bottle_sending_input.value;
-
             if (msg != "") {
-                spr_bottle_chat_field.innerHTML += "<li>" + msg + "</li>";
+                socket.send( JSON.stringify({msg: msg}) );
                 spr_bottle_sending_input.value = "";
-                spr_bottle_chat_field.scrollTop = spr_bottle_chat_field.scrollHeight;
                 spr_bottle_sending_input.focus();
             }
         }
