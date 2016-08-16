@@ -1,7 +1,7 @@
 /* *************** Подключение зависимостей *************** */
 
 var express = require("express");
-var port = 3000;
+var port = process.env.PORT;
 
 /* *************** Создание http/https сервера *************** */
 

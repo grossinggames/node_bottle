@@ -23,9 +23,9 @@ window.onload = function () {
         }, TIME_UPDATE);
 
         // Websocket соединение
-        var socket     = new WebSocket("ws://" + window.location.hostname + ":" + window.location.port);
+        var socket     = new WebSocket("wss://" + window.location.hostname + ":" + window.location.port);
         socket.onopen  = function() {
-            console.log("Websocket connect");
+            //console.log("Websocket connect");
         };
 
         socket.onclose = function(event) {

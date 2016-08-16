@@ -18,7 +18,7 @@
     opacity: 1;
     pointer-events: auto;
     display: none;
-    border: solid 1px black;
+    /*border: solid 1px black;*/
 }
 .obj {
     position: absolute;
