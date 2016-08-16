@@ -23,7 +23,6 @@ function addMessage(client, message) {
 
     // Пользователь отправил сообщение
     if (message["msg"]) {
-        console.log(message.msg);
         sendMessageGroup(client.group, {msg: message.msg, first_name: client.first_name});
         //traceState();
     }
@@ -51,11 +50,11 @@ function sendMessageGroup(group, message) {
     }
 
     if (groups[group]["slots"]) {
-        for (var i = 1; i <= maxClientOnGroup; i++) {
+        for (var key in groups[group]["slots"]) {
             // Дополнительно отсылаем в сообщении каждому пользователю его slot в группе
-            message.slot = i;
-            if (groups[group].slots[i]) {
-                sendMessageClient(groups[group].slots[i], message);
+            message.slot = key;
+            if (groups[group].slots[key]) {
+                sendMessageClient(groups[group].slots[key], message);
             }
         }
     }
