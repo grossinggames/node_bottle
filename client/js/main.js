@@ -27,7 +27,7 @@ window.onload = function () {
         // Заполняем ассациативный массив событиями
         for (var i = 0, len = rooms.length; i < len; i++) {
             ticks[ rooms[i] ] = new CustomEvent(rooms[i]);
-        };
+        }
 
         var tmrGlobal = window.document.getElementById("tmr_global");
         var intervalTick = setInterval(function () {
@@ -75,6 +75,10 @@ window.onload = function () {
                     txtTable.innerText = "Стол: " + message.group.substring(1);
                 }
                 if (message["slots"]) {
+                    for (var i = 1; i < 13; i++) {
+                        ObjSet("spr_bottle_slot_" + i, {res: ""});
+                    }
+
                     for (var key in message["slots"]) {
                         ObjSet("spr_bottle_slot_" + key, {res: message["slots"][key]["photo"]});
                     }

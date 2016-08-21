@@ -85,5 +85,6 @@ function traceState(group) {
 }
 
 module.exports = {
-    addMessage: addMessage
+    addMessage: addMessage,
+    sendStateGroup: sendStateGroup
 };

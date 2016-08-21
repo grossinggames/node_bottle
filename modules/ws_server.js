@@ -24,6 +24,8 @@ socket.on("connection", function(client) {
         routingMessage.addMessage(client, message);
     });
     client.on("close", function () {
-        routingClients.removeClient(client);
+        var group = client.group;
+        routingClients.outClient(client);
+        routingMessage.sendStateGroup(group);
     });
 });
