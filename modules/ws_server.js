@@ -20,7 +20,6 @@ var wsServer   = require("ws").Server;
 var socket     = new wsServer({server: httpServer});
 
 socket.on("connection", function(client) {
-    routingClients.addClient(client);
     client.on("message", function(message) {
         routingMessage.addMessage(client, message);
     });

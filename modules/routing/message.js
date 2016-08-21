@@ -1,5 +1,6 @@
-var groups = module.parent.exports.groups;
+var groups           = module.parent.exports.groups;
 var maxClientOnGroup = module.parent.exports.maxClientOnGroup;
+var routingClients   = module.parent.exports.routingClients;
 
 // Новое сообщение от клиента
 function addMessage(client, message) {
@@ -10,19 +11,18 @@ function addMessage(client, message) {
         return false;
     }    
 
-    // Пользователь указал ссылку на аву
-    if (message["photo"]) {
+    // Пользователь указал ссылку на аву и имя
+    if ( (message["photo"]) && (message["first_name"]) ) {
         client.photo = message.photo;
-        console.log("client.photo " + client.photo);
+        //console.log("client.photo " + client.photo);
+
+        client.first_name = message.first_name;
+        //console.log("client.first_name " + client.first_name);
+        
+        routingClients.addClient(client);
         //sendStateGroup(client);
     }
-
-    // Пользователь указал свое имя
-    if (message["first_name"]) {
-        client.first_name = message.first_name;
-        console.log("client.first_name " + client.first_name);
-    }
-
+    
     // Пользователь отправил сообщение
     if (message["msg"]) {
         sendMessageGroup(client.group, {msg: message.msg, first_name: client.first_name});
@@ -53,10 +53,8 @@ function sendMessageGroup(group, message) {
 
     if (groups[group]["slots"]) {
         for (var key in groups[group]["slots"]) {
-            // Дополнительно отсылаем в сообщении каждому пользователю его slot в группе
-            message.slot = key;
             if (groups[group].slots[key]) {
-                sendMessageClient(groups[group].slots[key], message);
+                sendMessageClient( groups[group].slots[key], JSON.stringify(message) );
             }
         }
     }
@@ -65,7 +63,7 @@ function sendMessageGroup(group, message) {
 // Отправить сообщение клиенту
 function sendMessageClient(client, message) {
     try {
-        client.send( JSON.stringify(message) );
+        client.send(message);
     } catch (err) {
         //outClient(client);
         //sendStateGroup(client);
