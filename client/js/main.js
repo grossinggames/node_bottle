@@ -7,7 +7,6 @@ window.onload = function () {
     /* global CustomEvent */
     /* global rooms */
     /* global currentRoom */
-    /* global tmr_global */
     /* global TIME_UPDATE */
     /* global ShowModalWindow */
     /* global HideModalWindow */
@@ -30,9 +29,10 @@ window.onload = function () {
             ticks[ rooms[i] ] = new CustomEvent(rooms[i]);
         };
 
+        var tmrGlobal = window.document.getElementById("tmr_global");
         var intervalTick = setInterval(function () {
-            tmr_global.dispatchEvent(ticks[currentRoom]);
-            tmr_global.dispatchEvent(ticks["room_interface"]);
+            tmrGlobal.dispatchEvent(ticks[currentRoom]);
+            tmrGlobal.dispatchEvent(ticks["room_interface"]);
         }, TIME_UPDATE);
 
         // Websocket соединение
@@ -59,16 +59,25 @@ window.onload = function () {
           console.log("Code: " + event.code + " reason: " + event.reason);
         };
 
+        var chatField = window.document.getElementById("spr_bottle_chat_field");
+        var txtTable = window.document.getElementById("txt_bottle_table");
+        
         socket.onmessage = function (event) {
             try {
                 var message = JSON.parse(event.data);
 
                 // Новое сообщение
-                //if ( (message["msg"]) && (message["first_name"]) ) {
-                    //spr_bottle_chat_field.innerHTML += "<li><strong>"" + message.first_name + ": </strong>" + message.msg + "</li>";
-                if ( (message["msg"]) ) {
-                    spr_bottle_chat_field.innerHTML += "<li>" + message.msg + "</li>";
-                    spr_bottle_chat_field.scrollTop =  spr_bottle_chat_field.scrollHeight;
+                if (message["msg"]) {
+                    chatField.innerHTML += "<li>" + message.first_name + ": " + message.msg + "</li>";
+                    chatField.scrollTop = chatField.scrollHeight;
+                }
+                if (message["group"]) {
+                    txtTable.innerText = "Стол: " + message.group.substring(1);
+                }
+                if (message["slots"]) {
+                    for (var key in message["slots"]) {
+                        ObjSet("spr_bottle_slot_" + key, {res: message["slots"][key]["photo"]});
+                    }
                 }
             } catch(err) {
                 console.log("socket.onmessage Error description: " + err.message);
@@ -101,7 +110,7 @@ window.onload = function () {
 
         ObjAnimate("spr_bottle_button_sound", "scale_x", 0, 0, function() { }, [ 0,0,1, 1.1,0,1, 1.2,0,1.1, 1.3,0,1 ]);
         ObjAnimate("spr_bottle_button_sound", "scale_y", 0, 0, function() {
-            spr_bottle_chat_field.innerHTML += '<li style="background-color: #bc96dc">Добро пожаловать в Сладкий Поцелуй!</li>';
+            chatField.innerHTML += '<li style="background-color: #bc96dc">Добро пожаловать в Сладкий Поцелуй!</li>';
             //HideModalWindow();
         }, [ 0,0,1, 1.1,0,1, 1.2,0,1.1, 1.3,0,1 ]);
 
@@ -124,25 +133,27 @@ window.onload = function () {
             ObjAnimate(name, "scale_y", 0, 0, function() {}, [ 0,0,btn.scale_y, 0.1,0,1.2, 0.2,0,1.1 ]);
         }
 
+        var inputText = window.document.getElementById("spr_bottle_sending_input");
+
         function ButtonLeave(name) {
             var btn = ObjGet(name);
             ObjAnimate(name, "scale_x", 0, 0, function() {}, [ 0,0,btn.scale_x, 0.1,0,0.8, 0.2,0,1 ]);
             ObjAnimate(name, "scale_y", 0, 0, function() {}, [ 0,0,btn.scale_y, 0.1,0,0.8, 0.2,0,1 ]);
-            spr_bottle_sending_input.focus();
+            inputText.focus();
         }
 
         function ButtonDown(name) {
             var btn = ObjGet(name);
             ObjAnimate(name, "scale_x", 0, 0, function() {}, [ 0,0,btn.scale_x, 0.1,0,0.6, 0.2,0,0.8 ]);
             ObjAnimate(name, "scale_y", 0, 0, function() {}, [ 0,0,btn.scale_y, 0.1,0,0.6, 0.2,0,0.8 ]);
-            spr_bottle_sending_input.focus();
+            inputText.focus();
         }
 
         function ButtonUp(name) {
             var btn = ObjGet(name);
             ObjAnimate(name, "scale_x", 0, 0, function() {}, [ 0,0,btn.scale_x, 0.1,0,1.2, 0.2,0,1 ]);
             ObjAnimate(name, "scale_y", 0, 0, function() {}, [ 0,0,btn.scale_y, 0.1,0,1.2, 0.2,0,1 ]);
-            spr_bottle_sending_input.focus();
+            inputText.focus();
         }
 
         // Установка параметров
@@ -155,7 +166,7 @@ window.onload = function () {
             event_mup: function() {
                 var btn = ObjGet("spr_bottle_floor_bottle");
                 ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,btn.angle, 1,0,btn.angle + 360 ]);
-                spr_bottle_sending_input.focus();
+                inputText.focus();
             },
             event_mleave: function() {
 
@@ -383,11 +394,11 @@ window.onload = function () {
         });
 
         function SendMessage() {
-            var msg = spr_bottle_sending_input.value;
+            var msg = inputText.value;
             if (msg != "") {
                 socket.send( JSON.stringify({msg: msg}) );
-                spr_bottle_sending_input.value = "";
-                spr_bottle_sending_input.focus();
+                inputText.value = "";
+                inputText.focus();
             }
         }
 
@@ -400,7 +411,7 @@ window.onload = function () {
             },
             event_mup: function() {
                 SendMessage();
-                //spr_bottle_sending_input.scrollTop =  spr_bottle_sending_input.scrollHeight;
+                //inputText.scrollTop =  inputText.scrollHeight;
                 //ButtonUp("spr_bottle_sending_send");
             },
             event_mleave: function() {
@@ -412,7 +423,7 @@ window.onload = function () {
         });
 
         // Отпавить сообщение на Enter
-        spr_bottle_sending_input.onkeydown = function (e) {
+        inputText.onkeydown = function (e) {
             if (e.keyCode == 13) {
                 SendMessage();
             }

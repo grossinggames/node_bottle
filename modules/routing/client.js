@@ -33,6 +33,11 @@ function removeClient(client) {
     return false;
 }
 
+// Выход клиента из приложения
+function outClient(client) {
+    removeClient(client);
+}
+
 // Смена группы
 function changeGroup(client) {
     if ( removeClient(client) ) {
@@ -44,6 +49,7 @@ module.exports = {
     addClient:    addClient,
     changeGroup:  changeGroup,
     removeClient: removeClient,
+    outClient:    outClient,
     groups:       groups
 };
 
