@@ -45,12 +45,22 @@ function changeGroup(client) {
     }
 }
 
+// Состояние слотов в группе
+function getStateGroup(group) {
+    var result = {slots: {}, group: group};
+    for (var key in groups[group]["slots"]) {
+        result.slots[key] = {photo: groups[group].slots[key].photo};
+    }
+    return result;
+}
+
 module.exports = {
-    addClient:    addClient,
-    changeGroup:  changeGroup,
-    removeClient: removeClient,
-    outClient:    outClient,
-    groups:       groups
+    addClient:     addClient,
+    changeGroup:   changeGroup,
+    removeClient:  removeClient,
+    outClient:     outClient,
+    getStateGroup: getStateGroup,
+    groups:        groups
 };
 
 

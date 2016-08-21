@@ -25,7 +25,10 @@ function addMessage(client, message) {
     
     // Пользователь отправил сообщение
     if (message["msg"]) {
-        sendMessageGroup(client.group, {msg: message.msg, first_name: client.first_name});
+        sendMessageGroup(client.group, {
+            msg: message.msg, 
+            first_name: client.first_name
+        });
         traceState(client.group);
     }
 
@@ -72,11 +75,7 @@ function sendMessageClient(client, message) {
 
 // Состояние слотов в группе
 function sendStateGroup(group) {
-    var message = {slots: {}, group: group};
-    for (var key in groups[group]["slots"]) {
-        message.slots[key] = {photo: groups[group].slots[key].photo};
-    }
-    sendMessageGroup(group, message);
+    sendMessageGroup( group, routingClients.getStateGroup(group) );
 }
 
 // Состояние в слотах
