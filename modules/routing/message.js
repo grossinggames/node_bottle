@@ -32,8 +32,17 @@ function sendMessageClient(client, message) {
 }
 
 // Состояние слотов в группе
+function getStateGroup(group) {
+    var result = {slots: {}, group: group};
+    for (var key in groups[group]["slots"]) {
+        result.slots[key] = {photo: groups[group].slots[key].photo};
+    }
+    return result;
+}
+
+// Состояние слотов в группе
 function sendStateGroup(group) {
-    sendMessageGroup( group, routingClients.getStateGroup(group) );
+    sendMessageGroup( group, getStateGroup(group) );
 }
 
 // Состояние в слотах

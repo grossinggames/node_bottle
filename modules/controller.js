@@ -17,6 +17,7 @@ module.exports.routingClients = routingClients;
 var routingMessage = require("./routing/message.js");
 module.exports.routingMessage = routingMessage;
 
+
 /* *************** Новое сообщение от клиента *************** */
 function addMessage(client, message) {
     try {
