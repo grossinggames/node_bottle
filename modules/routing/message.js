@@ -34,7 +34,9 @@ function addMessage(client, message) {
 
     // Пользователь хочет сменить стол
     if (message["change_table"]) {
+        var group = client.group;
         routingClients.changeGroup(client);
+        sendStateGroup(group);
         sendStateGroup(client.group);
     }
 

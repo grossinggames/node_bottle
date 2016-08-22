@@ -10,13 +10,16 @@ window.onload = function () {
     /* global TIME_UPDATE */
     /* global ShowModalWindow */
     /* global HideModalWindow */
-    
-    // Инициализация вк
+
+
+    /* *************** Инициализация вк *************** */
     VK.init(function() {
 
         // API initialization succeeded
         console.log("Успеная регстрация вконтакте");
 
+
+        /* *************** Преднастройки *************** */
         // Настройки служебные
         SwitchRoom("room_bottle");
 
@@ -35,7 +38,8 @@ window.onload = function () {
             tmrGlobal.dispatchEvent(ticks["room_interface"]);
         }, TIME_UPDATE);
 
-        // Websocket соединение
+
+        /* *************** Websocket соединение *************** */
         var socket     = new WebSocket("wss://" + window.location.hostname + ":" + window.location.port);
         socket.onopen  = function() {
             //console.log("Websocket connect");
@@ -75,10 +79,7 @@ window.onload = function () {
                     txtTable.innerText = "Стол: " + message.group.substring(1);
                 }
                 if (message["slots"]) {
-                    for (var i = 1; i < 13; i++) {
-                        ObjSet("spr_bottle_slot_" + i, {res: ""});
-                    }
-
+                    ClearSlots();
                     for (var key in message["slots"]) {
                         ObjSet("spr_bottle_slot_" + key, {res: message["slots"][key]["photo"]});
                     }
@@ -93,6 +94,36 @@ window.onload = function () {
           console.log("Error " + error.message);
         };
 
+
+        /* *************** Прочее *************** */
+
+        // Очистить слоты от аватарок
+        function ClearSlots() {
+            for (var i = 1; i < 13; i++) {
+                ObjSet("spr_bottle_slot_" + i, {res: ""});
+            }
+        }
+
+
+        /* *************** Работа с сокетом *************** */
+        // Отправка сообщений в чат
+        function SendMessage() {
+            var msg = inputText.value;
+            if (msg != "") {
+                socket.send( JSON.stringify({msg: msg}) );
+                inputText.value = "";
+                inputText.focus();
+            }
+        }
+
+        // Отправить сообщение о смене стола
+        function changeTable() {
+            socket.send( JSON.stringify({change_table: 1}) );
+            inputText.focus();
+        }
+
+        /* *************** Анимация на успешный вход *************** */
+        
         // Анимация после загрузки
         //ObjAnimate("spr_bottle_floor", "alp", 0, 0, function() { }, [ 0,0,0, 0.5,0,1 ]);
         //ObjAnimate("spr_bottle_chat", "alp", 0, 0, function() {}, [ 0,0,0, 0.5,0,1 ]);
@@ -130,6 +161,8 @@ window.onload = function () {
 
         //ShowModalWindow("spr_interface_modalwindow_change_bottle");
 
+
+        /* *************** Глобавльные анимации *************** */
         // Визуальные настройки
         function ButtonEnter(name) {
             var btn = ObjGet(name);
@@ -160,6 +193,8 @@ window.onload = function () {
             inputText.focus();
         }
 
+
+        /* *************** Преднастройки кнопок *************** */
         // Установка параметров
         ObjSet("spr_bottle_floor_bottle",
         {
@@ -226,7 +261,8 @@ window.onload = function () {
             },
             event_mup: function() {
                 ButtonUp("spr_bottle_button_change_table");
-                ShowModalWindow("spr_interface_modalwindow_change_table");
+                //ShowModalWindow("spr_interface_modalwindow_change_table");
+                changeTable();
             },
             event_mleave: function() {
                 ButtonLeave("spr_bottle_button_change_table");
@@ -396,15 +432,6 @@ window.onload = function () {
                 ObjSet("spr_bottle_button_sound", { drawoff_x: -35 });
             }
         });
-
-        function SendMessage() {
-            var msg = inputText.value;
-            if (msg != "") {
-                socket.send( JSON.stringify({msg: msg}) );
-                inputText.value = "";
-                inputText.focus();
-            }
-        }
 
         ObjSet("spr_bottle_sending_send",
         {
