@@ -7,12 +7,15 @@ module.exports.groups = groups;
 var maxClientOnGroup = 12;
 module.exports.maxClientOnGroup = maxClientOnGroup;
 
-var routingClients = require("./routing/client.js");
-module.exports.routingClients = routingClients;
-
+// Правила в группе
 var rulesGroup = require("./rules/group.js");
 module.exports.rulesGroup = rulesGroup;
 
+// Маршрутизация клиентов
+var routingClients = require("./routing/client.js");
+module.exports.routingClients = routingClients;
+
+// Маршрутизация сообщений
 var routingMessage = require("./routing/message.js");
 module.exports.routingMessage = routingMessage;
 
