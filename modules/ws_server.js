@@ -10,8 +10,12 @@ module.exports.maxClientOnGroup = maxClientOnGroup;
 var routingClients = require("./routing/client.js");
 module.exports.routingClients = routingClients;
 
+var rulesGroup = require("./rules/group.js");
+module.exports.rulesGroup = rulesGroup;
+
 var routingMessage = require("./routing/message.js");
 module.exports.routingMessage = routingMessage;
+
 
 /* *************** create wsServer *************** */
 var wsServer   = require("ws").Server;

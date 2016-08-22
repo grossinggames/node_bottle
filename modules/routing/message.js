@@ -1,6 +1,7 @@
-var groups           = module.parent.exports.groups;
-//var maxClientOnGroup = module.parent.exports.maxClientOnGroup;
-var routingClients   = module.parent.exports.routingClients;
+var groups             = module.parent.exports.groups;
+var routingClients     = module.parent.exports.routingClients;
+var rulesGroup         = module.parent.exports.rulesGroup;
+
 
 /* *************** Новое сообщение от клиента *************** */
 function addMessage(client, message) {

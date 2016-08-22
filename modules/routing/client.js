@@ -2,6 +2,7 @@ var groups = module.parent.exports.groups;
 var availableGroups = [];
 var counter = 0;
 
+
 /* *************** Публичные методы *************** */
 // Добавить нового клиента
 function addClient(client) {
