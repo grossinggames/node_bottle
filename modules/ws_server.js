@@ -1,5 +1,4 @@
 /* *************** require modules *************** */
-
 var httpServer = module.parent.exports.http_server;
 
 var groups = [];
@@ -15,7 +14,6 @@ var routingMessage = require("./routing/message.js");
 module.exports.routingMessage = routingMessage;
 
 /* *************** create wsServer *************** */
-
 var wsServer   = require("ws").Server;
 var socket     = new wsServer({server: httpServer});
 

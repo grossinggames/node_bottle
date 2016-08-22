@@ -11,13 +11,11 @@ window.onload = function () {
     /* global ShowModalWindow */
     /* global HideModalWindow */
 
-
     /* *************** Инициализация вк *************** */
     VK.init(function() {
 
         // API initialization succeeded
         console.log("Успеная регстрация вконтакте");
-
 
         /* *************** Преднастройки *************** */
         // Настройки служебные
@@ -37,7 +35,6 @@ window.onload = function () {
             tmrGlobal.dispatchEvent(ticks[currentRoom]);
             tmrGlobal.dispatchEvent(ticks["room_interface"]);
         }, TIME_UPDATE);
-
 
         /* *************** Websocket соединение *************** */
         var socket     = new WebSocket("wss://" + window.location.hostname + ":" + window.location.port);
@@ -75,9 +72,11 @@ window.onload = function () {
                     chatField.innerHTML += "<li>" + message.first_name + ": " + message.msg + "</li>";
                     chatField.scrollTop = chatField.scrollHeight;
                 }
+                // Пришел номер стола
                 if (message["group"]) {
                     txtTable.innerText = "Стол: " + message.group.substring(1);
                 }
+                // Пришло состояние в слотах
                 if (message["slots"]) {
                     ClearSlots();
                     for (var key in message["slots"]) {
@@ -94,16 +93,13 @@ window.onload = function () {
           console.log("Error " + error.message);
         };
 
-
         /* *************** Прочее *************** */
-
         // Очистить слоты от аватарок
         function ClearSlots() {
             for (var i = 1; i < 13; i++) {
                 ObjSet("spr_bottle_slot_" + i, {res: ""});
             }
         }
-
 
         /* *************** Работа с сокетом *************** */
         // Отправка сообщений в чат
@@ -123,7 +119,6 @@ window.onload = function () {
         }
 
         /* *************** Анимация на успешный вход *************** */
-        
         // Анимация после загрузки
         //ObjAnimate("spr_bottle_floor", "alp", 0, 0, function() { }, [ 0,0,0, 0.5,0,1 ]);
         //ObjAnimate("spr_bottle_chat", "alp", 0, 0, function() {}, [ 0,0,0, 0.5,0,1 ]);
@@ -161,7 +156,6 @@ window.onload = function () {
 
         //ShowModalWindow("spr_interface_modalwindow_change_bottle");
 
-
         /* *************** Глобавльные анимации *************** */
         // Визуальные настройки
         function ButtonEnter(name) {
@@ -192,7 +186,6 @@ window.onload = function () {
             ObjAnimate(name, "scale_y", 0, 0, function() {}, [ 0,0,btn.scale_y, 0.1,0,1.2, 0.2,0,1 ]);
             inputText.focus();
         }
-
 
         /* *************** Преднастройки кнопок *************** */
         // Установка параметров
@@ -465,7 +458,7 @@ window.onload = function () {
             popup: "Написать сообщение",
         });
 
-    // ********************************************** Позиции **********************************************
+    /* *************** Позиции *************** */
     // Настройки слотов
     var slotPositions = [
         { defPos: [33,  77],  angle: 18 },  // 0

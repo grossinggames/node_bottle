@@ -3,7 +3,6 @@ var availableGroups = [];
 var counter = 0;
 
 /* *************** Публичные методы *************** */
-
 // Добавить нового клиента
 function addClient(client) {
     if (client.group || client.slot) {
@@ -65,7 +64,6 @@ module.exports = {
 
 
 /* *************** Скрытые методы *************** */
-
 // Получить свободную группу
 function getAvailableGroup() {
     for (var key in availableGroups) {
