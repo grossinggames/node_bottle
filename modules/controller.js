@@ -58,7 +58,7 @@ function addMessage(client, message) {
 
     // Пользователь кликнул по бутылке.
     if (message["bottle"]) {
-        rulesGroup.clickBottle(client);
+        // rulesGroup.clickBottle(client);
     }
 }
 

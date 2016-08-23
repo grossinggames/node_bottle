@@ -7,29 +7,17 @@ var routingMessage     = module.parent.exports.routingMessage;
 /* *************** Настройки правил в группах *************** */
 // Получить следующего вращающего бутылочку
 function getNextRotating(group) {
-    // Получить новый слот
-    function getSlot(group, arr) {
-        for (var i = ++arr[group].current; i < maxClientOnGroup; i++) {
-            if (arr[group].slots[i]) {
-                return i;
-            }
-        }
-        for (var i = 0, count = arr[group].current; i < count; i++) {
-            if (arr[group].slots[i]) {
-                return i;
-            }
-        }
-        return false;
+    for (var i = ++groups[group].current; i < maxClientOnGroup; i++) {
+        if (groups[group].slots[i]) {
+            return i;
+        }        
     }
-
-    var slot = false;
-
-    if (groups[group]) {
-        if ("current" in groups[group]) {
-            slot = getSlot(group, groups);
-        }
+    for (var i = 0, count = groups[group].current; i < count; i++) {
+        if (groups[group].slots[i]) {
+            return i;
+        }        
     }
-    return slot;
+    return false;
 }
 
 // Поиск партнера

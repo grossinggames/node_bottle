@@ -4,16 +4,18 @@ var port = process.env.PORT;
 
 
 /* *************** Создание http/https сервера *************** */
-var app = express.createServer();
-app.use( express.static("client") );
-app.listen(port);
-
-
-/* *************** Подключение зависимостей *************** */
-require("./ws_server.js");
+var http_server = express.createServer();
+http_server.use( express.static("client") );
+http_server.listen(port, function (err) {
+    if (err) {
+        console.log("Модуль http_server Ошибка при запуске сервера: " + err);
+        return false;
+    }
+    require("./ws_server.js");
+});
 
 
 /* *************** Экспорт данных и методов *************** */
 module.exports = {
-    http_server: app
+    http_server: http_server
 };
