@@ -1,7 +1,9 @@
+/* *************** Подключение модулей *************** */
 var groups             = module.parent.exports.groups;
 var routingClients     = module.parent.exports.routingClients;
-var rulesGroup         = module.parent.exports.rulesGroup;
 
+
+/* *************** Маршрутизация сообщений *************** */
 // Отправить сообщение своей группе
 function sendMessageGroup(group, message) {
     // Если пустое сообщение в чат не отправляем его
@@ -50,6 +52,8 @@ function traceState(group) {
     //console.log(groups);
 }
 
+
+/* *************** Экспорт данных и методов *************** */
 module.exports = {
     sendMessageGroup: sendMessageGroup,
     sendStateGroup:   sendStateGroup,

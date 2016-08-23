@@ -1,3 +1,4 @@
+/* *************** Подключение модулей *************** */
 var groups = module.parent.exports.groups;
 var availableGroups = [];
 var counter = 0;
@@ -45,14 +46,6 @@ function changeGroup(client) {
     }
 }
 
-module.exports = {
-    addClient:     addClient,
-    changeGroup:   changeGroup,
-    removeClient:  removeClient,
-    outClient:     outClient,
-    groups:        groups
-};
-
 
 /* *************** Скрытые методы *************** */
 // Получить свободную группу
@@ -95,3 +88,13 @@ function addGroup(client) {
     availableGroups[key] = [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2];
     return key;
 }
+
+
+/* *************** Экспорт данных и методов *************** */
+module.exports = {
+    addClient:     addClient,
+    changeGroup:   changeGroup,
+    removeClient:  removeClient,
+    outClient:     outClient,
+    groups:        groups
+};

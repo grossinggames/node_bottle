@@ -1,13 +1,9 @@
-/* *************** require modules *************** */
+/* *************** Подключение модулей *************** */
 var groups = [];
 module.exports.groups = groups;
 
 var maxClientOnGroup = 12;
 module.exports.maxClientOnGroup = maxClientOnGroup;
-
-// Правила в группе
-var rulesGroup = require("./rules/group.js");
-module.exports.rulesGroup = rulesGroup;
 
 // Маршрутизация клиентов
 var routingClients = require("./routing/client.js");
@@ -16,6 +12,10 @@ module.exports.routingClients = routingClients;
 // Маршрутизация сообщений
 var routingMessage = require("./routing/message.js");
 module.exports.routingMessage = routingMessage;
+
+// Правила в группе
+var rulesGroup = require("./rules/group.js");
+module.exports.rulesGroup = rulesGroup;
 
 
 /* *************** Новое сообщение от клиента *************** */
@@ -62,6 +62,8 @@ function addMessage(client, message) {
     }
 }
 
+
+/* *************** Экспорт данных и методов *************** */
 module.exports = {
     addMessage:     addMessage,
     outClient:      routingClients.outClient,
