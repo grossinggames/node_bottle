@@ -4,7 +4,12 @@ var maxClientOnGroup = module.parent.exports.maxClientOnGroup;
 var routingMessage     = module.parent.exports.routingMessage;
 
 
-/* *************** Настройки правил в группах *************** */
+/* *************** Работа с вращающим *************** */
+// Остановка таймера в группе
+function clearTimerGroup(group) {
+    clearTimeout(groups[group].timer);
+}
+
 // Получить следующего вращающего бутылочку
 function getNextRotating(group) {
     for (var i = ++groups[group].current; i < maxClientOnGroup; i++) {
@@ -20,6 +25,30 @@ function getNextRotating(group) {
     return false;
 }
 
+// Переход хода бутылки
+function changeRotating(group) {
+    clearTimerGroup(group);
+    var slot = getNextRotating(group);
+    
+    // Отправка всей группе того кто крутит бутылку
+    if (groups[group]) {
+        if ("slots" in groups[group]) {
+            groups[group].current = slot;
+            console.log('groups[group] = ', groups[group]);
+            routingMessage.sendMessageGroup(group, { bottle: {current: slot} });
+            //traceState();
+            //return;
+        }
+    }
+    groups[group].timer = setTimeout( 
+        function() {
+            clickBottle(group);
+        }, 5000
+    );
+}
+
+
+/* *************** Работа с партнером *************** */
 // Поиск партнера
 function getPartner(group) {
     // формируем список доступных слотов
@@ -50,65 +79,46 @@ function getPartner(group) {
     return -1;
 }
 
-// Переход хода бутылки
-function changeCurrent(idGroup) {
-    var slot = getNextRotating(idGroup);
-    
-    // Отправка всей группе того кто крутит бутылку
-    if (groups[idGroup]) {
-        if ("slots" in groups[idGroup]) {
-            groups[idGroup].current = slot;
-            console.log('groups[idGroup] = ', groups[idGroup]);
-            routingMessage.sendMessageGroup(idGroup, { bottle: {current: slot} });
-            //traceState();
-            //return;
-        }
-    }
-    groups[idGroup].timer = setTimeout( 
-        function() {
-            clickBottle(idGroup);
-        }, 5000
-    );
-}
 
+/* *************** Работа с бутылкой *************** */
 // Имитация клика по бутылке
-function clickBottle(idGroup) {
-    clearTimeout(groups[idGroup].timer);
+function clickBottle(group) {
+    clearTimeout(groups[group].timer);
 
     // Избавиться от partner1 partner2 когда удалится availibleGroups
     var partner1;
     var partner2;
 
-    if (groups[idGroup]) {
-        if ("partners" in groups[idGroup]) {
-            groups[idGroup].partners[0] = groups[idGroup].current;
-            partner2 = getPartner(idGroup);
-            groups[idGroup].partners[1] = partner2;
-            partner1 = groups[idGroup].partners[0];
+    if (groups[group]) {
+        if ("partners" in groups[group]) {
+            groups[group].partners[0] = groups[group].current;
+            partner2 = getPartner(group);
+            groups[group].partners[1] = partner2;
+            partner1 = groups[group].partners[0];
         }
     }
     
     // Отправка тех кто будет целоваться
-    routingMessage.sendMessageGroup(idGroup, { bottle: {partners: [partner1, partner2]} });
+    routingMessage.sendMessageGroup(group, { bottle: {partners: [partner1, partner2]} });
 
-    groups[idGroup].timer = setTimeout(function() {
-        startKissing(idGroup, partner1, partner2);
+    groups[group].timer = setTimeout(function() {
+        startKissing(group, partner1, partner2);
     }, 5000);
 }
 
 // Анимация приближения партнеров
-function startKissing(idGroup, partner1, partner2) {
-    if (groups[idGroup].slots[partner1] && groups[idGroup].slots[partner2]) {
+function startKissing(group, partner1, partner2) {
+    if (groups[group].slots[partner1] && groups[group].slots[partner2]) {
         // Запуск анимации поцелуя
         // Отправка тех кто будет целоваться
-        routingMessage.sendMessageGroup(idGroup, { bottle: {start_kissing: [partner1, partner2]} });
+        routingMessage.sendMessageGroup(group, { bottle: {start_kissing: [partner1, partner2]} });
         
         // Передача хода по таймауту
-        groups[idGroup].timer = setTimeout(function() {
-            changeCurrent(idGroup);
+        groups[group].timer = setTimeout(function() {
+            changeRotating(group);
         }, 5000);
     } else {
-        changeCurrent(idGroup);
+        changeRotating(group);
     }
 }
 
