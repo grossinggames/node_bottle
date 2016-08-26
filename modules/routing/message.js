@@ -15,6 +15,7 @@ module.exports = {
 
 /* *************** Маршрутизация клиентов *************** */
 var routingClients = require("./client.js");
+
 function addClient(client) {
     routingClients.addClient(client);
     changeRotating(client.group);
@@ -26,7 +27,6 @@ function outClient(client) {
     routingClients.removeClient(client);
 }
 module.exports.outClient   = outClient;
-
 module.exports.changeGroup = routingClients.changeGroup;
 
 
@@ -212,7 +212,7 @@ function clickBottle(group) {
         startAnimRotate(group, partner1, partner2);
     }
 }
-
+module.exports.clickBottle = clickBottle;
 
 /* *************** Предложение целоваться *************** */
 // Передача хода по таймауту

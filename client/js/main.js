@@ -211,7 +211,8 @@ window.onload = function () {
             },
             event_mup: function() {
                 var btn = ObjGet("spr_bottle_floor_bottle");
-                ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,btn.angle, 1,0,btn.angle + 360 ]);
+                //ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,btn.angle, 1,0,btn.angle + 360 ]);
+                socket.send( JSON.stringify({bottle: 1}) );
                 inputText.focus();
             },
             event_mleave: function() {

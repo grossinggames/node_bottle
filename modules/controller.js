@@ -41,7 +41,8 @@ function addMessage(client, message) {
 
     // Пользователь кликнул по бутылке.
     if (message["bottle"]) {
-        // rulesGroup.clickBottle(client);
+        //console.log("Кликнул по бутылке. group: " + client.group + " slot: " + client.slot);
+        // routingMessage.clickBottle(client);
     }
 }
 
