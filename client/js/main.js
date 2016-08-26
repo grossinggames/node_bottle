@@ -72,6 +72,20 @@ window.onload = function () {
                     chatField.innerHTML += "<li>" + message.first_name + ": " + message.msg + "</li>";
                     chatField.scrollTop = chatField.scrollHeight;
                 }
+                // Бутылка
+                if (message["bottle"]) {
+                    console.log(message);
+                    if (message["bottle"]["current"]) {
+                        chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
+                    }
+                    if (message["bottle"]["partners"]) {
+                        chatField.innerHTML += "<li> партнеры: " + message["bottle"].partners + "</li>";
+                    }
+                    if (message["bottle"]["start_kissing"]) {
+                        chatField.innerHTML += "<li> анимация поцелуев: " + message["bottle"].start_kissing + "</li>";
+                    }
+                    chatField.scrollTop = chatField.scrollHeight;
+                }
                 // Пришел номер стола
                 if (message["group"]) {
                     txtTable.innerText = "Стол: " + message.group.substring(1);

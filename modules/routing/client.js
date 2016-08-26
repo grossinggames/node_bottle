@@ -1,7 +1,7 @@
 /* *************** Подключение модулей *************** */
-var groups = module.parent.exports.groups;
+var groups          = module.parent.exports.groups;
 var availableGroups = [];
-var counter = 0;
+var counter         = 0;
 
 
 /* *************** Публичные методы *************** */
@@ -23,7 +23,7 @@ function addClient(client) {
 // Удалить клиента из группы
 function removeClient(client) {
     if (client.group && client.slot) {
-        //console.log("Удален из группы: " + client.group + "\n");
+        // console.log("Удален из группы: " + client.group + "\n");
         availableGroups[client.group] = availableGroups[client.group] || [];
         availableGroups[client.group].push(client.slot);
         delete groups[client.group].slots[client.slot];
@@ -32,11 +32,6 @@ function removeClient(client) {
         return true;
     }
     return false;
-}
-
-// Выход клиента из приложения
-function outClient(client) {
-    removeClient(client);
 }
 
 // Смена группы
@@ -95,6 +90,5 @@ module.exports = {
     addClient:     addClient,
     changeGroup:   changeGroup,
     removeClient:  removeClient,
-    outClient:     outClient,
     groups:        groups
 };

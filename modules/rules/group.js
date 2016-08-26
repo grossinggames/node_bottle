@@ -1,17 +1,19 @@
 /* *************** Подключение модулей *************** */
-var groups = module.parent.exports.groups;
-var maxClientOnGroup = module.parent.exports.maxClientOnGroup; 
-var routingMessage     = module.parent.exports.routingMessage;
-
+/*
+var routingMessage   = module.parent.exports; 
+var groups           = routingMessage.groups;
+var maxClientOnGroup = routingMessage.maxClientOnGroup; 
+*/
 
 /* *************** Работа с вращающим *************** */
+/*
 // Остановка таймера в группе
 function clearTimerGroup(group) {
     clearTimeout(groups[group].timer);
 }
 
-// Получить следующего вращающего бутылочку
-function getNextRotating(group) {
+// Получить вращающего бутылочку
+function getRotating(group) {
     for (var i = ++groups[group].current; i < maxClientOnGroup; i++) {
         if (groups[group].slots[i]) {
             return i;
@@ -25,30 +27,37 @@ function getNextRotating(group) {
     return false;
 }
 
+// Запустить таймер клика по бутылке
+function startTimerClickBottle(group) {
+    if (group && groups[group]) {
+        groups[group].timer = setTimeout( 
+            function() {
+                clickBottle(group);
+            }, 5000
+        );
+    }    
+}
+
+// Отправка всей группе того кто крутит бутылку
+function offerClickBottle(group, slot) {
+    routingMessage.sendMessageGroup(group, { bottle: {current: slot} });
+}
+
 // Переход хода бутылки
 function changeRotating(group) {
     clearTimerGroup(group);
-    var slot = getNextRotating(group);
-    
-    // Отправка всей группе того кто крутит бутылку
-    if (groups[group]) {
-        if ("slots" in groups[group]) {
-            groups[group].current = slot;
-            console.log('groups[group] = ', groups[group]);
-            routingMessage.sendMessageGroup(group, { bottle: {current: slot} });
-            //traceState();
-            //return;
-        }
+    var slot = getRotating(group);
+    if (slot) {
+        groups[group].current = slot;
+        //console.log('groups[group] = ', groups[group]);
+        startTimerClickBottle(group);
+        offerClickBottle(group, slot);
     }
-    groups[group].timer = setTimeout( 
-        function() {
-            clickBottle(group);
-        }, 5000
-    );
 }
-
+*/
 
 /* *************** Работа с партнером *************** */
+/*
 // Поиск партнера
 function getPartner(group) {
     // формируем список доступных слотов
@@ -78,9 +87,10 @@ function getPartner(group) {
 
     return -1;
 }
-
+*/
 
 /* *************** Работа с бутылкой *************** */
+/*
 // Имитация клика по бутылке
 function clickBottle(group) {
     clearTimeout(groups[group].timer);
@@ -122,8 +132,16 @@ function startKissing(group, partner1, partner2) {
     }
 }
 
-
+// Выход клиента
+function outClient(client) {
+    console.log("Group выход клиента");
+}
+*/
 /* *************** Экспорт данных и методов *************** */
+/*
 module.exports = {
-    clickBottle: clickBottle
+    changeRotating: changeRotating,
+    clickBottle: clickBottle,
+    outClient:   outClient
 };
+*/
