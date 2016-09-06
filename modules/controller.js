@@ -1,3 +1,5 @@
+module.exports.bus = module.parent.exports.bus;
+
 // Маршрутизация сообщений
 var routingMessage = require("./routing/message.js");
 

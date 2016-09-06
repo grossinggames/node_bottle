@@ -1,5 +1,7 @@
 /* *************** Подключение модулей *************** */
-var httpServer = module.parent.exports.http_server;
+var parent = module.parent.exports;
+var httpServer = parent.httpServer;
+module.exports.bus = parent.bus;
 
 // Контроллер
 var controller = require("./controller.js");
