@@ -74,9 +74,10 @@ window.onload = function () {
                 }
                 // Бутылка
                 if (message["bottle"]) {
-                    console.log(message);
                     if (message["bottle"]["current"]) {
                         chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { }, [ 0,0,0, 0.2,0,5, 0.4,0,0, 0.6,0,-5, 0.8,0,0 ]);
+                        console.log("Анимация кручения слота: " + message["bottle"].current);
                     }
                     if (message["bottle"]["partners"]) {
                         chatField.innerHTML += "<li> партнеры: " + message["bottle"].partners + "</li>";
