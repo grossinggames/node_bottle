@@ -76,8 +76,9 @@ window.onload = function () {
                 if (message["bottle"]) {
                     if (message["bottle"]["current"]) {
                         chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
+                        ObjStopAnimate("pr_bottle_slot_1", "angle");
+                        ObjStopAnimate("pr_bottle_slot_2", "angle");
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { }, [ 0,0,0, 0.2,0,5, 0.4,0,0, 0.6,0,-5, 0.8,0,0 ]);
-                        console.log("Анимация кручения слота: " + message["bottle"].current);
                     }
                     if (message["bottle"]["partners"]) {
                         chatField.innerHTML += "<li> партнеры: " + message["bottle"].partners + "</li>";
@@ -137,7 +138,7 @@ window.onload = function () {
         // Анимация после загрузки
         //ObjAnimate("spr_bottle_floor", "alp", 0, 0, function() { }, [ 0,0,0, 0.5,0,1 ]);
         //ObjAnimate("spr_bottle_chat", "alp", 0, 0, function() {}, [ 0,0,0, 0.5,0,1 ]);
-
+/*
         ObjAnimate("spr_bottle_button_change_bottle", "scale_x", 0, 0, function() { }, [ 0,0,1, 0.5,0,1, 0.6,0,1.1, 0.7,0,1 ]);
         ObjAnimate("spr_bottle_button_change_bottle", "scale_y", 0, 0, function() { }, [ 0,0,1, 0.5,0,1, 0.6,0,1.1, 0.7,0,1 ]);
 
@@ -158,7 +159,7 @@ window.onload = function () {
             chatField.innerHTML += '<li style="background-color: #bc96dc">Добро пожаловать в Сладкий Поцелуй!</li>';
             //HideModalWindow();
         }, [ 0,0,1, 1.1,0,1, 1.2,0,1.1, 1.3,0,1 ]);
-
+*/
         /*
         var slot1 = ObjGet("spr_bottle_slot_1");
         ObjAnimate("spr_bottle_slot_1", "pos_x", 0, 0, function() {}, [ 0,0,slot1.pos_x, 0.8,0,450, 1.5,0,450, 2.3,0,slot1.pos_x ]);
