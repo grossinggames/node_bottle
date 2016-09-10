@@ -1,7 +1,8 @@
 /* *************** Подключение модулей *************** */
+var parent = module.parent.exports;
 var bus = module.parent.exports.bus;
 var groups = [];
-var maxClientOnGroup = 12;
+const maxClientOnGroup = 12;
 
 
 /* *************** Экспорт данных и методов *************** */
@@ -20,8 +21,7 @@ var routingClients = require("./client.js");
 
 function addClient(client) {
     routingClients.addClient(client);
-    bus.emit("changeRotating", client.group);
-    // changeRotating(client.group);
+    bus.emit("changeRotating", client.group); // addRotating
 }
 module.exports.addClient   = addClient;
 
@@ -34,7 +34,8 @@ module.exports.changeGroup = routingClients.changeGroup;
 
 
 /* *************** Правила в группе *************** */
-require("../rules/group.js");
+var rulesGroup = require("../rules/group.js");
+module.exports.clickBottle = rulesGroup.clickBottle;
 
 
 /* *************** Маршрутизация сообщений *************** */

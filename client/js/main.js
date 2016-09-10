@@ -76,9 +76,11 @@ window.onload = function () {
                 if (message["bottle"]) {
                     if (message["bottle"]["current"]) {
                         chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
-                        ObjStopAnimate("pr_bottle_slot_1", "angle");
-                        ObjStopAnimate("pr_bottle_slot_2", "angle");
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { }, [ 0,0,0, 0.2,0,5, 0.4,0,0, 0.6,0,-5, 0.8,0,0 ]);
+                        for (var i = 1; i < 13; i++) {
+                            ObjStopAnimate("spr_bottle_slot_" + i, "angle");
+                            ObjSet("spr_bottle_slot_" + i, { angle: 0 });
+                        }
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { }, [ 0,0,0, 0.2,0,-5, 0.4,0,0, 0.6,0,5, 0.8,0,0 ]);
                     }
                     if (message["bottle"]["partners"]) {
                         chatField.innerHTML += "<li> партнеры: " + message["bottle"].partners + "</li>";
