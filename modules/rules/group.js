@@ -16,6 +16,7 @@ bus.on("changeRotating", changeRotating);
 // Переход хода бутылки
 function changeRotating(group) {
     clearTimerGroup(group);
+    groups[group].clickBottle = 0;
     var slot = getRotating(group);
     if (slot) {
         groups[group].current = slot;
@@ -49,6 +50,7 @@ function startTimerClickBottle(group) {
     if (group && groups[group]) {
         groups[group].timer = setTimeout( 
             function() {
+                groups[group].clickBottle = 0;
                 clickBottle(group);
             }, 5000
         );
@@ -70,7 +72,7 @@ function getPartner(group) {
 
     if (groups[group]) {
         if ("slots" in groups[group]) {
-            for (var i = 0; i < maxClientOnGroup; i++) {
+            for (var i = 1; i < maxClientOnGroup; i++) {
                 if ( (groups[group].slots[i]) && 
                      (groups[group].partners[0] != i) ) {
                     // console.log('partners[0] = ' + groups[group].partners[0] + ' i = ' + i);
@@ -105,14 +107,14 @@ function startTimerRotate(group, partner1, partner2) {
 // Начать анимацию кручения
 function startAnimRotate(group, partner1, partner2) {
     // Отправка тех кто будет целоваться
-    // sendMessageGroup(group, { bottle: {partners: [partner1, partner2]} });    
     bus.emit("sendMessageGroup", group, { bottle: {partners: [partner1, partner2]} });
 }
 
 // Клик по бутылке
 function clickBottle(group) {
-    clearTimerGroup(group);
-    if (groups[group]) {
+    if (groups[group] && (groups[group].clickBottle === 0) ) {
+        clearTimerGroup(group);
+        groups[group].clickBottle = 1;
         groups[group].partners[0] = groups[group].current;
         var partner2 = getPartner(group);
         groups[group].partners[1] = partner2;

@@ -76,6 +76,7 @@ function addGroup(client) {
             "1": client
         },
         current:  1,
+        clickBottle: 0,
         partners: [0, 0],
         timer:    {}
     };
