@@ -43,19 +43,28 @@ bus.on("sendMessageGroup", sendMessageGroup);
 
 // Отправить сообщение своей группе
 function sendMessageGroup(group, message) {
+    // Если название группы не указано не отправляем ничего
+    if (!group) {
+        console.log("message.js sendMessageGroup !group: " + group);
+        return false;        
+    }
     // Если пустое сообщение в чат не отправляем его
     if (message["msg"] == "") {
         console.log("message.js ERROR free message: message.msg");
         return false;
     }
 
-    if (group && groups[group]["slots"]) {
-        var jsonMsg = JSON.stringify(message);
-        for (var key in groups[group]["slots"]) {
-            if (groups[group].slots[key]) {
-                sendMessageClient(groups[group].slots[key], jsonMsg);
+    try {
+        if (group && groups[group]["slots"]) {
+            var jsonMsg = JSON.stringify(message);
+            for (var key in groups[group]["slots"]) {
+                if (groups[group].slots[key]) {
+                    sendMessageClient(groups[group].slots[key], jsonMsg);
+                }
             }
         }
+    } catch (err) {
+        console.log("SendMessageGroup err: " + err);
     }
 }
 
@@ -68,21 +77,28 @@ function sendMessageClient(client, message) {
         outClient(client);
         sendStateGroup(group);
         console.log("message.js ERROR (client.send) description: ", err);
+        console.log("group: " + group);
     }
 }
 
 // Состояние слотов в группе
 function getStateGroup(group) {
-    var result = {slots: {}, group: group};
-    for (var key in groups[group]["slots"]) {
-        result.slots[key] = {photo: groups[group].slots[key].photo};
+    try {
+        var result = {slots: {}, group: group};
+        for (var key in groups[group]["slots"]) {
+            result.slots[key] = {photo: groups[group].slots[key].photo};
+        }
+        return result;
+    } catch (err) {
+        console.log("getStateGroup err:" + err + " Group: " + group);
     }
-    return result;
 }
 
 // Состояние слотов в группе
 function sendStateGroup(group) {
-    sendMessageGroup( group, getStateGroup(group) );
+    if (group) {
+        sendMessageGroup( group, getStateGroup(group) );
+    }
 }
 
 // Состояние в слотах
