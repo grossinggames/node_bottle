@@ -30,7 +30,7 @@ function changeRotating(group) {
 /* *************** Поиск вращающего *************** */
 // Получить вращающего
 function getRotating(group) {
-    for (var i = ++groups[group].current; i < maxClientOnGroup; i++) {
+    for (var i = ++groups[group].current; i <= maxClientOnGroup; i++) {
         if (groups[group].slots[i]) {
             return i;
         }        
@@ -72,7 +72,7 @@ function getPartner(group) {
 
     if (groups[group]) {
         if ("slots" in groups[group]) {
-            for (var i = 1; i < maxClientOnGroup; i++) {
+            for (var i = 1; i <= maxClientOnGroup; i++) {
                 if ( (groups[group].slots[i]) && 
                      (groups[group].partners[0] != i) ) {
                     // console.log('partners[0] = ' + groups[group].partners[0] + ' i = ' + i);
