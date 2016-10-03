@@ -72,15 +72,17 @@ window.onload = function () {
                     chatField.innerHTML += "<li>" + message.first_name + ": " + message.msg + "</li>";
                     chatField.scrollTop = chatField.scrollHeight;
                 }
+
                 // Бутылка
                 if (message["bottle"]) {
                     if (message["bottle"]["current"]) {
+                        var current = message["bottle"].current;
                         chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
                         for (var i = 1; i < 13; i++) {
                             ObjStopAnimate("spr_bottle_slot_" + i, "angle");
                             ObjSet("spr_bottle_slot_" + i, { angle: 0 });
                         }
-                        ObjSet("spr_bottle_arrow", { alp: 1 });
+                        ObjSet("spr_bottle_arrow", { alp: 1, pos_x: arrowSettings[current].posXY[0], pos_y: arrowSettings[current].posXY[1], angle: arrowSettings[current].angle });
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { ObjSet("spr_bottle_arrow", { alp: 0 }) }, [ 0,0,0, 0.2,0,-5, 0.4,0,0, 0.6,0,5, 0.8,0,0 ]);
                     }
                     if (message["bottle"]["partners"]) {
@@ -91,10 +93,12 @@ window.onload = function () {
                     }
                     chatField.scrollTop = chatField.scrollHeight;
                 }
+
                 // Пришел номер стола
                 if (message["group"]) {
                     txtTable.innerText = "Стол: " + message.group.substring(1);
                 }
+
                 // Пришло состояние в слотах
                 if (message["slots"]) {
                     ClearSlots();
@@ -493,6 +497,22 @@ window.onload = function () {
         { defPos: [139, 43],  angle: 297 }, // 9
         { defPos: [54,  147], angle: 322 }, // 10
         { defPos: [32,  262], angle: 350 }  // 11
+    ];
+
+    // Настройки стрелки
+    var arrowSettings = [
+        { posXY: [336, 177], angle: -69  }, // 1
+        { posXY: [372, 184], angle: -27  }, // 2
+        { posXY: [417, 253], angle: -6   }, // 3
+        { posXY: [418, 355], angle: 0    }, // 4
+        { posXY: [375, 356], angle: 42   }, // 5
+        { posXY: [344, 357], angle: 77   }, // 6
+        { posXY: [252, 357], angle: 77   }, // 7
+        { posXY: [252, 357], angle: 134  }, // 8
+        { posXY: [225, 320], angle: 162  }, // 9
+        { posXY: [225, 224], angle: 182  }, // 10
+        { posXY: [224, 202], angle: 234  }, // 11
+        { posXY: [328, 180], angle: 234  }  // 12
     ];
 
     }, function() {
