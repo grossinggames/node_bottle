@@ -76,13 +76,13 @@ window.onload = function () {
                 // Бутылка
                 if (message["bottle"]) {
                     if (message["bottle"]["current"]) {
-                        var current = message["bottle"].current;
                         chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
                         for (var i = 1; i < 13; i++) {
                             ObjStopAnimate("spr_bottle_slot_" + i, "angle");
                             ObjSet("spr_bottle_slot_" + i, { angle: 0 });
                         }
-                        ObjSet("spr_bottle_arrow", { alp: 1, pos_x: arrowSettings[current].posXY[0], pos_y: arrowSettings[current].posXY[1], angle: arrowSettings[current].angle });
+                        var current = message["bottle"].current;
+                        ObjSet("spr_bottle_arrow", { alp: 1, pos_x: arrowSettings[current - 1].posXY[0], pos_y: arrowSettings[current - 1].posXY[1], angle: arrowSettings[current - 1].angle });
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { ObjSet("spr_bottle_arrow", { alp: 0 }) }, [ 0,0,0, 0.2,0,-5, 0.4,0,0, 0.6,0,5, 0.8,0,0 ]);
                     }
                     if (message["bottle"]["partners"]) {
@@ -485,18 +485,18 @@ window.onload = function () {
     /* *************** Позиции *************** */
     // Настройки слотов
     var slotPositions = [
-        { defPos: [33,  77],  angle: 18 },  // 0
-        { defPos: [53,  492], angle: 41 },  // 1
-        { defPos: [208, 577], angle: 77 },  // 2
-        { defPos: [362, 577], angle: 110 }, // 3
-        { defPos: [448, 477], angle: 135 }, // 4
-        { defPos: [469, 358], angle: 165 }, // 5
-        { defPos: [469, 243], angle: 200 }, // 6
-        { defPos: [448, 128], angle: 224 }, // 7
-        { defPos: [293, 43],  angle: 262 }, // 8
-        { defPos: [139, 43],  angle: 297 }, // 9
-        { defPos: [54,  147], angle: 322 }, // 10
-        { defPos: [32,  262], angle: 350 }  // 11
+        { defPos: [33,  77],  angle: 18 },  // 1
+        { defPos: [53,  492], angle: 41 },  // 2
+        { defPos: [208, 577], angle: 77 },  // 3
+        { defPos: [362, 577], angle: 110 }, // 4
+        { defPos: [448, 477], angle: 135 }, // 5
+        { defPos: [469, 358], angle: 165 }, // 6
+        { defPos: [469, 243], angle: 200 }, // 7
+        { defPos: [448, 128], angle: 224 }, // 8
+        { defPos: [293, 43],  angle: 262 }, // 9
+        { defPos: [139, 43],  angle: 297 }, // 10
+        { defPos: [54,  147], angle: 322 }, // 11
+        { defPos: [32,  262], angle: 350 }  // 12
     ];
 
     // Настройки стрелки
