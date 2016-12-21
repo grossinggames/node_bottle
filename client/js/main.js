@@ -90,6 +90,8 @@ window.onload = function () {
                     }
                     if (message["bottle"]["start_kissing"]) {
                         chatField.innerHTML += "<li> анимация поцелуев: " + message["bottle"].start_kissing + "</li>";
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_1").pos_x, 0.25,0,212, 1.25,0,212, 1.5,0,375]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_1").pos_y, 0.25,0,250, 1.25,0,250, 1.5,0,40]);
                     }
                     chatField.scrollTop = chatField.scrollHeight;
                 }
