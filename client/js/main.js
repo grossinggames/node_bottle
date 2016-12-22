@@ -91,8 +91,8 @@ window.onload = function () {
                     if (message["bottle"]["start_kissing"]) {
                         chatField.innerHTML += "<li> анимация поцелуев: " + message["bottle"].start_kissing + "</li>";
                         var slot = message["bottle"].start_kissing[0] - 1;
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_1").pos_x, 0.25,0,212, 1.25,0,212, 1.5,0,slotPositions[slot]['defPos'][1] ]);
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_1").pos_y, 0.25,0,250, 1.25,0,250, 1.5,0,slotPositions[slot]['defPos'][0] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_1").pos_x, 0.25,0,212, 1.25,0,212, 1.5,0,slotPositions[slot]['defPos'][0] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_1").pos_y, 0.25,0,250, 1.25,0,250, 1.5,0,slotPositions[slot]['defPos'][1] ]);
                     }
                     chatField.scrollTop = chatField.scrollHeight;
                 }
@@ -488,7 +488,7 @@ window.onload = function () {
     /* *************** Позиции *************** */
     // Настройки слотов
     var slotPositions = [
-        { defPos: [33,  77],  angle: 18 },  // 1
+        { defPos: [375,  40],  angle: 18 },  // 1
         { defPos: [53,  492], angle: 41 },  // 2
         { defPos: [208, 577], angle: 77 },  // 3
         { defPos: [362, 577], angle: 110 }, // 4
@@ -496,8 +496,8 @@ window.onload = function () {
         { defPos: [469, 358], angle: 165 }, // 6
         { defPos: [469, 243], angle: 200 }, // 7
         { defPos: [448, 128], angle: 224 }, // 8
-        { defPos: [293, 43],  angle: 262 }, // 9
-        { defPos: [139, 43],  angle: 297 }, // 10
+        { defPos: [293,  43], angle: 262 }, // 9
+        { defPos: [139,  43], angle: 297 }, // 10
         { defPos: [54,  147], angle: 322 }, // 11
         { defPos: [32,  262], angle: 350 }  // 12
     ];
