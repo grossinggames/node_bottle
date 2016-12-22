@@ -94,7 +94,7 @@ window.onload = function () {
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_1").pos_x, 0.25,0,212, 1.25,0,212, 1.5,0,slotPositions[slot1]['defPos'][0] ]);
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_1").pos_y, 0.25,0,250, 1.25,0,250, 1.5,0,slotPositions[slot1]['defPos'][1] ]);
 
-                        var slot1 = message["bottle"].start_kissing[1] - 1;
+                        var slot2 = message["bottle"].start_kissing[1] - 1;
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_1").pos_x, 0.25,0,212, 1.25,0,212, 1.5,0,slotPositions[slot2]['defPos'][0] ]);
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_1").pos_y, 0.25,0,250, 1.25,0,250, 1.5,0,slotPositions[slot2]['defPos'][1] ]);
                     }
