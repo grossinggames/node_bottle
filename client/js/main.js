@@ -91,12 +91,12 @@ window.onload = function () {
                     if (message["bottle"]["start_kissing"]) {
                         chatField.innerHTML += "<li> анимация поцелуев: " + message["bottle"].start_kissing + "</li>";
                         var slot1 = message["bottle"].start_kissing[0] - 1;
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_x, 0.25,0,212, 1.25,0,212, 1.5,0,slotPositions[slot1]['defPos'][0] ]);
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_y, 0.25,0,250, 1.25,0,250, 1.5,0,slotPositions[slot1]['defPos'][1] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_x, 0.25,0,212, 4.75,0,212, 5,0,slotPositions[slot1]['defPos'][0] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_y, 0.25,0,250, 4.75,0,250, 5,0,slotPositions[slot1]['defPos'][1] ]);
 
                         var slot2 = message["bottle"].start_kissing[1] - 1;
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[1]).pos_x, 0.25,0,412, 1.25,0,412, 1.5,0,slotPositions[slot2]['defPos'][0] ]);
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[1]).pos_y, 0.25,0,250, 1.25,0,250, 1.5,0,slotPositions[slot2]['defPos'][1] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[1]).pos_x, 0.25,0,412, 4.75,0,412, 5,0,slotPositions[slot2]['defPos'][0] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[1]).pos_y, 0.25,0,250, 4.75,0,250, 5,0,slotPositions[slot2]['defPos'][1] ]);
                     }
                     chatField.scrollTop = chatField.scrollHeight;
                 }

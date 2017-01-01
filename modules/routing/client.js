@@ -8,7 +8,7 @@ var counter         = 0;
 // Добавить нового клиента
 function addClient(client) {
     if (client.group || client.slot) {
-    return false;
+        return false;
     }
     var group = getAvailableGroup();
     if (group) {
