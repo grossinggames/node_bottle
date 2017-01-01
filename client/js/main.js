@@ -492,12 +492,12 @@ window.onload = function () {
     /* *************** Позиции *************** */
     // Настройки слотов
     var slotPositions = [
-        { defPos: [375,  40],  angle: 18 },  // 1
+        { defPos: [375,  40], angle: 18 },  // 1
         { defPos: [469,  74], angle: 41  },  // 2
         { defPos: [565, 208], angle: 77  },  // 3
         { defPos: [560, 347], angle: 110 }, // 4
         { defPos: [467, 442], angle: 135 }, // 5
-        { defPos: [469, 358], angle: 165 }, // 6
+        { defPos: [374, 473], angle: 165 }, // 6
         { defPos: [272, 470], angle: 200 }, // 7
         { defPos: [181, 431], angle: 224 }, // 8
         { defPos: [93,  343], angle: 262 }, // 9
