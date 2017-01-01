@@ -76,7 +76,7 @@ window.onload = function () {
                 // Бутылка
                 if (message["bottle"]) {
                     if (message["bottle"]["current"]) {
-                        chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
+                        //chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
                         for (var i = 1; i < 13; i++) {
                             ObjStopAnimate("spr_bottle_slot_" + i, "angle");
                             ObjSet("spr_bottle_slot_" + i, { angle: 0 });
@@ -86,17 +86,17 @@ window.onload = function () {
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { ObjSet("spr_bottle_arrow", { alp: 0 }) }, [ 0,0,0, 0.2,0,-5, 0.4,0,0, 0.6,0,5, 0.8,0,0 ]);
                     }
                     if (message["bottle"]["partners"]) {
-                        chatField.innerHTML += "<li> партнеры: " + message["bottle"].partners + "</li>";
+                        //chatField.innerHTML += "<li> партнеры: " + message["bottle"].partners + "</li>";
                     }
                     if (message["bottle"]["start_kissing"]) {
-                        chatField.innerHTML += "<li> анимация поцелуев: " + message["bottle"].start_kissing + "</li>";
+                        //chatField.innerHTML += "<li> анимация поцелуев: " + message["bottle"].start_kissing + "</li>";
                         var slot1 = message["bottle"].start_kissing[0] - 1;
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_x, 0.25,0,212, 4.75,0,212, 5,0,slotPositions[slot1]['defPos'][0] ]);
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_y, 0.25,0,250, 4.75,0,250, 5,0,slotPositions[slot1]['defPos'][1] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_x, 0.25,0,212, 4.5,0,212, 4.75,0,slotPositions[slot1]['defPos'][0] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_y, 0.25,0,250, 4.5,0,250, 4.75,0,slotPositions[slot1]['defPos'][1] ]);
 
                         var slot2 = message["bottle"].start_kissing[1] - 1;
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[1]).pos_x, 0.25,0,412, 4.75,0,412, 5,0,slotPositions[slot2]['defPos'][0] ]);
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[1]).pos_y, 0.25,0,250, 4.75,0,250, 5,0,slotPositions[slot2]['defPos'][1] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[1]).pos_x, 0.25,0,412, 4.5,0,412, 4.75,0,slotPositions[slot2]['defPos'][0] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[1]).pos_y, 0.25,0,250, 4.5,0,250, 4.75,0,slotPositions[slot2]['defPos'][1] ]);
                     }
                     chatField.scrollTop = chatField.scrollHeight;
                 }
