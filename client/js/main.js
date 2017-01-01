@@ -77,6 +77,7 @@ window.onload = function () {
                 if (message["bottle"]) {
                     if (message["bottle"]["current"]) {
                         //chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
+                        ObjSet("spr_bottle_floor_bottle", {input: 1});
                         for (var i = 1; i < 13; i++) {
                             ObjStopAnimate("spr_bottle_slot_" + i, "angle");
                             ObjSet("spr_bottle_slot_" + i, { angle: 0 });
@@ -87,6 +88,8 @@ window.onload = function () {
                     }
                     if (message["bottle"]["partners"]) {
                         //chatField.innerHTML += "<li> партнеры: " + message["bottle"].partners + "</li>";
+                        //var btn = ObjGet("spr_bottle_floor_bottle");
+                        ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,0, 1,0,360 ]);
                     }
                     if (message["bottle"]["start_kissing"]) {
                         //chatField.innerHTML += "<li> анимация поцелуев: " + message["bottle"].start_kissing + "</li>";
@@ -221,12 +224,14 @@ window.onload = function () {
         // Установка параметров
         ObjSet("spr_bottle_floor_bottle",
         {
+        	input: 0,
             cursor: "hand",
             event_mdown: function() {
 
             },
             event_mup: function() {
                 var btn = ObjGet("spr_bottle_floor_bottle");
+                ObjSet(btn, {input: 0});
                 //ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,btn.angle, 1,0,btn.angle + 360 ]);
                 socket.send( JSON.stringify({bottle: 1}) );
                 inputText.focus();
