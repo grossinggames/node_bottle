@@ -90,7 +90,7 @@ window.onload = function () {
                         //chatField.innerHTML += "<li> партнеры: " + message["bottle"].partners + "</li>";
                         var btn = ObjGet("spr_bottle_floor_bottle");
                         var newAngle = slotPositions[ message['bottle'].partners[1] - 1 ]['angle'];
-                        ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,btn.angle, 5,0,newAngle ]);
+                        ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,btn.angle, 4.75,0,newAngle ]);
                     }
                     if (message["bottle"]["start_kissing"]) {
                         //chatField.innerHTML += "<li> анимация поцелуев: " + message["bottle"].start_kissing + "</li>";
