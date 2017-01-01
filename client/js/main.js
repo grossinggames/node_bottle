@@ -84,7 +84,7 @@ window.onload = function () {
                         }
                         var current = message["bottle"].current;
                         ObjSet("spr_bottle_arrow", { alp: 1, pos_x: arrowSettings[current - 1].posXY[0], pos_y: arrowSettings[current - 1].posXY[1], angle: arrowSettings[current - 1].angle });
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { ObjSet("spr_bottle_arrow", { alp: 0 }) }, [ 0,0,0, 0.2,0,-5, 0.4,0,0, 0.6,0,5, 0.8,0,0 ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { ObjSet("spr_bottle_arrow", { alp: 1 }) }, [ 0,0,0, 0.2,0,-5, 0.4,0,0, 0.6,0,5, 0.8,0,0 ]);
                     }
                     if (message["bottle"]["partners"]) {
                         //chatField.innerHTML += "<li> партнеры: " + message["bottle"].partners + "</li>";
