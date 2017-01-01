@@ -77,8 +77,8 @@ window.onload = function () {
                 if (message["bottle"]) {
                     if (message["bottle"]["current"]) {
                         //chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
-                        ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,0, 0.3,0,1 ]);
-                        ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,0, 0.3,0,1 ]);
+                        ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_arrow').alp, 0.3,0,1 ]);
+                        ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_floor_bottle').alp, 0.3,0,1 ]);
 
                         ObjSet("spr_bottle_floor_bottle", {input: 1});
                         for (var i = 1; i < 13; i++) {
