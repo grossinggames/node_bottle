@@ -126,37 +126,6 @@ window.onload = function () {
                             9:  [-168, -66],
                             10: [-230, -66]
                         };
-                        ObjAnimate("spr_bottle_kiss_time", "drawoff_x", 0, 0, function() { }, [ 
-                            0,0,timerBackPos['10'][0], 
-                            0.72,0,timerBackPos['10'][0], 
-
-                            0.72,0,timerBackPos['9'][0],
-                            1.14,0,timerBackPos['9'][0],
-
-                            1.14,0,timerBackPos['8'][0],
-                            1.56,0,timerBackPos['8'][0],
-
-                            1.56,0,timerBackPos['7'][0],
-                            1.98,0,timerBackPos['7'][0],
-
-                            1.98,0,timerBackPos['6'][0],
-                            2.4,0,timerBackPos['6'][0],
-
-                            2.4,0,timerBackPos['5'][0],
-                            2.82,0,timerBackPos['5'][0],
-
-                            2.82,0,timerBackPos['4'][0],
-                            3.24,0,timerBackPos['4'][0],
-
-                            3.24,0,timerBackPos['3'][0],
-                            3.66,0,timerBackPos['3'][0],
-
-                            3.66,0,timerBackPos['2'][0],
-                            4.08,0,timerBackPos['2'][0],
-
-                            4.08,0,timerBackPos['1'][0], 
-                            4.5,0,timerBackPos['1'][0]
-                        ]);
                         ObjAnimate("spr_bottle_kiss_time", "drawoff_y", 0, 0, function() { }, [ 
                             0,0,timerBackPos['10'][1], 
                             0.72,0,timerBackPos['10'][1], 
@@ -187,6 +156,37 @@ window.onload = function () {
 
                             4.08,0,timerBackPos['1'][1], 
                             4.5,0,timerBackPos['1'][1]
+                        ]);
+                        ObjAnimate("spr_bottle_kiss_time", "drawoff_x", 0, 0, function() { }, [ 
+                            0,0,timerBackPos['10'][0], 
+                            0.72,0,timerBackPos['10'][0], 
+
+                            0.72,0,timerBackPos['9'][0],
+                            1.14,0,timerBackPos['9'][0],
+
+                            1.14,0,timerBackPos['8'][0],
+                            1.56,0,timerBackPos['8'][0],
+
+                            1.56,0,timerBackPos['7'][0],
+                            1.98,0,timerBackPos['7'][0],
+
+                            1.98,0,timerBackPos['6'][0],
+                            2.4,0,timerBackPos['6'][0],
+
+                            2.4,0,timerBackPos['5'][0],
+                            2.82,0,timerBackPos['5'][0],
+
+                            2.82,0,timerBackPos['4'][0],
+                            3.24,0,timerBackPos['4'][0],
+
+                            3.24,0,timerBackPos['3'][0],
+                            3.66,0,timerBackPos['3'][0],
+
+                            3.66,0,timerBackPos['2'][0],
+                            4.08,0,timerBackPos['2'][0],
+
+                            4.08,0,timerBackPos['1'][0], 
+                            4.5,0,timerBackPos['1'][0]
                         ]);
 
                         var slot1 = message["bottle"].start_kissing[0] - 1;
