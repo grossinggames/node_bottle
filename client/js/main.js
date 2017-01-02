@@ -92,10 +92,11 @@ window.onload = function () {
                     if (message["bottle"]["partners"]) {
                         //chatField.innerHTML += "<li> партнеры: " + message["bottle"].partners + "</li>";
                         var btn = ObjGet("spr_bottle_floor_bottle");
+                        if (message['bottle'].partners[1] < 1) {
+                            return false;
+                        }
                         var slotId = message['bottle'].partners[1] - 1;
-                        console.log('slotId: ' + slotId);
                         var newAngle = slotPositions[ slotId ].angle;
-                        console.log('newAngle: ' + newAngle);
                         ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,btn.angle, 4.75,0,newAngle ]);
                     }
                     if (message["bottle"]["start_kissing"]) {
@@ -127,7 +128,7 @@ window.onload = function () {
                     }
                 }
             } catch(err) {
-                console.log("socket.onmessage Error description: " + err.message);
+                console.log('socket.onmessage Error description: ');
                 console.log(err);
                 return;
             }
