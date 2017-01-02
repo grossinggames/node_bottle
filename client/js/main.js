@@ -75,6 +75,8 @@ window.onload = function () {
 
                 // Бутылка
                 if (message["bottle"]) {
+
+                    // Кто крутит
                     if (message["bottle"]["current"]) {
                         //chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
                         ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_arrow").alp, 0.3,0,1 ]);
@@ -89,6 +91,8 @@ window.onload = function () {
                         ObjSet("spr_bottle_arrow", { pos_x: arrowSettings[current - 1].posXY[0], pos_y: arrowSettings[current - 1].posXY[1], angle: arrowSettings[current - 1].angle });
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { ObjSet("spr_bottle_arrow", { alp: 1 }) }, [ 0,0,0, 0.2,0,-5, 0.4,0,0, 0.6,0,5, 0.8,0,0 ]);
                     }
+
+                    // На кого выпадет бутылка и кто крутит
                     if (message["bottle"]["partners"]) {
                         //chatField.innerHTML += "<li> партнеры: " + message["bottle"].partners + "</li>";
                         var btn = ObjGet("spr_bottle_floor_bottle");
@@ -99,10 +103,13 @@ window.onload = function () {
                         var newAngle = slotPositions[ slotId ].angle;
                         ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,btn.angle, 4.75,0,newAngle ]);
                     }
+
+                    // Начало поцелуев
                     if (message["bottle"]["start_kissing"]) {
                         //chatField.innerHTML += "<li> анимация поцелуев: " + message["bottle"].start_kissing + "</li>";
                         ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,1, 0.3,0,0, 4.5,0,0, 4.75,0,1 ]);
                         ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,1, 0.3,0,0, 4.5,0,0, 4.75,0,1 ]);
+                        ObjAnimate("spr_bottle_kiss_or_not", "alp", 0, 0, function() { }, [ 0,0,0, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
 
                         var slot1 = message["bottle"].start_kissing[0] - 1;
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_x, 0.25,0,212, 4.5,0,212, 4.75,0,slotPositions[slot1]['defPos'][0] ]);
@@ -115,12 +122,12 @@ window.onload = function () {
                     chatField.scrollTop = chatField.scrollHeight;
                 }
 
-                // Пришел номер стола
+                // Номер стола
                 if (message["group"]) {
                     txtTable.innerText = "Стол: " + message.group.substring(1);
                 }
 
-                // Пришло состояние в слотах
+                // Состояние в слотах
                 if (message["slots"]) {
                     ClearSlots();
                     for (var key in message["slots"]) {
