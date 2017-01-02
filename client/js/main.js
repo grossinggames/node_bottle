@@ -125,6 +125,7 @@ window.onload = function () {
                 }
             } catch(err) {
                 console.log("socket.onmessage Error description: " + err.message);
+                console.log(err);
                 return;
             }
         };

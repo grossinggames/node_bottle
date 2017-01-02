@@ -1,7 +1,7 @@
 /* *************** Подключение модулей *************** */
 var parent = module.parent.exports;
 var bus = module.parent.exports.bus;
-var groups = [];
+var groups = {};
 const maxClientOnGroup = 12;
 
 
