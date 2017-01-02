@@ -263,6 +263,9 @@ function ObjGet(objname) {
                     result[key] = 1;
                 }
                 break;
+            case "alp":
+                result[key] = obj.style[ properties[key] ];
+                break;
             case "onmousedown":
             case "onmouseup":
             case "onmouseover":
