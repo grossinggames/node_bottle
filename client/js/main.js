@@ -112,8 +112,20 @@ window.onload = function () {
                         ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,1, 0.3,0,0, 4.5,0,0, 4.75,0,1 ]);
                         ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,1, 0.3,0,0, 4.5,0,0, 4.75,0,1 ]);
                         ObjAnimate("spr_bottle_kiss_or_not", "alp", 0, 0, function() { }, [ 0,0,0, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
-
                         ObjAnimate("spr_bottle_kiss_time", "alp", 0, 0, function() { }, [ 0,0,0, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
+                        
+                        var timerBackPos = {
+                            1:  [3, -3],
+                            2:  [-56, -3],
+                            3:  [-116, -3],
+                            4:  [-178, -3],
+                            5:  [-239, -3],
+                            6:  [8, -66],
+                            7:  [-49, -66],
+                            8:  [-109, -66],
+                            9:  [-168, -66],
+                            10: [-230, -66]
+                        };
                         ObjAnimate("spr_bottle_kiss_time", "drawoff_x", 0, 0, function() { }, [ 
                             0,0,timerBackPos['10'][0], 
                             0.72,0,timerBackPos['9'][0],
@@ -140,19 +152,6 @@ window.onload = function () {
                             4.08,0,timerBackPos['1'][1], 
                             4.5,0,timerBackPos['1'][1]
                         ]);
-
-                        var timerBackPos = {
-                            1:  [3, -3],
-                            2:  [-56, -3],
-                            3:  [-116, -3],
-                            4:  [-178, -3],
-                            5:  [-239, -3],
-                            6:  [8, -66],
-                            7:  [-49, -66],
-                            8:  [-109, -66],
-                            9:  [-168, -66],
-                            10: [-230, -66]
-                        };
 
                         var slot1 = message["bottle"].start_kissing[0] - 1;
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_x, 0.25,0,212, 4.5,0,212, 4.75,0,slotPositions[slot1]['defPos'][0] ]);
