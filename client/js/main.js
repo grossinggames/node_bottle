@@ -77,6 +77,8 @@ window.onload = function () {
                 if (message["bottle"]) {
                     if (message["bottle"]["current"]) {
                         //chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
+                        ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_arrow").alp, 0.3,0,1 ]);
+                        ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_floor_bottle').alp, 0.3,0,1 ]);
 
                         ObjSet("spr_bottle_floor_bottle", {input: 1});
                         for (var i = 1; i < 13; i++) {
@@ -85,8 +87,6 @@ window.onload = function () {
                         }
                         var current = message["bottle"].current;
                         ObjSet("spr_bottle_arrow", { pos_x: arrowSettings[current - 1].posXY[0], pos_y: arrowSettings[current - 1].posXY[1], angle: arrowSettings[current - 1].angle });
-                        ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_arrow").alp, 0.3,0,1 ]);
-                        ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_floor_bottle').alp, 0.3,0,1 ]);
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { ObjSet("spr_bottle_arrow", { alp: 1 }) }, [ 0,0,0, 0.2,0,-5, 0.4,0,0, 0.6,0,5, 0.8,0,0 ]);
                     }
                     if (message["bottle"]["partners"]) {
