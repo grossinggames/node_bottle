@@ -134,7 +134,7 @@ window.onload = function () {
                             1.14,0,timerBackPos['9'][0],
 
                             1.14,0,timerBackPos['8'][0],
-                            1.14,0,timerBackPos['8'][0],
+                            1.56,0,timerBackPos['8'][0],
 
                             1.56,0,timerBackPos['7'][0],
                             1.98,0,timerBackPos['7'][0],
@@ -165,7 +165,7 @@ window.onload = function () {
                             1.14,0,timerBackPos['9'][1],
 
                             1.14,0,timerBackPos['8'][1],
-                            1.14,0,timerBackPos['8'][1],
+                            1.56,0,timerBackPos['8'][1],
 
                             1.56,0,timerBackPos['7'][1],
                             1.98,0,timerBackPos['7'][1],
