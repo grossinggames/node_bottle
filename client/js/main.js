@@ -113,7 +113,7 @@ window.onload = function () {
                         ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,1, 0.3,0,0, 4.5,0,0, 4.75,0,1 ]);
                         ObjAnimate("spr_bottle_kiss_or_not", "alp", 0, 0, function() { }, [ 0,0,0, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
                         ObjAnimate("spr_bottle_kiss_time", "alp", 0, 0, function() { }, [ 0,0,0, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
-                        
+
                         var timerBackPos = {
                             1:  [3, -3],
                             2:  [-56, -3],
@@ -128,27 +128,63 @@ window.onload = function () {
                         };
                         ObjAnimate("spr_bottle_kiss_time", "drawoff_x", 0, 0, function() { }, [ 
                             0,0,timerBackPos['10'][0], 
+                            0.72,0,timerBackPos['10'][0], 
+
                             0.72,0,timerBackPos['9'][0],
+                            1.14,0,timerBackPos['9'][0],
+
                             1.14,0,timerBackPos['8'][0],
+                            1.14,0,timerBackPos['8'][0],
+
                             1.56,0,timerBackPos['7'][0],
+                            1.98,0,timerBackPos['7'][0],
+
                             1.98,0,timerBackPos['6'][0],
+                            2.4,0,timerBackPos['6'][0],
+
                             2.4,0,timerBackPos['5'][0],
+                            2.82,0,timerBackPos['5'][0],
+
                             2.82,0,timerBackPos['4'][0],
+                            3.24,0,timerBackPos['4'][0],
+
                             3.24,0,timerBackPos['3'][0],
+                            3.66,0,timerBackPos['3'][0],
+
                             3.66,0,timerBackPos['2'][0],
+                            4.08,0,timerBackPos['2'][0],
+
                             4.08,0,timerBackPos['1'][0], 
                             4.5,0,timerBackPos['1'][0]
                         ]);
                         ObjAnimate("spr_bottle_kiss_time", "drawoff_y", 0, 0, function() { }, [ 
                             0,0,timerBackPos['10'][1], 
+                            0.72,0,timerBackPos['10'][1], 
+
                             0.72,0,timerBackPos['9'][1],
+                            1.14,0,timerBackPos['9'][1],
+
                             1.14,0,timerBackPos['8'][1],
+                            1.14,0,timerBackPos['8'][1],
+
                             1.56,0,timerBackPos['7'][1],
+                            1.98,0,timerBackPos['7'][1],
+
                             1.98,0,timerBackPos['6'][1],
+                            2.4,0,timerBackPos['6'][1],
+
                             2.4,0,timerBackPos['5'][1],
+                            2.82,0,timerBackPos['5'][1],
+
                             2.82,0,timerBackPos['4'][1],
+                            3.24,0,timerBackPos['4'][1],
+
                             3.24,0,timerBackPos['3'][1],
+                            3.66,0,timerBackPos['3'][1],
+
                             3.66,0,timerBackPos['2'][1],
+                            4.08,0,timerBackPos['2'][1],
+
                             4.08,0,timerBackPos['1'][1], 
                             4.5,0,timerBackPos['1'][1]
                         ]);
