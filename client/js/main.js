@@ -109,7 +109,7 @@ window.onload = function () {
                             3.4,0,newAngle + 1820,
                             3.6,0,newAngle + 1980,
                             3.8,0,newAngle + 2120,
-                            3.0,0,newAngle + 2240,
+                            4.0,0,newAngle + 2240,
                             4.2,0,newAngle + 2340,
                             4.4,0,newAngle + 2420,
                             4.6,0,newAngle + 2480,
