@@ -105,7 +105,7 @@ window.onload = function () {
                         console.log('btn.angle % 360 : ', btn.angle % 360);
                         console.log('newAngle: ', btn.newAngle);
                         console.log('newAngle + 1800: ', newAngle + 1800);
-                        ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,% 360, 4.75,0,newAngle + 1800 ]);
+                        ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,btn.angle% 360, 4.75,0,newAngle + 1800 ]);
                     }
 
                     // Начало поцелуев
