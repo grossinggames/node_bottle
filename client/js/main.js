@@ -101,11 +101,11 @@ window.onload = function () {
                         var slotId = message['bottle'].partners[1] - 1;
                         var newAngle = slotPositions[ slotId ].angle;
                         var btn = ObjGet("spr_bottle_floor_bottle");
-                        console.log('btn.angle: ', btn.angle);
-                        console.log('btn.angle % 360 : ', btn.angle % 360);
-                        console.log('newAngle: ', btn.newAngle);
-                        console.log('newAngle + 1800: ', newAngle + 1800);
-                        ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,btn.angle% 360, 4.75,0,newAngle + 1800 ]);
+                        ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 
+                            0,0,btn.angle % 360,
+                            3.75,0,newAngle + 2170,
+                            4.75,0,newAngle + 2520
+                        ]);
                     }
 
                     // Начало поцелуев
