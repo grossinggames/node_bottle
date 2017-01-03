@@ -101,6 +101,7 @@ window.onload = function () {
                         var slotId = message['bottle'].partners[1] - 1;
                         var newAngle = slotPositions[ slotId ].angle;
                         var btn = ObjGet("spr_bottle_floor_bottle");
+
                         ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 
                             0,0,btn.angle % 360,
                             3,0,newAngle + 1440,
