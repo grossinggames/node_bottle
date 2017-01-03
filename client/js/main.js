@@ -95,13 +95,17 @@ window.onload = function () {
                     // На кого выпадет бутылка и кто крутит
                     if (message["bottle"]["partners"]) {
                         //chatField.innerHTML += "<li> партнеры: " + message["bottle"].partners + "</li>";
-                        var btn = ObjGet("spr_bottle_floor_bottle");
                         if (message['bottle'].partners[1] < 1) {
                             return false;
                         }
                         var slotId = message['bottle'].partners[1] - 1;
                         var newAngle = slotPositions[ slotId ].angle;
-                        ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,btn.angle, 4.75,0,newAngle ]);
+                        var btn = ObjGet("spr_bottle_floor_bottle");
+                        console.log('btn.angle: ', btn.angle);
+                        console.log('btn.angle % 360 : ', btn.angle % 360);
+                        console.log('newAngle: ', btn.newAngle);
+                        console.log('newAngle + 1800: ', newAngle + 1800);
+                        ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,% 360, 4.75,0,newAngle + 1800 ]);
                     }
 
                     // Начало поцелуев
