@@ -101,24 +101,7 @@ window.onload = function () {
                         var slotId = message['bottle'].partners[1] - 1;
                         var newAngle = slotPositions[ slotId ].angle  + 2520;
                         var btn = ObjGet("spr_bottle_floor_bottle");
-<<<<<<< HEAD
-=======
-                        var arithmMean = newAngle / 9.5;
-                        console.log('******************************');
-                        console.log('arithmMean: ', arithmMean);
-                        console.log(btn.angle % 360);
-                        console.log((arithmMean) + (arithmMean * 0.8));
-                        console.log((arithmMean * 2) + (arithmMean * 0.6));
-                        console.log((arithmMean * 3) + (arithmMean * 0.4));
-                        console.log((arithmMean * 4) + (arithmMean * 0.2));
-                        console.log(arithmMean * 5);
-                        console.log((arithmMean * 6) - (arithmMean * 0.2));
-                        console.log((arithmMean * 7) - (arithmMean * 0.4));
-                        console.log((arithmMean * 8) - (arithmMean * 0.6));
-                        console.log((arithmMean * 9) - (arithmMean * 0.8));
-                        console.log(newAngle);
 
->>>>>>> 240e14be1fe870e136828dd486b9c1d8edf76957
                         ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() { }, [ 
                             0,0,btn.angle % 360,
                             4.5,0,(arithmMean * 9) - (arithmMean * 0.8),
