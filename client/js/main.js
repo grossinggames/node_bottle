@@ -101,35 +101,11 @@ window.onload = function () {
                         var slotId = message['bottle'].partners[1] - 1;
                         var newAngle = slotPositions[ slotId ].angle  + 2520;
                         var btn = ObjGet("spr_bottle_floor_bottle");
-                        var arithmMean = newAngle / 9.5;
-                        console.log('******************************');
-                        console.log('arithmMean: ', arithmMean);
-                        console.log(btn.angle % 360);
-                        console.log((arithmMean) + (arithmMean * 0.4));
-                        console.log((arithmMean * 2) + (arithmMean * 0.3));
-                        console.log((arithmMean * 3) + (arithmMean * 0.2));
-                        console.log((arithmMean * 4) + (arithmMean * 0.1));
-                        console.log(arithmMean * 5);
-                        console.log((arithmMean * 6) - (arithmMean * 0.1));
-                        console.log((arithmMean * 7) - (arithmMean * 0.2));
-                        console.log((arithmMean * 8) - (arithmMean * 0.3));
-                        console.log((arithmMean * 9) - (arithmMean * 0.4));
-                        console.log(newAngle);
-
                         ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() { }, [ 
                             0,0,btn.angle % 360,
-                            0.5,0,(arithmMean) + (arithmMean * 0.8),
-                            1,0,(arithmMean * 2) + (arithmMean * 0.6),
-                            1.5,0,(arithmMean * 3) + (arithmMean * 0.4),
-                            2.0,0,(arithmMean * 4) + (arithmMean * 0.2),
-
-                            2.5,0,(arithmMean * 5),
-
-                            3.0,0,(arithmMean * 6) - (arithmMean * 0.2),
-                            3.5,0,(arithmMean * 7) - (arithmMean * 0.4),
-                            4.0,0,(arithmMean * 8) - (arithmMean * 0.6),
-                            4.5,0,(arithmMean * 9) - (arithmMean * 0.8)//,
-                            //4.75,0,newAngle
+                            4.5,0,(arithmMean * 9) - (arithmMean * 0.8),
+                            4,0,newAngle - 360,
+                            4.75,0,newAngle
                         ]);
                     }
 
