@@ -105,15 +105,15 @@ window.onload = function () {
                         console.log('******************************');
                         console.log('arithmMean: ', arithmMean);
                         console.log(btn.angle % 360);
-                        console.log((arithmMean) + (arithmMean * 0.4));
-                        console.log((arithmMean * 2) + (arithmMean * 0.3));
-                        console.log((arithmMean * 3) + (arithmMean * 0.2));
-                        console.log((arithmMean * 4) + (arithmMean * 0.1));
+                        console.log((arithmMean) + (arithmMean * 0.8));
+                        console.log((arithmMean * 2) + (arithmMean * 0.6));
+                        console.log((arithmMean * 3) + (arithmMean * 0.4));
+                        console.log((arithmMean * 4) + (arithmMean * 0.2));
                         console.log(arithmMean * 5);
-                        console.log((arithmMean * 6) - (arithmMean * 0.1));
-                        console.log((arithmMean * 7) - (arithmMean * 0.2));
-                        console.log((arithmMean * 8) - (arithmMean * 0.3));
-                        console.log((arithmMean * 9) - (arithmMean * 0.4));
+                        console.log((arithmMean * 6) - (arithmMean * 0.2));
+                        console.log((arithmMean * 7) - (arithmMean * 0.4));
+                        console.log((arithmMean * 8) - (arithmMean * 0.6));
+                        console.log((arithmMean * 9) - (arithmMean * 0.8));
                         console.log(newAngle);
 
                         ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() { }, [ 
