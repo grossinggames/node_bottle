@@ -99,40 +99,23 @@ window.onload = function () {
                             return false;
                         }
                         var slotId = message['bottle'].partners[1] - 1;
-                        var newAngle = slotPositions[ slotId ].angle;
+                        var newAngle = slotPositions[ slotId ].angle  + 2520;
                         var btn = ObjGet("spr_bottle_floor_bottle");
 
-                        ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 
+                        ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() { }, [ 
                             0,0,btn.angle % 360,
+                            0.5,0,newAngle + newAngle * 0.8,
+                            1,0,newAngle + newAngle * 0.6,
+                            1.5,0,newAngle + newAngle * 0.4,
+                            2.0,0,newAngle + newAngle * 0.2,
 
-                            0.2,0,newAngle + 360,
-                            0.4,0,newAngle + 630,
-                            0.6,0,newAngle + 1060,
-                            0.8,0,newAngle + 1320,
-                            1.0,0,newAngle + 1490,
+                            2.5,0,newAngle,
 
-                            1.2,0,newAngle + 1590,
-                            1.4,0,newAngle + 1680,
-                            1.6,0,newAngle + 1760,
-                            1.8,0,newAngle + 1845,
-                            2.0,0,newAngle + 1925,
-
-                            2.2,0,newAngle + 2000,
-                            2.4,0,newAngle + 2070,
-                            2.6,0,newAngle + 2135,
-                            2.8,0,newAngle + 2195,
-                            3.0,0,newAngle + 2250,
-
-                            3.2,0,newAngle + 2300,
-                            3.4,0,newAngle + 2345,
-                            3.6,0,newAngle + 2385,
-                            3.8,0,newAngle + 2420,
-                            4.0,0,newAngle + 2450,
-
-                            4.2,0,newAngle + 2475,
-                            4.4,0,newAngle + 2495,
-                            4.6,0,newAngle + 2510,
-                            4.75,0,newAngle + 2520
+                            3.0,0,newAngle + newAngle * 0.2,
+                            3.5,0,newAngle + newAngle * 0.4,
+                            4.0,0,newAngle + newAngle * 0.6,
+                            4.5,0,newAngle + newAngle * 0.8,//,
+                            //4.75,0,newAngle
                         ]);
                     }
 
