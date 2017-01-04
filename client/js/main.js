@@ -104,7 +104,6 @@ window.onload = function () {
 
                         ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() { }, [ 
                             0,0,btn.angle % 360,
-                            4.5,0,(arithmMean * 9) - (arithmMean * 0.8),
                             4,0,newAngle - 360,
                             4.75,0,newAngle
                         ]);
