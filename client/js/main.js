@@ -107,6 +107,7 @@ window.onload = function () {
                             2,0,newAngle - 1320,
                             3,0,newAngle - 820,
                             4,0,newAngle - 360,
+                            4.5,0,newAngle - 100,
                             4.75,0,newAngle
                         ]);
                     }
