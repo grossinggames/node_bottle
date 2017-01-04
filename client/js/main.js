@@ -113,7 +113,7 @@ window.onload = function () {
                         console.log((arithmMean * 6) - (arithmMean * 0.1));
                         console.log((arithmMean * 7) - (arithmMean * 0.2));
                         console.log((arithmMean * 8) - (arithmMean * 0.3));
-                        console.log(arithmMean * 9) - (arithmMean * 0.4));
+                        console.log((arithmMean * 9) - (arithmMean * 0.4));
                         console.log(newAngle);
 
                         ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() { }, [ 
