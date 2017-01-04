@@ -111,10 +111,10 @@ window.onload = function () {
 
                             2.5,0,newAngle,
 
-                            3.0,0,newAngle + newAngle * 0.2,
-                            3.5,0,newAngle + newAngle * 0.4,
-                            4.0,0,newAngle + newAngle * 0.6,
-                            4.5,0,newAngle + newAngle * 0.8,//,
+                            3.0,0,newAngle - newAngle * 0.2,
+                            3.5,0,newAngle - newAngle * 0.4,
+                            4.0,0,newAngle - newAngle * 0.6,
+                            4.5,0,newAngle - newAngle * 0.8//,
                             //4.75,0,newAngle
                         ]);
                     }
