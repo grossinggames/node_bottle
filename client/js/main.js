@@ -104,18 +104,18 @@ window.onload = function () {
 
                         ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() { }, [ 
                             0,0,btn.angle % 360,
-                            0.5,0,newAngle + newAngle * 0.8,
-                            1,0,newAngle + newAngle * 0.6,
-                            1.5,0,newAngle + newAngle * 0.4,
-                            2.0,0,newAngle + newAngle * 0.2,
+                            0.5,0,newAngle + newAngle * 0.2,
+                            1,0,newAngle + newAngle * 0.15,
+                            1.5,0,newAngle + newAngle * 0.10,
+                            2.0,0,newAngle + newAngle * 0.05,
 
                             2.5,0,newAngle,
 
                             3.0,0,newAngle - newAngle * 0.2,
-                            3.5,0,newAngle - newAngle * 0.4,
-                            4.0,0,newAngle - newAngle * 0.6,
-                            4.5,0,newAngle - newAngle * 0.8//,
-                            //4.75,0,newAngle
+                            3.5,0,newAngle - newAngle * 0.15,
+                            4.0,0,newAngle - newAngle * 0.10,
+                            4.5,0,newAngle - newAngle * 0.05,
+                            4.75,0,newAngle
                         ]);
                     }
 
