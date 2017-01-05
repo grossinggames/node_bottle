@@ -107,7 +107,7 @@ window.onload = function () {
                             0,0,btn.angle % 360,
                             2,0,newAngle - 1220,
                             3,0,newAngle - 650,
-                            4,0,newAngle - 160,
+                            4,0,newAngle - 260,
                             4.75,0,newAngle
                         ]);
                     }
