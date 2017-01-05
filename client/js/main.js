@@ -107,15 +107,15 @@ window.onload = function () {
 
                         ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() { }, [ 
                             0,0,btn.angle % 360,
-                            0.5,0,btn.angle + arithmMean + (arithmMean * 0.2),
-                            1.0,0,btn.angle + (arithmMean * 2) + (arithmMean * 0.15),
-                            1.5,0,btn.angle + (arithmMean * 3) + (arithmMean * 0.1),
-                            2.0,0,btn.angle + (arithmMean * 4) + (arithmMean * 0.05),
-                            2.5,0,btn.angle + (arithmMean * 5),
-                            3.0,0,btn.angle + (arithmMean * 6) + (arithmMean * 0.05),
-                            3.5,0,btn.angle + (arithmMean * 7) + (arithmMean * 0.1),
-                            4.0,0,btn.angle + (arithmMean * 8) + (arithmMean * 0.15),
-                            4.5,0,btn.angle + (arithmMean * 9) + (arithmMean * 0.2),
+                            0.5,0,btn.angle + (arithmMean * 0.5) + (arithmMean * 0.2),
+                            1.0,0,btn.angle + (arithmMean * 1) + (arithmMean * 0.15),
+                            1.5,0,btn.angle + (arithmMean * 1.5) + (arithmMean * 0.1),
+                            2.0,0,btn.angle + (arithmMean * 2.0) + (arithmMean * 0.05),
+                            2.5,0,btn.angle + (arithmMean * 2.5),
+                            3.0,0,btn.angle + (arithmMean * 3.0) + (arithmMean * 0.05),
+                            3.5,0,btn.angle + (arithmMean * 3.5) + (arithmMean * 0.1),
+                            4.0,0,btn.angle + (arithmMean * 4.0) + (arithmMean * 0.15),
+                            4.5,0,btn.angle + (arithmMean * 4.5) + (arithmMean * 0.2),
                             4.75,0,newAngle
 
                             /*
