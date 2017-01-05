@@ -101,30 +101,14 @@ window.onload = function () {
                         var slotId = message['bottle'].partners[1] - 1;
                         var newAngle = slotPositions[ slotId ].angle  + 2520;
                         var btn = ObjGet("spr_bottle_floor_bottle");
-                        var diffAngle = newAngle - btn.angle;
-                        var arithmMean = diffAngle/4.75;
 
 
                         ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() { }, [ 
                             0,0,btn.angle % 360,
-                            0.5,0,btn.angle + (arithmMean * 0.5) + (arithmMean * 0.2),
-                            1.0,0,btn.angle + (arithmMean * 1) + (arithmMean * 0.15),
-                            1.5,0,btn.angle + (arithmMean * 1.5) + (arithmMean * 0.1),
-                            2.0,0,btn.angle + (arithmMean * 2.0) + (arithmMean * 0.05),
-                            2.5,0,btn.angle + (arithmMean * 2.5),
-                            3.0,0,btn.angle + (arithmMean * 3.0) + (arithmMean * 0.05),
-                            3.5,0,btn.angle + (arithmMean * 3.5) + (arithmMean * 0.1),
-                            4.0,0,btn.angle + (arithmMean * 4.0) + (arithmMean * 0.15),
-                            4.5,0,btn.angle + (arithmMean * 4.5) + (arithmMean * 0.2),
-                            4.75,0,newAngle
-
-                            /*
-                            0,0,btn.angle % 360,
                             2,0,newAngle - 1220,
-                            3,0,newAngle - 720,
+                            3,0,newAngle - 650,//720
                             4,0,newAngle - 260,
                             4.75,0,newAngle
-                            */
                         ]);
                     }
 
