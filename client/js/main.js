@@ -37,12 +37,17 @@ window.onload = function () {
         }, TIME_UPDATE);
 
         /* *************** Websocket соединение *************** */
+        var slot = 0;
+        var group = 0;
+        var photo = "";
+
         var socket     = new WebSocket("wss://" + window.location.hostname + ":" + window.location.port);
         socket.onopen  = function() {
             //console.log("Websocket connect");
             VK.api("users.get", {fields: "photo_100"}, function(data) { 
                 if (data && data.response && data.response[0] 
                 && data.response[0].photo_100 && data.response[0].first_name) {
+                    photo = data.response[0].photo_100;
                     socket.send( JSON.stringify({
                             photo: data.response[0].photo_100,
                             first_name: data.response[0].first_name
@@ -62,10 +67,34 @@ window.onload = function () {
 
         var chatField = window.document.getElementById("spr_bottle_chat_field");
         var txtTable = window.document.getElementById("txt_bottle_table");
+        var txtSlot = window.document.getElementById("txt_bottle_slot");
         
         socket.onmessage = function (event) {
             try {
                 var message = JSON.parse(event.data);
+
+                // Номер стола
+                if (message["group"]) {
+                    group = message.group.substring(1);
+                    txtTable.innerText = "Стол: " + group;
+                }
+
+                // Состояние в слотах
+                if (message["slots"]) {
+                    ClearSlots();
+                    for (var key in message["slots"]) {
+                        ObjSet("spr_bottle_slot_" + key, {res: message["slots"][key]["photo"]});
+                        if (message["slots"][key]["photo"] == photo) {
+                            slot = key;
+                            txtSlot.innerText = "Слот: " + slot;
+                        }
+                    }
+                }
+
+                // Если нет группы или слота то считаем, что нет смысла обрабатывать сообщения
+                if ( (!group) || (!slot) ) {
+                    return;
+                }
 
                 // Новое сообщение
                 if (message["msg"]) {
@@ -101,7 +130,6 @@ window.onload = function () {
                         var slotId = message['bottle'].partners[1] - 1;
                         var newAngle = slotPositions[ slotId ].angle  + 2520;
                         var btn = ObjGet("spr_bottle_floor_bottle");
-
 
                         ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() { }, [ 
                             0,0,btn.angle % 360,
@@ -207,19 +235,6 @@ window.onload = function () {
                     }
                     chatField.scrollTop = chatField.scrollHeight;
                 }
-
-                // Номер стола
-                if (message["group"]) {
-                    txtTable.innerText = "Стол: " + message.group.substring(1);
-                }
-
-                // Состояние в слотах
-                if (message["slots"]) {
-                    ClearSlots();
-                    for (var key in message["slots"]) {
-                        ObjSet("spr_bottle_slot_" + key, {res: message["slots"][key]["photo"]});
-                    }
-                }
             } catch(err) {
                 console.log('socket.onmessage Error description: ');
                 console.log(err);
@@ -252,6 +267,8 @@ window.onload = function () {
 
         // Отправить сообщение о смене стола
         function changeTable() {
+            group = 0;
+            slot = 0;
             socket.send( JSON.stringify({change_table: 1}) );
             inputText.focus();
         }
