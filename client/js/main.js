@@ -109,8 +109,16 @@ window.onload = function () {
                     if (message["bottle"]["current"]) {
                         //chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
 
-                        // Появляется стрелка и бутылка
-                        ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_arrow").alp, 0.3,0,1 ]);
+                        // Появляется стрелка
+                        if (slot == message["bottle"].current) {
+                            ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_arrow").alp, 0.3,0,1 ]);
+                            ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_rotate_bottle").alp, 0.1,0,0 ]);
+                        } else {
+                            ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_arrow").alp, 0.1,0,0 ]);
+                            ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_rotate_bottle").alp, 0.3,0,1 ]);
+                        }
+
+                        // Появляется бутылка
                         ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_floor_bottle').alp, 0.3,0,1 ]);
 
                         // Устанавливаеся кликабельность бутылки
@@ -126,8 +134,8 @@ window.onload = function () {
                         var current = message["bottle"].current;
                         ObjSet("spr_bottle_arrow", { pos_x: arrowSettings[current - 1].posXY[0], pos_y: arrowSettings[current - 1].posXY[1], angle: arrowSettings[current - 1].angle });
 
-                        // Анимация угла слота (влево вправо)
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { ObjSet("spr_bottle_arrow", { alp: 1 }) }, [ 0,0,0, 0.2,0,-5, 0.4,0,0, 0.6,0,5, 0.8,0,0 ]);
+                        // Анимация слота по углу (влево вправо)
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { }, [ 0,0,0, 0.2,0,-5, 0.4,0,0, 0.6,0,5, 0.8,0,0 ]);
                     }
 
                     // На кого выпадет бутылка и кто крутит
@@ -155,6 +163,7 @@ window.onload = function () {
 
                         // Блок надписей поцелуются они или нет
                         ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,1, 0.3,0,0, 4.5,0,0, 4.75,0,1 ]);
+                        ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_rotate_bottle").alp, 0.3,0,0 ]);
                         ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,1, 0.3,0,0, 4.5,0,0, 4.75,0,1 ]);
                         ObjAnimate("spr_bottle_kiss_or_not", "alp", 0, 0, function() { }, [ 0,0,0, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
                         ObjAnimate("spr_bottle_kiss_time", "alp", 0, 0, function() { }, [ 0,0,0, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
