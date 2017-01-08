@@ -109,7 +109,7 @@ window.onload = function () {
                     if (message["bottle"]["current"]) {
                         //chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
 
-                        ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_your_choice").alp, 0.3,0,0 ]);
+                        ObjAnimate("spr_bottle_your_choice", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_your_choice").alp, 0.3,0,0 ]);
                         
                         // Появляется стрелка
                         if (slot == message["bottle"].current) {
@@ -151,8 +151,8 @@ window.onload = function () {
                         ObjSet("spr_bottle_floor_bottle", {input: 0});
                         var btn = ObjGet("spr_bottle_floor_bottle");
 
-                        ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_your_choice").alp, 0.3,0,0 ]);
-                        ObjAnimate("spr_bottle_your_choice", "alp", 0, 0, function() { }, [ 0,0,0, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
+                        ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_rotate_bottle").alp, 0.3,0,0 ]);
+                        ObjAnimate("spr_bottle_your_choice", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_your_choice").alp, 0.3,0,0 ]);
 
                         ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() { }, [ 
                             0,0,btn.angle % 360,
