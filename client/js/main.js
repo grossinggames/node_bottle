@@ -108,16 +108,25 @@ window.onload = function () {
                     // Кто крутит
                     if (message["bottle"]["current"]) {
                         //chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
+
+                        // Появляется стрелка и бутылка
                         ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_arrow").alp, 0.3,0,1 ]);
                         ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_floor_bottle').alp, 0.3,0,1 ]);
 
+                        // Устанавливаеся кликабельность бутылки
                         ObjSet("spr_bottle_floor_bottle", {input: 1});
+
+                        // Обнуляются углы слотов
                         for (var i = 1; i < 13; i++) {
                             ObjStopAnimate("spr_bottle_slot_" + i, "angle");
                             ObjSet("spr_bottle_slot_" + i, { angle: 0 });
                         }
+
+                        // Установка позиции и угола стрелке
                         var current = message["bottle"].current;
                         ObjSet("spr_bottle_arrow", { pos_x: arrowSettings[current - 1].posXY[0], pos_y: arrowSettings[current - 1].posXY[1], angle: arrowSettings[current - 1].angle });
+
+                        // Анимация угла слота (влево вправо)
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].current, "angle", 0, 0, function() { ObjSet("spr_bottle_arrow", { alp: 1 }) }, [ 0,0,0, 0.2,0,-5, 0.4,0,0, 0.6,0,5, 0.8,0,0 ]);
                     }
 
