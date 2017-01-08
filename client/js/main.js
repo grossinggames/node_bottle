@@ -113,6 +113,9 @@ window.onload = function () {
                         if (slot == message["bottle"].current) {
                             ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_arrow").alp, 0.1,0,0 ]);
                             ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_rotate_bottle").alp, 0.3,0,1 ]);
+                            
+                            // Устанавливаеся кликабельность бутылки
+                            ObjSet("spr_bottle_floor_bottle", {input: 1});
                         } else {
                             ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_arrow").alp, 0.3,0,1 ]);
                             ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_rotate_bottle").alp, 0.1,0,0 ]);
@@ -120,9 +123,6 @@ window.onload = function () {
 
                         // Появляется бутылка
                         ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_floor_bottle').alp, 0.3,0,1 ]);
-
-                        // Устанавливаеся кликабельность бутылки
-                        ObjSet("spr_bottle_floor_bottle", {input: 1});
 
                         // Обнуляются углы слотов
                         for (var i = 1; i < 13; i++) {
