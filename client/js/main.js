@@ -112,6 +112,9 @@ window.onload = function () {
                         ObjAnimate("spr_bottle_kiss_your_choice", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_your_choice").alp, 0.3,0,0 ]);
                         ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_yes").alp, 0.3,0,0 ]);
                         ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_no").alp, 0.3,0,0 ]);
+
+                        ObjSet("spr_bottle_kiss_yes", {input: 0});
+                        ObjSet("spr_bottle_kiss_no", {input: 0});
                         
                         // Появляется стрелка
                         if (slot == message["bottle"].current) {
@@ -154,6 +157,9 @@ window.onload = function () {
                         ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_yes").alp, 0.3,0,0 ]);
                         ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_no").alp, 0.3,0,0 ]);
 
+                        ObjSet("spr_bottle_kiss_yes", {input: 0});
+                        ObjSet("spr_bottle_kiss_no", {input: 0});
+
                         var slotId = message['bottle'].partners[1] - 1;
                         var newAngle = slotPositions[ slotId ].angle  + 2520;
 
@@ -176,15 +182,16 @@ window.onload = function () {
                         if ( (slot == message["bottle"]["start_kissing"][0]) || (slot == message["bottle"]["start_kissing"][1]) ) {
                             ObjAnimate("spr_bottle_kiss_your_choice", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_your_choice").alp, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
                             ObjAnimate("spr_bottle_kiss_or_not", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_or_not").alp, 0.3,0,0 ]);
-                            ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_yes").alp, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
-                            ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_no").alp, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
                         } else {
                             ObjAnimate("spr_bottle_kiss_your_choice", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_your_choice").alp, 0.3,0,0 ]);
                             ObjAnimate("spr_bottle_kiss_or_not", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_or_not").alp, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
-                            ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_yes").alp, 0.3,0,0 ]);
-                            ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_no").alp, 0.3,0,0 ]);
                         }
 
+                        ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_yes").alp, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
+                        ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_no").alp, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
+
+                        ObjSet("spr_bottle_kiss_yes", {input: 1});
+                        ObjSet("spr_bottle_kiss_no", {input: 1});
                         ObjSet("spr_bottle_floor_bottle", {input: 0});
                         
                         // Блок надписей поцелуются они или нет
@@ -657,6 +664,44 @@ window.onload = function () {
         ObjSet("spr_bottle_sending_input",
         {
             popup: "Написать сообщение",
+        });
+
+        // Кнопка поцеловать
+        ObjSet("spr_bottle_kiss_yes",
+        {
+            cursor: "hand",
+            popup: "Поцеловать",
+            event_mdown: function() {
+                ButtonDown("spr_bottle_kiss_yes");
+            },
+            event_mup: function() {
+                ButtonUp("spr_bottle_kiss_yes");
+            },
+            event_mleave: function() {
+                ButtonLeave("spr_bottle_kiss_yes");
+            },
+            event_menter: function() {
+                ButtonEnter("spr_bottle_kiss_yes");
+            }
+        });
+
+        // Кнопка отказать
+        ObjSet("spr_bottle_kiss_no",
+        {
+            cursor: "hand",
+            popup: "Поцеловать",
+            event_mdown: function() {
+                ButtonDown("spr_bottle_kiss_no");
+            },
+            event_mup: function() {
+                ButtonUp("spr_bottle_kiss_no");
+            },
+            event_mleave: function() {
+                ButtonLeave("spr_bottle_kiss_no");
+            },
+            event_menter: function() {
+                ButtonEnter("spr_bottle_kiss_no");
+            }
         });
 
     /* *************** Позиции *************** */
