@@ -673,11 +673,11 @@ window.onload = function () {
             popup: "Поцеловать",
             event_mdown: function() {
                 ButtonDown("spr_bottle_kiss_yes");
-                ObjSet("spr_bottle_kiss_yes", {input: 0});
-                ObjSet("spr_bottle_kiss_no", {input: 0});
             },
             event_mup: function() {
                 ButtonUp("spr_bottle_kiss_yes");
+                ObjSet("spr_bottle_kiss_yes", {input: 0});
+                ObjSet("spr_bottle_kiss_no", {input: 0});
             },
             event_mleave: function() {
                 ButtonLeave("spr_bottle_kiss_yes");
@@ -694,11 +694,11 @@ window.onload = function () {
             popup: "Поцеловать",
             event_mdown: function() {
                 ButtonDown("spr_bottle_kiss_no");
-                ObjSet("spr_bottle_kiss_yes", {input: 0});
-                ObjSet("spr_bottle_kiss_no", {input: 0});
             },
             event_mup: function() {
                 ButtonUp("spr_bottle_kiss_no");
+                ObjSet("spr_bottle_kiss_yes", {input: 0});
+                ObjSet("spr_bottle_kiss_no", {input: 0});
             },
             event_mleave: function() {
                 ButtonLeave("spr_bottle_kiss_no");
