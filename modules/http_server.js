@@ -1,10 +1,17 @@
 /* *************** Подключение модулей *************** */
 var express = require("express");
-var port = process.env.PORT;
+var port = 443;
+var fs = require('fs');
+
+console.log('port: ', port);
 
 
 /* *************** Создание http/https сервера *************** */
-var httpServer = express.createServer();
+var httpServer = express.createServer({ 
+    key:  fs.readFileSync(__dirname + '/certificate/server_localhost.key', 'utf8'),
+    cert: fs.readFileSync(__dirname + '/certificate/server_localhost.crt', 'utf8')
+});
+
 httpServer.use( express.static("client") );
 httpServer.listen(port, function (err) {
     if (err) {
