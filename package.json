@@ -3,5 +3,8 @@
     "dependencies": {
         "express": "2.5.10",
         "ws"     : "1.1.1"
+    },
+    "scripts": {
+        "start": "nodejs server.js"
     }
 }
