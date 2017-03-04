@@ -13,7 +13,6 @@ window.onload = function () {
 
     /* *************** Инициализация вк *************** */
     VK.init(function() {
-
         // API initialization succeeded
         console.log("Успеная регстрация вконтакте");
 
@@ -25,6 +24,11 @@ window.onload = function () {
         var ticks = [];
         ticks["room_interface"] = new CustomEvent("room_interface");
 
+        var curTime = new Date().getTime();
+        var diffTickTime = 0;
+        var FPS = 0;
+        var startFPStime = curTime;
+
         // Заполняем ассациативный массив событиями
         for (var i = 0, len = rooms.length; i < len; i++) {
             ticks[ rooms[i] ] = new CustomEvent(rooms[i]);
@@ -32,8 +36,23 @@ window.onload = function () {
 
         var tmrGlobal = window.document.getElementById("tmr_global");
         var intervalTick = setInterval(function () {
+            var newTime = new Date().getTime();
+            diffTickTime = (newTime - curTime);
+            curTime = newTime;
+
+            if ( (curTime - startFPStime) >= 1000 ) {
+                startFPStime = curTime;
+                ObjSet('txt_bottle_fps', { text: FPS });
+                FPS = 0;
+            } else {
+                FPS++;
+            }
+
+            ticks[currentRoom]['diffMs'] = diffTickTime;
             tmrGlobal.dispatchEvent(ticks[currentRoom]);
             tmrGlobal.dispatchEvent(ticks["room_interface"]);
+
+            console.log('diffTickTime: ', diffTickTime);
         }, TIME_UPDATE);
 
         /* *************** Websocket соединение *************** */
