@@ -42,7 +42,7 @@ window.onload = function () {
 
             if ( (curTime - startFPStime) >= 1000 ) {
                 startFPStime = curTime;
-                ObjSet('txt_bottle_fps', { text: FPS });
+                ObjSet('txt_bottle_fps', { text: 'FPS: ' +FPS });
                 FPS = 0;
             } else {
                 FPS++;
