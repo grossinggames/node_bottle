@@ -378,13 +378,13 @@ function ObjAnimate(obj, type, loop, relative, cb, anm) {
             while (diffTime > 0) {
                 stepWay = (Number(stepWay) + step).toFixed(6);
 
-                if (step >= 0) {
-                    if (stepWay > needWay) {
+                if (step > 0) {
+                    if (stepWay >= needWay) {
                         stepWay = needWay;
                         diffTime = 0;
                     }
-                } else if (step <= 0) {
-                    if (stepWay < needWay) {
+                } else if (step < 0) {
+                    if (stepWay <= needWay) {
                         stepWay = needWay;
                         diffTime = 0;
                     }
