@@ -52,7 +52,7 @@ window.onload = function () {
             tmrGlobal.dispatchEvent(ticks[currentRoom]);
             tmrGlobal.dispatchEvent(ticks["room_interface"]);
 
-            console.log('diffTickTime: ', diffTickTime);
+            //console.log('diffTickTime: ', diffTickTime);
         }, TIME_UPDATE);
 
         /* *************** Websocket соединение *************** */

@@ -400,6 +400,7 @@ function ObjAnimate(obj, type, loop, relative, cb, anm) {
                 timeLine.push(timeLineTotal);
             }
         }
+        
         var cursor = 0;
         var len = way.length;
         var totalTime = 0;
