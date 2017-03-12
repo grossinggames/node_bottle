@@ -401,6 +401,9 @@ function ObjAnimate(obj, type, loop, relative, cb, anm) {
             }
         }
         
+
+        console.log('way: ', way, ' ------------ timeLine: ', timeLine);
+
         var cursor = 0;
         var len = way.length;
         var totalTime = 0;
@@ -450,7 +453,7 @@ function ObjAnimate(obj, type, loop, relative, cb, anm) {
         function getRelevantCursor() {
             for (var i = cursor; i < len; i++) {
                 if (totalTime < timeLine[i]) {
-                    return i - 1;
+                    return i;
                 }
             };
             return cursor;
