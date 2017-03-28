@@ -475,6 +475,8 @@ function ObjAnimate(obj, type, loop, relative, cb, anm) {
                     //console.log('loop totalTime: ', totalTime);
                     setParam();
                 } else {
+                    cursor = getRelevantCursor();
+                    setParam();
                     tmr_global.removeEventListener(room, stepAnim);
                     cb();
                 }

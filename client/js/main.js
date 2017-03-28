@@ -152,8 +152,7 @@ window.onload = function () {
 
                         // Обнуляются углы слотов
                         for (var i = 1; i < 13; i++) {
-                            ObjStopAnimate("spr_bottle_slot_" + i, "angle");
-                            ObjSet("spr_bottle_slot_" + i, { angle: 0 });
+                            ObjAnimate('spr_bottle_slot_' + i, 'angle', 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_slot_' + i).angle, 0.3,0,0 ]);
                         }
 
                         // Установка позиции и угола стрелке
