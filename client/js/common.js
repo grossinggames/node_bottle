@@ -402,7 +402,7 @@ function ObjAnimate(obj, type, loop, relative, cb, anm) {
         }
         
 
-        console.log('way: ', way, ' ------------ timeLine: ', timeLine);
+        //console.log('way: ', way, ' ------------ timeLine: ', timeLine);
 
         var cursor = 0;
         var len = way.length;
@@ -456,7 +456,7 @@ function ObjAnimate(obj, type, loop, relative, cb, anm) {
                     return i;
                 }
             };
-            return cursor;
+            return len - 1;
         }        
 
 
