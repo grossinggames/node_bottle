@@ -292,6 +292,12 @@ window.onload = function () {
                             4.5,0,timerBackPos['1'][1]
                         ]);
 
+                        for (var i = 1; i < 13; i++) {
+                            ObjAnimate('spr_bottle_slot_' + i, 'angle', 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_slot_' + i).angle, 0.3,0,0 ]);
+                            ObjAnimate('spr_bottle_slot_' + i, 'pos_x', 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_slot_' + i).pox_x, 0.3,0,slotPositions[i]['defPos'][0] ]);
+                            ObjAnimate('spr_bottle_slot_' + i, 'pos_y', 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_slot_' + i).pos_y, 0.3,0,slotPositions[i]['defPos'][1] ]);
+                        }                        
+
                         var slot1 = message["bottle"].start_kissing[0] - 1;
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_x, 0.25,0,212, 4.5,0,212, 4.75,0,slotPositions[slot1]['defPos'][0] ]);
                         ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_y, 0.25,0,250, 4.5,0,250, 4.75,0,slotPositions[slot1]['defPos'][1] ]);
