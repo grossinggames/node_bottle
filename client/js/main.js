@@ -294,8 +294,8 @@ window.onload = function () {
 
                         for (var i = 1; i < 13; i++) {
                             ObjAnimate('spr_bottle_slot_' + i, 'angle', 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_slot_' + i).angle, 0.3,0,0 ]);
-                            ObjAnimate('spr_bottle_slot_' + i, 'pos_x', 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_slot_' + i).pox_x, 0.3,0,slotPositions[i]['defPos'][0] ]);
-                            ObjAnimate('spr_bottle_slot_' + i, 'pos_y', 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_slot_' + i).pos_y, 0.3,0,slotPositions[i]['defPos'][1] ]);
+                            ObjAnimate('spr_bottle_slot_' + i, 'pos_x', 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_slot_' + i).pox_x, 0.3,0,slotPositions[i - 1]['defPos'][0] ]);
+                            ObjAnimate('spr_bottle_slot_' + i, 'pos_y', 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_slot_' + i).pos_y, 0.3,0,slotPositions[i - 1]['defPos'][1] ]);
                         }                        
 
                         var slot1 = message["bottle"].start_kissing[0] - 1;
