@@ -329,8 +329,8 @@ window.onload = function () {
 
         /* *************** Работа с сокетом *************** */
         // Отправка сообщений в чат
-        function SendMessage() {
-            var msg = inputText.value;
+        function SendMessage(msg) {
+            msg = msg || inputText.value;
             if (msg != "") {
                 socket.send( JSON.stringify({msg: msg}) );
                 inputText.value = "";
@@ -664,6 +664,7 @@ window.onload = function () {
                 //ButtonUp("spr_bottle_kiss_yes");
                 ObjSet("spr_bottle_kiss_yes", {input: 0});
                 ObjSet("spr_bottle_kiss_no", {input: 0});
+                SendMessage('Согласился поцеловать');
             },
             event_mleave: function() {
                 //ButtonLeave("spr_bottle_kiss_yes");
@@ -685,6 +686,7 @@ window.onload = function () {
                 //ButtonUp("spr_bottle_kiss_no");
                 ObjSet("spr_bottle_kiss_yes", {input: 0});
                 ObjSet("spr_bottle_kiss_no", {input: 0});
+                SendMessage('Отказался поцеловать');
             },
             event_mleave: function() {
                 //ButtonLeave("spr_bottle_kiss_no");
