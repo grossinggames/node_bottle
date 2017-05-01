@@ -36,6 +36,7 @@ module.exports.changeGroup = routingClients.changeGroup;
 /* *************** Правила в группе *************** */
 var rulesGroup = require("../rules/group.js");
 module.exports.clickBottle = rulesGroup.clickBottle;
+module.exports.setKissOffer = rulesGroup.setKissOffer;
 
 
 /* *************** Маршрутизация сообщений *************** */

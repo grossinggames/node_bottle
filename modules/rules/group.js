@@ -146,9 +146,10 @@ function offerKissing(group, partner1, partner2) {
 }
 
 // Анимация приближения партнеров
-function setKissOffer(client) {
-    if ( (routingMessage.groups[client.group].partners[0] == client.slot) || 
-        (routingMessage.groups[client.group].partners[1] == client.slot) ) {
-        bus.emit("sendMessageGroup", client.group, { bottle: {kiss_offer: message["kiss_offer"]} });
+function setKissOffer(client, kissOffer) {
+    if ( (groups[client.group].partners[0] == client.slot) || 
+        (groups[client.group].partners[1] == client.slot) ) {
+        bus.emit("sendMessageGroup", client.group, { bottle: {kiss_offer: kissOffer} });
     }
 }
+module.exports.setKissOffer = setKissOffer;

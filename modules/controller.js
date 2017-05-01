@@ -47,10 +47,19 @@ function addMessage(client, message) {
     }
 
     // Пользователь кликнул по бутылке
-    if ( ("kiss_offer" in message) && 
-        (routingMessage.groups[client.group].partners[0] == client.slot) || 
-        (routingMessage.groups[client.group].partners[1] == client.slot) ) {
-        routingMessage.setKissOffer(client, message["kiss_offer"]);
+    if ("kiss_offer" in message) {  
+        /*
+        console.log(message["kiss_offer"]);
+        console.log(client.slot);
+        console.log(routingMessage.groups[client.group].partners[0]);
+        console.log(routingMessage.groups[client.group].partners[1]);
+        console.log("");
+        */
+
+        if ((routingMessage.groups[client.group].partners[0] == client.slot) || 
+            (routingMessage.groups[client.group].partners[1] == client.slot) ) {
+            routingMessage.setKissOffer(client, message["kiss_offer"]);
+        }
     }
 }
 
