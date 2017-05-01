@@ -45,6 +45,13 @@ function addMessage(client, message) {
     if ( message["bottle"] && (routingMessage.groups[client.group].current == client.slot) ) {
         routingMessage.clickBottle(client.group);
     }
+
+    // Пользователь кликнул по бутылке
+    if ( ("kiss_offer" in message) && 
+        (routingMessage.groups[client.group].partners[0] == client.slot) || 
+        (routingMessage.groups[client.group].partners[1] == client.slot) ) {
+        routingMessage.setKissOffer(client, message["kiss_offer"]);
+    }
 }
 
 

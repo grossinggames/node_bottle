@@ -144,3 +144,11 @@ function offerKissing(group, partner1, partner2) {
         changeRotating(group);
     }
 }
+
+// Анимация приближения партнеров
+function setKissOffer(client) {
+    if ( (routingMessage.groups[client.group].partners[0] == client.slot) || 
+        (routingMessage.groups[client.group].partners[1] == client.slot) ) {
+        bus.emit("sendMessageGroup", client.group, { bottle: {kiss_offer: message["kiss_offer"]} });
+    }
+}

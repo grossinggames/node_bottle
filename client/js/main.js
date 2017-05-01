@@ -67,10 +67,10 @@ window.onload = function () {
                 if (data && data.response && data.response[0] 
                 && data.response[0].photo_100 && data.response[0].first_name) {
                     photo = data.response[0].photo_100;
-                    socket.send( JSON.stringify({
+                    socket.send(JSON.stringify({
                             photo: data.response[0].photo_100,
                             first_name: data.response[0].first_name
-                    }) );
+                    }));
                 }
             });
         };
@@ -123,6 +123,12 @@ window.onload = function () {
 
                 // Бутылка
                 if (message["bottle"]) {
+                    // Установить ответ на предложение полцеловать
+                    if (message["bottle"]["kiss_offer"] == 0) {
+                        ObjSet("spr_bottle_kiss_left_no", {alp: 1});
+                    } else if (message["bottle"]["kiss_offer"] == 1) {
+                        ObjSet("spr_bottle_kiss_left_yes", {alp: 1});
+                    }
 
                     // Кто крутит
                     if (message["bottle"]["current"]) {
@@ -211,6 +217,7 @@ window.onload = function () {
                         ObjSet("spr_bottle_kiss_yes", {input: 1});
                         ObjSet("spr_bottle_kiss_no", {input: 1});
                         ObjSet("spr_bottle_floor_bottle", {input: 0});
+                        ObjSet("spr_bottle_kiss_left_yes", {alp: 0});
                         
                         // Блок надписей поцелуются они или нет
                         ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_arrow").alp, 0.3,0,0 ]);
@@ -665,6 +672,10 @@ window.onload = function () {
                 ObjSet("spr_bottle_kiss_yes", {input: 0});
                 ObjSet("spr_bottle_kiss_no", {input: 0});
                 SendMessage('Согласился поцеловать');
+                socket.send(JSON.stringify({
+                    kiss_offer: 1
+                }));
+                ObjSet("spr_bottle_kiss_left_yes", {alp: 1});
             },
             event_mleave: function() {
                 //ButtonLeave("spr_bottle_kiss_yes");
@@ -687,6 +698,7 @@ window.onload = function () {
                 ObjSet("spr_bottle_kiss_yes", {input: 0});
                 ObjSet("spr_bottle_kiss_no", {input: 0});
                 SendMessage('Отказался поцеловать');
+                socket.send( JSON.stringify({kiss_offer: 0}) );
             },
             event_mleave: function() {
                 //ButtonLeave("spr_bottle_kiss_no");
