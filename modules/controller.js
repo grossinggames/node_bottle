@@ -19,8 +19,8 @@ function addMessage(client, message) {
         (message["id"]) ) {
 
         if (clients[ message["id"] ]) {
-            routingMessage..outClient(clients[ message["id"] ]);
-            routingMessage..sendStateGroup(clients[ message["id"] ].group);
+            routingMessage.outClient(clients[ message["id"] ]);
+            routingMessage.sendStateGroup(clients[ message["id"] ].group);
         }
 
         clients[ message["id"] ] = client;
