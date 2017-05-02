@@ -1,4 +1,5 @@
 module.exports.bus = module.parent.exports.bus;
+var clients = {};
 
 // Маршрутизация сообщений
 var routingMessage = require("./routing/message.js");
@@ -14,9 +15,19 @@ function addMessage(client, message) {
     }
     
     // Пользователь указал ссылку на аву и имя
-    if ( (message["photo"]) && (message["first_name"]) ) {
+    if ( (message["photo"]) && (message["first_name"]) && 
+        (message["id"]) ) {
+
+        if (clients[ message["id"] ]) {
+            routingMessage..outClient(clients[ message["id"] ]);
+            routingMessage..sendStateGroup(clients[ message["id"] ].group);
+        }
+
+        clients[ message["id"] ] = client;
+
         client.photo = message.photo;
         client.first_name = message.first_name;
+        client.id = message.id;
 
         routingMessage.addClient(client);
         routingMessage.sendStateGroup(client.group);

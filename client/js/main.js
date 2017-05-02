@@ -64,12 +64,15 @@ window.onload = function () {
         socket.onopen  = function() {
             //console.log("Websocket connect");
             VK.api("users.get", {fields: "photo_100"}, function(data) { 
-                if (data && data.response && data.response[0] 
-                && data.response[0].photo_100 && data.response[0].first_name) {
+                console.log(data);
+                if (data && data.response && data.response[0] &&
+                  data.response[0].photo_100 && data.response[0].first_name && 
+                  data.response[0].id) {
                     photo = data.response[0].photo_100;
                     socket.send(JSON.stringify({
-                            photo: data.response[0].photo_100,
-                            first_name: data.response[0].first_name
+                        photo: data.response[0].photo_100,
+                        first_name: data.response[0].first_name,
+                        id: data.response[0].id
                     }));
                 }
             });
