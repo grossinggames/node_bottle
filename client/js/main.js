@@ -119,7 +119,21 @@ window.onload = function () {
 
                 // Новое сообщение
                 if (message["msg"]) {
-                    chatField.innerHTML += "<li>" + message.first_name + ": " + message.msg + "</li>";
+                    //chatField.innerHTML += "<li>" + message.first_name + ": " + message.msg + "</li>";
+                    //chatField.scrollTop = chatField.scrollHeight;
+
+                    chatField.innerHTML += [
+                        '<li class="collection-item avatar" style="word-wrap: break-word; overflow-wrap: break-word; width: 92%; margin: 3px auto; -webkit-user-select: none; -moz-user-select: none;">',
+                            '<img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle">',
+                            '<span class="title">' + message.first_name + '</span>',
+                            '<span style="margin-left: 7px;">' + '12:27' + '</span>',
+                            '<br>',
+                            '<span>' + message.msg + '</span>',
+                            '<div style="cursor: pointer;" class="secondary-content">',
+                            '<i style="cursor: pointer;" onclick="$(this.parentNode.parentNode).remove()" class="close material-icons">close</i>',
+                            '</div>',
+                        '</li>'
+                    ].join(' ');
                     chatField.scrollTop = chatField.scrollHeight;
                 }
 

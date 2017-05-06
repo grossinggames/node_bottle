@@ -8,6 +8,12 @@
     <script src="//vk.com/js/api/xd_connection.js?2"  type="text/javascript"></script>
     <script src="js/common.js"></script>
     <script src="js/main.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="styles/materialize.min.css"  media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
     <div id="tmr_global" class="tmr"></div>
@@ -33,7 +39,7 @@
         </div>
     </div>
     <div id="room_bottle" class="room">
-        <div id="spr_bottle_floor" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 0px; top: 0px; z-index: 0; width: 704px; height: 620px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url('images/back.jpg'); background-position: 0px 0px;">
+        <div id="spr_bottle_floor" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 0px; top: 0px; z-index: 0; width: 650px; height: 620px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url('images/back.jpg'); background-position: -28px 0px;">
             <div id="spr_bottle_slots" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 0px; top: 0px; z-index: 1; width: 0px; height: 0px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;">
                 <div id="spr_bottle_slot_1" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 375px; top: 40px; z-index: 0; width: 84px; height: 129px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;"></div>
                 <div id="spr_bottle_slot_2" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 469px; top: 74px; z-index: 0; width: 84px; height: 129px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;"></div>
@@ -49,8 +55,8 @@
                 <div id="spr_bottle_slot_12" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 278px; top: 38px; z-index: 0; width: 84px; height: 129px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;"></div>
             </div>
             <div id="spr_bottle_floor_bottle" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 322px; top: 203px; z-index: 0; width: 60px; height: 198px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url('images/bottle.png'); background-position: 0px 0px;"></div>
-            <div id="txt_bottle_table" class="txt" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 604px; top: 15px; z-index: 0; width: 100px; height: 22px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;"></div>
-            <div id="txt_bottle_slot" class="txt" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 604px; top: 40px; z-index: 0; width: 100px; height: 22px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;"></div>
+            <div id="txt_bottle_table" class="txt" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 504px; top: 15px; z-index: 0; width: 100px; height: 22px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;"></div>
+            <div id="txt_bottle_slot" class="txt" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 504px; top: 40px; z-index: 0; width: 100px; height: 22px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;"></div>
             <div id="txt_bottle_version" class="txt" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 30px; top: 600px; z-index: 0; width: 100px; height: 22px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;">v0.0.1</div>
             <div id="txt_bottle_fps" class="txt" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 112px; top: 600px; z-index: 0; width: 100px; height: 22px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;"></div>
             <div id="spr_bottle_arrow" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 300px; top: 400px; z-index: 2; width: 100px; height: 56px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 0; background-image: url('images/arrow.png'); background-position: 0px 0px;"></div>
@@ -71,7 +77,7 @@
                 <div id="spr_bottle_button_change_bottle_btn" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 657px; top: 324px; z-index: 0; width: 35px; height: 35px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 0; background-image: url(''); background-position: 0px 0px;">
                     <div id="spr_bottle_button_change_bottle" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 0px; top: 0px; z-index: 0; width: 35px; height: 35px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-image: url('images/change_bottle.png'); background-position: 0px 0px;"></div>
                 </div>
-                <div id="spr_bottle_button_change_table_btn" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 657px; top: 13px; z-index: 0; width: 35px; height: 35px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;">
+                <div id="spr_bottle_button_change_table_btn" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 607px; top: 13px; z-index: 0; width: 35px; height: 35px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;">
                     <div id="spr_bottle_button_change_table" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: px; top: 0px; z-index: 0; width: 35px; height: 35px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-image: url('images/change_table.png'); background-position: 0px 0px;"></div>
                 </div>
                 <div id="spr_bottle_button_achievements_btn" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 657px; top: 408px; z-index: 0; width: 35px; height: 35px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 0; background-image: url(''); background-position: 0px 0px;">
@@ -88,14 +94,47 @@
                 </div>
             </div>
         </div>
-        <div id="spr_bottle_chat" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 704px; top: 0px; z-index: 0; width: 0px; height: 0px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;">
+        <div id="spr_bottle_chat" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 650px; top: 0px; z-index: 0; width: 350px; height: 620px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;">
+            <ul id="spr_bottle_chat_field" id="spr_bottle_chat_field"class="collection" style="left: 0px; top: 0px; z-index: 0; width: 350px; height: 525px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px; overflow-y: scroll; margin: 0;">
+                <li class="collection-item avatar" style="word-wrap: break-word; overflow-wrap: break-word; width: 92%; margin: 3px auto;">
+                    <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle">
+                    <span class="title">На донышке</span>
+                    <span style="margin-left: 7px;">12:27</span>
+                    <br>
+                    <span>Добро пожаловать в приложение На Донышке!</span>
+                    <div style="cursor: pointer;" class="secondary-content"><i style="cursor: pointer;" onclick="$(this.parentNode.parentNode).remove()" class="close material-icons">close</i></div>
+                </li>
+            </ul>
+
+            <div id="spr_bottle_sending" class="row">
+                <div class="input-field col s10">
+                    <i class="material-icons prefix">textsms</i>
+                    <input id="spr_bottle_sending_input" type="text" data-length="140" class="validate" maxlength="140" style="cursor: auto;">
+                    <label for="spr_bottle_sending_input">Текст сообщения</label>
+                </div>
+
+                <div class="input-field col s2" style="padding: 0">
+                    <a class="btn btn-floating btn-large waves-effect waves-light" style="width: 46px; height: 46px;">
+                      <i id="spr_bottle_sending_send" class="material-icons right" style="line-height: 49px; cursor: pointer;">send</i>
+                    </a>
+                </div>
+            </div>
+        
+
+            <!--
             <ul id="spr_bottle_chat_field" class="txt" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 0px; top: 0px; z-index: 0; width: 296px; height: 568px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px; overflow-y: scroll;">
             </ul>
             <div id="spr_bottle_sending" class="send_message">
                 <input id="spr_bottle_sending_input" class="text_field" type="text" maxlength="40" placeholder="Написать сообщение" autofocus>
                 <div id="spr_bottle_sending_send" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 236px; top: 8px; z-index: 0; width: 52px; height: 36px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url('images/send.png'); background-position: 0px 0px; cursor: pointer"></div>
             </div>
+            -->
         </div>
     </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script>
+    </script>
   </body>
 </html>
