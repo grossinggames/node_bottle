@@ -1,5 +1,4 @@
 window.onload = function () {
-    setEmitter();
 
     /* *************** Инициализация вк *************** */
     VK.init(function() {

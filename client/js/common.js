@@ -1,7 +1,7 @@
 /* ******************** Комнаты ******************** */
 // Все комнаты
 var rooms = ["room_bottle"];
-var currentRoom = "";
+var currentRoom = null;
 
 // Перейти в комнату
 function SwitchRoom(room) {
@@ -606,12 +606,14 @@ function setEmitter() {
     if (intervalTick) {
         return;
     }
-
     if (!tmrGlobal) {
         var tmrGlobal = window.document.getElementById("tmr_global");
     }
     intervalTick = setInterval(function () {
-        countSetStepAnim = 0;
+        if (!currentRoom) {
+            return;
+        }
+        //countSetStepAnim = 0;
         var newTime = new Date().getTime();
         diffTickTime = (newTime - curTime);
         curTime = newTime;
@@ -634,8 +636,10 @@ function setEmitter() {
         //if (!countSetStepAnim) {
         //    destroyEmitter();
         //}
-    }, 10);
+    }, 17);
 }
+
+setEmitter();
 
 function destroyEmitter() {
     clearInterval(intervalTick);
