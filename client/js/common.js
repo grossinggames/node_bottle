@@ -629,7 +629,8 @@ function setEmitter() {
         tmrGlobal.dispatchEvent(ticks["room_interface"]);
 
         //console.log('diffTickTime: ', diffTickTime);
-        console.log('countSetStepAnim: ', countSetStepAnim);
+        //console.log('countSetStepAnim: ', countSetStepAnim);
+
         if (!countSetStepAnim) {
             destroyEmitter();
         }
