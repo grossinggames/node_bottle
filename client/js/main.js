@@ -1,6 +1,5 @@
 window.onload = function () {
-    var tmrGlobal = window.document.getElementById("tmr_global");
-
+    
     /* *************** Инициализация вк *************** */
     VK.init(function() {
         // API initialization succeeded
