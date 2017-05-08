@@ -341,7 +341,7 @@ var countSetStepAnim = 0;
 // Пример: room_example spr_example_spritename
 function ObjAnimate(obj, type, loop, relative, cb, anm) {
     if (anm.length % 3 == 0) {
-        setEmitter();
+        //setEmitter();
         var arrayAnim = [];
 
         // Создание массива из элементов [время, значение]
@@ -631,9 +631,9 @@ function setEmitter() {
         //console.log('diffTickTime: ', diffTickTime);
         //console.log('countSetStepAnim: ', countSetStepAnim);
 
-        if (!countSetStepAnim) {
-            destroyEmitter();
-        }
+        //if (!countSetStepAnim) {
+        //    destroyEmitter();
+        //}
     }, 10);
 }
 
