@@ -124,7 +124,7 @@ window.onload = function () {
 
                     chatField.innerHTML += [
                         '<li class="collection-item avatar" style="word-wrap: break-word; overflow-wrap: break-word; width: 92%; margin: 3px auto; -webkit-user-select: none; -moz-user-select: none;">',
-                            '<img src="' + photo + '" alt="" class="circle">',
+                            '<img src="' + message.photo + '" alt="" class="circle">',
                             '<span class="title">' + message.first_name + '</span>',
                             '<span style="margin-left: 7px;">' + '12:27' + '</span>',
                             '<br>',

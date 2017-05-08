@@ -41,7 +41,8 @@ function addMessage(client, message) {
     if (message["msg"]) {
         routingMessage.sendMessageGroup(client.group, {
             msg: message.msg, 
-            first_name: client.first_name
+            first_name: client.first_name,
+            photo: client.photo
         });
         routingMessage.traceState(client.group);
     }
