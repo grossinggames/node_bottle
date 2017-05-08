@@ -636,6 +636,7 @@ function setEmitter() {
         //}
     }, 10);
 }
+setEmitter();
 
 function destroyEmitter() {
     clearInterval(intervalTick);
