@@ -21,7 +21,7 @@ var routingClients = require("./client.js");
 
 function addClient(client) {
     routingClients.addClient(client);
-    bus.emit("changeRotating", client.group); // addRotating
+    //bus.emit("changeRotating", client.group); // addRotating
 }
 module.exports.addClient   = addClient;
 
