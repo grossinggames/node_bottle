@@ -19,7 +19,7 @@ window.onload = function () {
         /* *************** Преднастройки *************** */
         // Настройки служебные
         SwitchRoom("room_bottle");
-
+/*
         // Массив событий для комнат и интерфейса
         var ticks = [];
         ticks["room_interface"] = new CustomEvent("room_interface");
@@ -54,7 +54,7 @@ window.onload = function () {
 
             //console.log('diffTickTime: ', diffTickTime);
         }, TIME_UPDATE);
-
+*/
         /* *************** Websocket соединение *************** */
         var slot = 0;
         var group = 0;

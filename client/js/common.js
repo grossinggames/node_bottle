@@ -334,12 +334,14 @@ function DbgTrace(msg) {
 var TIME_UPDATE = 10;
 
 var anims = [];
+var countSetStepAnim = 0;
 
 // Анимирование объекта
 // (Важно! объект должен быть заанимирован только в своей комнате и иметь правильное имя )
 // Пример: room_example spr_example_spritename
 function ObjAnimate(obj, type, loop, relative, cb, anm) {
     if (anm.length % 3 == 0) {
+        setEmitter();
         var arrayAnim = [];
 
         // Создание массива из элементов [время, значение]
@@ -462,6 +464,7 @@ function ObjAnimate(obj, type, loop, relative, cb, anm) {
 
         // Установить новые значения
         function stepAnim(event) {
+            countSetStepAnim++;
             totalTime += event.diffMs;
 
             if (totalTime <= timeLineTotal) {
@@ -479,6 +482,7 @@ function ObjAnimate(obj, type, loop, relative, cb, anm) {
                     setParam();
                     tmr_global.removeEventListener(room, stepAnim);
                     cb();
+
                 }
             }
             //console.log('totalTime = ', totalTime, ' ------cursor: ', cursor);
@@ -560,4 +564,76 @@ function HideModalWindow() {
     ObjAnimate(modalWindowHub, "alp", 0, 0, function() {
         ObjSet(modalWindowHub, { active: 0 });
     }, [ 0,0,ObjGet(modalWindowHub).alp, timeAnmModWin,0,0 ]);
+}
+
+
+// Костыль для IE
+(function () {
+
+    if ( typeof window.CustomEvent === "function" ) return false;
+
+    function CustomEvent ( event, params ) {
+        params = params || { bubbles: false, cancelable: false, detail: undefined };
+        var evt = document.createEvent( 'CustomEvent' );
+        evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+        return evt;
+    }
+
+    CustomEvent.prototype = window.Event.prototype;
+
+    window.CustomEvent = CustomEvent;
+})();
+
+
+// Массив событий для комнат и интерфейса
+var ticks = [];
+ticks["room_interface"] = new CustomEvent("room_interface");
+
+var curTime = new Date().getTime();
+var diffTickTime = 0;
+var FPS = 0;
+var startFPStime = curTime;
+
+// Заполняем ассациативный массив событиями
+for (var i = 0, len = rooms.length; i < len; i++) {
+    ticks[ rooms[i] ] = new CustomEvent(rooms[i]);
+}
+
+var tmrGlobal = window.document.getElementById("tmr_global");
+var intervalTick = null;
+
+function setEmitter() {
+    if (intervalTick) {
+        return;
+    }
+
+    intervalTick = setInterval(function () {
+        countSetStepAnim = 0;
+        var newTime = new Date().getTime();
+        diffTickTime = (newTime - curTime);
+        curTime = newTime;
+
+        if ( (curTime - startFPStime) >= 1000 ) {
+            startFPStime = curTime;
+            ObjSet('txt_bottle_fps', { text: 'FPS: ' +FPS });
+            FPS = 0;
+        } else {
+            FPS++;
+        }
+
+        ticks[currentRoom]['diffMs'] = diffTickTime;
+        tmrGlobal.dispatchEvent(ticks[currentRoom]);
+        tmrGlobal.dispatchEvent(ticks["room_interface"]);
+
+        //console.log('diffTickTime: ', diffTickTime);
+        console.log('countSetStepAnim: ', countSetStepAnim);
+        if (!countSetStepAnim) {
+            destroyEmitter();
+        }
+    }, 10);
+}
+
+function destroyEmitter() {
+    clearInterval(intervalTick);
+    intervalTick = null;
 }
