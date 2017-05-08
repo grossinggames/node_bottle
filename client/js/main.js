@@ -1,15 +1,5 @@
 window.onload = function () {
-    /* global ObjGet */
-    /* global ObjSet */
-    /* global ObjAnimate */
-    /* global VK */
-    /* global SwitchRoom */
-    /* global CustomEvent */
-    /* global rooms */
-    /* global currentRoom */
-    /* global TIME_UPDATE */
-    /* global ShowModalWindow */
-    /* global HideModalWindow */
+    var tmrGlobal = window.document.getElementById("tmr_global");
 
     /* *************** Инициализация вк *************** */
     VK.init(function() {

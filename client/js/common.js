@@ -599,7 +599,6 @@ for (var i = 0, len = rooms.length; i < len; i++) {
     ticks[ rooms[i] ] = new CustomEvent(rooms[i]);
 }
 
-var tmrGlobal = window.document.getElementById("tmr_global");
 var intervalTick = null;
 
 function setEmitter() {
@@ -607,6 +606,9 @@ function setEmitter() {
         return;
     }
 
+    if (!tmrGlobal) {
+        return;
+    }
     intervalTick = setInterval(function () {
         countSetStepAnim = 0;
         var newTime = new Date().getTime();
