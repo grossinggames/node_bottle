@@ -122,7 +122,20 @@ window.onload = function () {
                     //chatField.innerHTML += "<li>" + message.first_name + ": " + message.msg + "</li>";
                     //chatField.scrollTop = chatField.scrollHeight;
                     var now = new Date();
-                    var timeMsg = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+                    var hours = now.getHours();
+                    var minutes = now.getMinutes();
+                    var seconds = now.getSeconds();
+                    if (hours <= 9) {
+                        hours = "0" + hours;
+                    }
+                    if (minutes <= 9) {
+                        minutes = "0" + minutes;
+                    }
+                    if (seconds <= 9) {
+                        seconds = "0" + seconds;
+                    }
+
+                    var timeMsg = hours + ":" + minutes + ":" + seconds;
 
                     chatField.innerHTML += [
                         '<li class="collection-item avatar" style="word-wrap: break-word; overflow-wrap: break-word; width: 92%; margin: 3px auto; -webkit-user-select: none; -moz-user-select: none;">',
