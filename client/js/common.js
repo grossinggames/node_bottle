@@ -607,10 +607,14 @@ function setEmitter() {
         return;
     }
     if (!tmrGlobal) {
-        var tmrGlobal = window.document.getElementById("tmr_global");
+        tmrGlobal = window.document.getElementById("tmr_global");
     }
+
     intervalTick = setInterval(function () {
         if (!currentRoom) {
+            return;
+        }
+        if (!tmrGlobal) {
             return;
         }
         //countSetStepAnim = 0;
