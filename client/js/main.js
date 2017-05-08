@@ -416,7 +416,7 @@ window.onload = function () {
             event_mup: function() {
                 var btn = ObjGet("spr_bottle_floor_bottle");
                 ObjSet("spr_bottle_floor_bottle", {input: 0});
-                ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_rotate_bottle").alp, 2.3,0,0 ]);
+                ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_rotate_bottle").alp, 0.3,0,0 ]);
                 //ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,btn.angle, 1,0,btn.angle + 360 ]);
                 socket.send( JSON.stringify({bottle: 1}) );
                 //inputText.focus();
