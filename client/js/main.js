@@ -480,11 +480,11 @@ window.onload = function () {
             },
             event_mleave: function() {
                 //ButtonLeave("spr_bottle_button_change_table");
-                ObjSet("spr_bottle_button_change_table", { drawoff_x: 0 });
+                //ObjSet("spr_bottle_button_change_table", { drawoff_x: 0 });
             },
             event_menter: function() {
                 //ButtonEnter("spr_bottle_button_change_table");
-                ObjSet("spr_bottle_button_change_table", { drawoff_x: -35 });
+                //ObjSet("spr_bottle_button_change_table", { drawoff_x: -35 });
             }
         });
 
