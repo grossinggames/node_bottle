@@ -731,34 +731,34 @@ window.onload = function () {
     /* *************** Позиции *************** */
     // Настройки слотов
     var slotPositions = [
-        { defPos: [375,  40], angle: 18 },  // 1
-        { defPos: [469,  74], angle: 41  },  // 2
-        { defPos: [565, 208], angle: 77  },  // 3
-        { defPos: [560, 347], angle: 110 }, // 4
-        { defPos: [467, 442], angle: 135 }, // 5
-        { defPos: [374, 473], angle: 165 }, // 6
-        { defPos: [272, 470], angle: 200 }, // 7
-        { defPos: [181, 431], angle: 224 }, // 8
-        { defPos: [93,  343], angle: 262 }, // 9
-        { defPos: [96,  195], angle: 297 }, // 10
-        { defPos: [188,  67], angle: 322 }, // 11
-        { defPos: [278,  38], angle: 350 }  // 12
+        { defPos: [347,  40], angle: 18 },  // 1
+        { defPos: [441,  74], angle: 41  },  // 2
+        { defPos: [537, 208], angle: 77  },  // 3
+        { defPos: [532, 347], angle: 110 }, // 4
+        { defPos: [439, 442], angle: 135 }, // 5
+        { defPos: [346, 473], angle: 165 }, // 6
+        { defPos: [244, 470], angle: 200 }, // 7
+        { defPos: [153, 431], angle: 224 }, // 8
+        { defPos: [65,  343], angle: 262 }, // 9
+        { defPos: [68,  195], angle: 297 }, // 10
+        { defPos: [160,  67], angle: 322 }, // 11
+        { defPos: [250,  38], angle: 350 }  // 12
     ];
 
     // Настройки стрелки
     var arrowSettings = [
-        { posXY: [336, 177], angle: -69  }, // 1
-        { posXY: [372, 184], angle: -27  }, // 2
-        { posXY: [417, 253], angle: -6   }, // 3
-        { posXY: [418, 355], angle: 0    }, // 4
-        { posXY: [375, 356], angle: 42   }, // 5
-        { posXY: [344, 357], angle: 77   }, // 6
-        { posXY: [252, 357], angle: 77   }, // 7
-        { posXY: [252, 357], angle: 134  }, // 8
-        { posXY: [225, 320], angle: 162  }, // 9
-        { posXY: [225, 224], angle: 182  }, // 10
-        { posXY: [224, 202], angle: 234  }, // 11
-        { posXY: [328, 180], angle: 234  }  // 12
+        { posXY: [308, 177], angle: -69  }, // 1
+        { posXY: [344, 184], angle: -27  }, // 2
+        { posXY: [389, 253], angle: -6   }, // 3
+        { posXY: [390, 355], angle: 0    }, // 4
+        { posXY: [347, 356], angle: 42   }, // 5
+        { posXY: [316, 357], angle: 77   }, // 6
+        { posXY: [224, 357], angle: 77   }, // 7
+        { posXY: [224, 357], angle: 134  }, // 8
+        { posXY: [197, 320], angle: 162  }, // 9
+        { posXY: [197, 224], angle: 182  }, // 10
+        { posXY: [198, 202], angle: 234  }, // 11
+        { posXY: [300, 180], angle: 234  }  // 12
     ];
 
     }, function() {
