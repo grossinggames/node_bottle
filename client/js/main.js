@@ -629,13 +629,21 @@ window.onload = function () {
 
         ObjSet("spr_bottle_button_sound_btn",
         {
-            cursor: "hand",
-            popup: "Управление звуками",
+            //cursor: "hand",
+            popup: "Звуковое сопровождение",
             event_mdown: function() {
                 //ButtonDown("spr_bottle_button_sound");
             },
             event_mup: function() {
                 //ButtonUp("spr_bottle_button_sound");
+            },
+            event_mleave: function() {
+                //ButtonLeave("spr_bottle_button_sound");
+                //ObjSet("spr_bottle_button_sound", { drawoff_x: 0 });
+            },
+            event_menter: function() {
+                //ButtonEnter("spr_bottle_button_sound");
+                //ObjSet("spr_bottle_button_sound", { drawoff_x: -35 });
             }
         });
 
