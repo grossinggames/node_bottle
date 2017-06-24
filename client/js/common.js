@@ -242,7 +242,7 @@ function ObjGet(objname) {
                 break;
             case "rotate":
                 //result[key] = Number(obj.style.transform.match(/rotate\(-?\w+(.\w+)?\)/g)[0].match(/\d+(.\d+)?/g)[0]);
-                result[key] = Number(obj.style.transform.match(/rotate\(.*\)\)/g)[0].match(/\d+(.\d+)?/g)[0]);
+                result[key] = Number(obj.style.transform.match(/rotate\(.*\)/g)[0].match(/\d+(.\d+)?/g)[0]);
                 break;
             case "scaleX":
                 //result[key] = Number(obj.style.transform.match(/scaleX\(-?\w+(.\w+)?\)/g)[0].match(/\d+(.\d+)?/g)[0]);
