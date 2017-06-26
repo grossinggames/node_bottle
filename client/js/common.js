@@ -162,13 +162,16 @@ function ObjSet(objname, params) {
                 obj.style[ properties[key] ] = Math.round(value);
                 break;
             case "angle":
-                obj.style.transform = obj.style.transform.replace(/rotate\(.?\w+(.\w+)?\)/g, "rotate(" + value + "deg)");
+                //obj.style.transform = obj.style.transform.replace(/rotate\(.?\w+(.\w+)?\)/g, "rotate(" + value + "deg)");
+                obj.style.transform = obj.style.transform.replace(/rotate\(.*\)/g, "rotate(" + value + "deg)");
                 break;
             case "scale_x":
-                obj.style.transform = obj.style.transform.replace(/scaleX\(.?\w+(.\w+)?\)/g, "scaleX(" + value + ")");
+                //obj.style.transform = obj.style.transform.replace(/scaleX\(.?\w+(.\w+)?\)/g, "scaleX(" + value + ")");
+                obj.style.transform = obj.style.transform.replace(/scaleX\(.*\)/g, "scaleX(" + value + ")");
                 break;
             case "scale_y":
-                obj.style.transform = obj.style.transform.replace(/scaleY\(.?\w+(.\w+)?\)/g, "scaleY(" + value + ")");
+                //obj.style.transform = obj.style.transform.replace(/scaleY\(.?\w+(.\w+)?\)/g, "scaleY(" + value + ")");
+                obj.style.transform = obj.style.transform.replace(/scaleY\(.*\)?\)/g, "scaleY(" + value + ")");
                 break;
             case "input":
                 if (value) {
@@ -242,15 +245,19 @@ function ObjGet(objname) {
                 break;
             case "rotate":
                 //result[key] = Number(obj.style.transform.match(/rotate\(-?\w+(.\w+)?\)/g)[0].match(/\d+(.\d+)?/g)[0]);
-                result[key] = Number(obj.style.transform.match(/rotate\(.*\)/g)[0].match(/\d+(.\d+)?/g)[0]);
+                //result[key] = Number(obj.style.transform.match(/rotate\(.*\)/g)[0].match(/\d+(.\d+)?/g)[0]);
+                result[key] = Number(obj.style.transform.match(/rotate\(-?.*\)/g)[0].match(/-?\d+.?\d+e?-?\d+/g)[0]);
+                
                 break;
             case "scaleX":
                 //result[key] = Number(obj.style.transform.match(/scaleX\(-?\w+(.\w+)?\)/g)[0].match(/\d+(.\d+)?/g)[0]);
-                result[key] = Number(obj.style.transform.match(/scaleX\(.*\)/g)[0].match(/\d+(.\d+)?/g)[0]);
+                //result[key] = Number(obj.style.transform.match(/scaleX\(.*\)/g)[0].match(/\d+(.\d+)?/g)[0]);
+                result[key] = Number(obj.style.transform.match(/scaleX\(-?.*\)/g)[0].match(/-?\d+.?\d+e?-?\d+/g)[0]);
                 break;
             case "scaleY":
                 //result[key] = Number(obj.style.transform.match(/scaleY\(-?\w+(.\w+)?\)/g)[0].match(/\d+(.\d+)?/g)[0]);
-                result[key] = Number(obj.style.transform.match(/scaleY\(.*\)/g)[0].match(/\d+(.\d+)?/g)[0]);
+                //result[key] = Number(obj.style.transform.match(/scaleY\(.*\)/g)[0].match(/\d+(.\d+)?/g)[0]);
+                result[key] = Number(obj.style.transform.match(/scaleY\(-?.*\)/g)[0].match(/-?\d+.?\d+e?-?\d+/g)[0]);
                 break;
             case "pointer-events":
                 if (obj.style[ properties[key] ] == "none") {
