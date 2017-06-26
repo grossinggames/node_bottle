@@ -246,18 +246,19 @@ function ObjGet(objname) {
             case "rotate":
                 //result[key] = Number(obj.style.transform.match(/rotate\(-?\w+(.\w+)?\)/g)[0].match(/\d+(.\d+)?/g)[0]);
                 //result[key] = Number(obj.style.transform.match(/rotate\(.*\)/g)[0].match(/\d+(.\d+)?/g)[0]);
-                result[key] = Number(obj.style.transform.match(/rotate\(-?.*\)/g)[0].match(/-?\d+.?\d+e?-?\d+/g)[0]);
+                result[key] = Number(obj.style.transform.match(/rotate\(-?.*\)/g)[0].match(/-?\d+[.]?(\d+)?e?-?(\d+)?/g)[0]);
+                                                                                     
                 
                 break;
             case "scaleX":
                 //result[key] = Number(obj.style.transform.match(/scaleX\(-?\w+(.\w+)?\)/g)[0].match(/\d+(.\d+)?/g)[0]);
                 //result[key] = Number(obj.style.transform.match(/scaleX\(.*\)/g)[0].match(/\d+(.\d+)?/g)[0]);
-                result[key] = Number(obj.style.transform.match(/scaleX\(-?.*\)/g)[0].match(/-?\d+.?\d+e?-?\d+/g)[0]);
+                result[key] = Number(obj.style.transform.match(/scaleX\(-?.*\)/g)[0].match(/-?\d+[.]?(\d+)?e?-?(\d+)?/g)[0]);
                 break;
             case "scaleY":
                 //result[key] = Number(obj.style.transform.match(/scaleY\(-?\w+(.\w+)?\)/g)[0].match(/\d+(.\d+)?/g)[0]);
                 //result[key] = Number(obj.style.transform.match(/scaleY\(.*\)/g)[0].match(/\d+(.\d+)?/g)[0]);
-                result[key] = Number(obj.style.transform.match(/scaleY\(-?.*\)/g)[0].match(/-?\d+.?\d+e?-?\d+/g)[0]);
+                result[key] = Number(obj.style.transform.match(/scaleY\(-?.*\)/g)[0].match(/-?\d+[.]?(\d+)?e?-?(\d+)?/g)[0]);
                 break;
             case "pointer-events":
                 if (obj.style[ properties[key] ] == "none") {
