@@ -229,16 +229,18 @@ window.onload = function () {
 
                             ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_yes").alp, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
                             ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_no").alp, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
+                            ObjSet("spr_bottle_kiss_yes", {input: 1});
+                            ObjSet("spr_bottle_kiss_no", {input: 1});
                         } else {
                             ObjAnimate("spr_bottle_kiss_your_choice", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_your_choice").alp, 0.3,0,0 ]);
                             ObjAnimate("spr_bottle_kiss_or_not", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_or_not").alp, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
 
                             ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_yes").alp, 0.3,0,0 ]);
                             ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_no").alp, 0.3,0,0 ]);
+                            ObjSet("spr_bottle_kiss_yes", {input: 0});
+                            ObjSet("spr_bottle_kiss_no", {input: 0});
                         }
 
-                        ObjSet("spr_bottle_kiss_yes", {input: 1});
-                        ObjSet("spr_bottle_kiss_no", {input: 1});
                         ObjSet("spr_bottle_floor_bottle", {input: 0});
                         ObjSet("spr_bottle_kiss_left_yes", {alp: 0});
                         
