@@ -154,31 +154,31 @@ window.onload = function () {
                     if (message["bottle"]["current"]) {
                         //chatField.innerHTML += "<li> крутит: " + message["bottle"].current + "</li>";
 
-                        ObjAnimate("spr_bottle_kiss_your_choice", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_your_choice").alp, 0.3,0,0 ]);
-                        ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_yes").alp, 0.3,0,0 ]);
-                        ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_no").alp, 0.3,0,0 ]);
+                        ObjAnimate("spr_bottle_kiss_your_choice", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+                        ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+                        ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
 
                         ObjSet("spr_bottle_kiss_yes", {input: 0});
                         ObjSet("spr_bottle_kiss_no", {input: 0});
                         
                         // Появляется стрелка
                         if (slot == message["bottle"].current) {
-                            ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_arrow").alp, 0.1,0,0 ]);
-                            ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_rotate_bottle").alp, 0.3,0,1 ]);
+                            ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.1,0,0 ]);
+                            ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,1 ]);
                             
                             // Устанавливаеся кликабельность бутылки
                             ObjSet("spr_bottle_floor_bottle", {input: 1});
                         } else {
-                            ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_arrow").alp, 0.3,0,1 ]);
-                            ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_rotate_bottle").alp, 0.1,0,0 ]);
+                            ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,1 ]);
+                            ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.1,0,0 ]);
                         }
 
                         // Появляется бутылка
-                        ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_floor_bottle').alp, 0.3,0,1 ]);
+                        ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,1 ]);
 
                         // Обнуляются углы слотов
                         for (var i = 1; i < 13; i++) {
-                            ObjAnimate('spr_bottle_slot_' + i, 'angle', 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_slot_' + i).angle, 0.3,0,0 ]);
+                            ObjAnimate('spr_bottle_slot_' + i, 'angle', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
                         }
 
                         // Установка позиции и угола стрелке
@@ -196,10 +196,10 @@ window.onload = function () {
                             return false;
                         }
 
-                        ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_rotate_bottle").alp, 0.3,0,0 ]);
-                        ObjAnimate("spr_bottle_kiss_your_choice", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_your_choice").alp, 0.3,0,0 ]);
-                        ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_yes").alp, 0.3,0,0 ]);
-                        ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_no").alp, 0.3,0,0 ]);
+                        ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+                        ObjAnimate("spr_bottle_kiss_your_choice", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+                        ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+                        ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
 
                         ObjSet("spr_bottle_kiss_yes", {input: 0});
                         ObjSet("spr_bottle_kiss_no", {input: 0});
@@ -224,19 +224,19 @@ window.onload = function () {
                         //chatField.innerHTML += "<li> анимация поцелуев: " + message["bottle"].start_kissing + "</li>";
 
                         if ( (slot == message["bottle"]["start_kissing"][0]) || (slot == message["bottle"]["start_kissing"][1]) ) {
-                            ObjAnimate("spr_bottle_kiss_your_choice", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_your_choice").alp, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
-                            ObjAnimate("spr_bottle_kiss_or_not", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_or_not").alp, 0.3,0,0 ]);
+                            ObjAnimate("spr_bottle_kiss_your_choice", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
+                            ObjAnimate("spr_bottle_kiss_or_not", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
 
-                            ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_yes").alp, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
-                            ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_no").alp, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
+                            ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
+                            ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
                             ObjSet("spr_bottle_kiss_yes", {input: 1});
                             ObjSet("spr_bottle_kiss_no", {input: 1});
                         } else {
-                            ObjAnimate("spr_bottle_kiss_your_choice", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_your_choice").alp, 0.3,0,0 ]);
-                            ObjAnimate("spr_bottle_kiss_or_not", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_or_not").alp, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
+                            ObjAnimate("spr_bottle_kiss_your_choice", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+                            ObjAnimate("spr_bottle_kiss_or_not", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
 
-                            ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_yes").alp, 0.3,0,0 ]);
-                            ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_kiss_no").alp, 0.3,0,0 ]);
+                            ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+                            ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
                             ObjSet("spr_bottle_kiss_yes", {input: 0});
                             ObjSet("spr_bottle_kiss_no", {input: 0});
                         }
@@ -245,7 +245,7 @@ window.onload = function () {
                         ObjSet("spr_bottle_kiss_left_yes", {alp: 0});
                         
                         // Блок надписей поцелуются они или нет
-                        ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_arrow").alp, 0.3,0,0 ]);
+                        ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
                         ObjAnimate("spr_bottle_floor_bottle", "alp", 0, 0, function() { }, [ 0,0,1, 0.3,0,0, 4.5,0,0, 4.75,0,1 ]);
                         ObjAnimate("spr_bottle_kiss_time", "alp", 0, 0, function() { }, [ 0,0,0, 0.3,0,1, 4.5,0,1, 4.75,0,0 ]);
 
@@ -325,18 +325,18 @@ window.onload = function () {
                         ]);
 
                         for (var i = 1; i < 13; i++) {
-                            ObjAnimate('spr_bottle_slot_' + i, 'angle', 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_slot_' + i).angle, 0.3,0,0 ]);
-                            ObjAnimate('spr_bottle_slot_' + i, 'pos_x', 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_slot_' + i).pox_x, 0.3,0,slotPositions[i - 1]['defPos'][0] ]);
-                            ObjAnimate('spr_bottle_slot_' + i, 'pos_y', 0, 0, function() { }, [ 0,0,ObjGet('spr_bottle_slot_' + i).pos_y, 0.3,0,slotPositions[i - 1]['defPos'][1] ]);
+                            ObjAnimate('spr_bottle_slot_' + i, 'angle', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+                            ObjAnimate('spr_bottle_slot_' + i, 'pos_x', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,slotPositions[i - 1]['defPos'][0] ]);
+                            ObjAnimate('spr_bottle_slot_' + i, 'pos_y', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,slotPositions[i - 1]['defPos'][1] ]);
                         }                        
 
                         var slot1 = message["bottle"].start_kissing[0] - 1;
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_x, 0.25,0,212, 4.5,0,212, 4.75,0,slotPositions[slot1]['defPos'][0] ]);
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[0]).pos_y, 0.25,0,250, 4.5,0,250, 4.75,0,slotPositions[slot1]['defPos'][1] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_x", 0, 0, function() {}, [ 0,0,'cur', 0.25,0,212, 4.5,0,212, 4.75,0,slotPositions[slot1]['defPos'][0] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[0], "pos_y", 0, 0, function() {}, [ 0,0,'cur', 0.25,0,250, 4.5,0,250, 4.75,0,slotPositions[slot1]['defPos'][1] ]);
 
                         var slot2 = message["bottle"].start_kissing[1] - 1;
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_x", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[1]).pos_x, 0.25,0,412, 4.5,0,412, 4.75,0,slotPositions[slot2]['defPos'][0] ]);
-                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_y", 0, 0, function() {}, [ 0,0,ObjGet("spr_bottle_slot_" + message["bottle"].start_kissing[1]).pos_y, 0.25,0,250, 4.5,0,250, 4.75,0,slotPositions[slot2]['defPos'][1] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_x", 0, 0, function() {}, [ 0,0,'cur').pos_x, 0.25,0,412, 4.5,0,412, 4.75,0,slotPositions[slot2]['defPos'][0] ]);
+                        ObjAnimate("spr_bottle_slot_" + message["bottle"].start_kissing[1], "pos_y", 0, 0, function() {}, [ 0,0,'cur', 0.25,0,250, 4.5,0,250, 4.75,0,slotPositions[slot2]['defPos'][1] ]);
                     }
                     chatField.scrollTop = chatField.scrollHeight;
                 }
@@ -382,30 +382,30 @@ window.onload = function () {
         // Визуальные настройки
         function ButtonEnter(name) {
             var btn = ObjGet(name);
-            ObjAnimate(name, "scale_x", 0, 0, function() {}, [ 0,0,btn.scale_x, 0.1,0,1.2, 0.2,0,1.1 ]);
-            ObjAnimate(name, "scale_y", 0, 0, function() {}, [ 0,0,btn.scale_y, 0.1,0,1.2, 0.2,0,1.1 ]);
+            ObjAnimate(name, "scale_x", 0, 0, function() {}, [ 0,0,'cur', 0.1,0,1.2, 0.2,0,1.1 ]);
+            ObjAnimate(name, "scale_y", 0, 0, function() {}, [ 0,0,'cur', 0.1,0,1.2, 0.2,0,1.1 ]);
         }
 
         var inputText = window.document.getElementById("spr_bottle_sending_input");
 
         function ButtonLeave(name) {
             var btn = ObjGet(name);
-            ObjAnimate(name, "scale_x", 0, 0, function() {}, [ 0,0,btn.scale_x, 0.1,0,0.8, 0.2,0,1 ]);
-            ObjAnimate(name, "scale_y", 0, 0, function() {}, [ 0,0,btn.scale_y, 0.1,0,0.8, 0.2,0,1 ]);
+            ObjAnimate(name, "scale_x", 0, 0, function() {}, [ 0,0,'cur', 0.1,0,0.8, 0.2,0,1 ]);
+            ObjAnimate(name, "scale_y", 0, 0, function() {}, [ 0,0,'cur', 0.1,0,0.8, 0.2,0,1 ]);
             //inputText.focus();
         }
 
         function ButtonDown(name) {
             var btn = ObjGet(name);
-            ObjAnimate(name, "scale_x", 0, 0, function() {}, [ 0,0,btn.scale_x, 0.1,0,0.6, 0.2,0,0.8 ]);
-            ObjAnimate(name, "scale_y", 0, 0, function() {}, [ 0,0,btn.scale_y, 0.1,0,0.6, 0.2,0,0.8 ]);
+            ObjAnimate(name, "scale_x", 0, 0, function() {}, [ 0,0,'cur', 0.1,0,0.6, 0.2,0,0.8 ]);
+            ObjAnimate(name, "scale_y", 0, 0, function() {}, [ 0,0,'cur', 0.1,0,0.6, 0.2,0,0.8 ]);
             //inputText.focus();
         }
 
         function ButtonUp(name) {
             var btn = ObjGet(name);
-            ObjAnimate(name, "scale_x", 0, 0, function() {}, [ 0,0,btn.scale_x, 0.1,0,1.2, 0.2,0,1 ]);
-            ObjAnimate(name, "scale_y", 0, 0, function() {}, [ 0,0,btn.scale_y, 0.1,0,1.2, 0.2,0,1 ]);
+            ObjAnimate(name, "scale_x", 0, 0, function() {}, [ 0,0,'cur', 0.1,0,1.2, 0.2,0,1 ]);
+            ObjAnimate(name, "scale_y", 0, 0, function() {}, [ 0,0,'cur', 0.1,0,1.2, 0.2,0,1 ]);
             //inputText.focus();
         }
 
@@ -421,7 +421,7 @@ window.onload = function () {
             event_mup: function() {
                 var btn = ObjGet("spr_bottle_floor_bottle");
                 ObjSet("spr_bottle_floor_bottle", {input: 0});
-                ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,ObjGet("spr_bottle_rotate_bottle").alp, 0.3,0,0 ]);
+                ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
                 //ObjAnimate("spr_bottle_floor_bottle", "angle", 0, 0, function() {  }, [ 0,0,btn.angle, 1,0,btn.angle + 360 ]);
                 socket.send( JSON.stringify({bottle: 1}) );
                 //inputText.focus();

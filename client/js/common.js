@@ -247,7 +247,7 @@ function ObjGet(objname) {
                 //result[key] = Number(obj.style.transform.match(/rotate\(-?\w+(.\w+)?\)/g)[0].match(/\d+(.\d+)?/g)[0]);
                 //result[key] = Number(obj.style.transform.match(/rotate\(.*\)/g)[0].match(/\d+(.\d+)?/g)[0]);
                 result[key] = Number(obj.style.transform.match(/rotate\(-?.*\)/g)[0].match(/-?\d+[.]?(\d+)?e?-?(\d+)?/g)[0]);
-                                                                                     
+
                 
                 break;
             case "scaleX":
@@ -356,12 +356,16 @@ function ObjAnimate(obj, type, loop, relative, cb, anm) {
         // Создание массива из элементов [время, значение]
         // Добавить учет второго параметра [0,0,100, 1,0,200] - ускорения, замедления, линейно
         for (var i = 0; i < anm.length; i += 3) {
+            if (anm[ i + 2 ] == 'cur') {
+                anm[ i + 2 ] = ObjGet(obj)[type];
+            }
             var tmp = [ anm[ i ], anm[ i + 2 ] ];
             //DbgTrace(tmp);
             arrayAnim.push(tmp);
         }
 
-        // Создание массива из таких элементов [время, значение, шаг]
+        // Высчитывание добавление шага изменения значений для каждого отрезка анимации.
+        // В итоге выглядит так [время, значение, шаг]
         for (var i = 0; i < arrayAnim.length; i++) {
             var step = 0;
 
