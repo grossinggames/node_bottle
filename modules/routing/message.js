@@ -3,6 +3,7 @@ var parent = module.parent.exports;
 var bus = module.parent.exports.bus;
 var groups = {};
 const maxClientOnGroup = 12;
+const WebSocket = require('ws');
 
 
 /* *************** Экспорт данных и методов *************** */
@@ -72,7 +73,9 @@ function sendMessageGroup(group, message) {
 // Отправить сообщение клиенту
 function sendMessageClient(client, message) {
     try {
-        client.send(message);
+        if (client.readyState === WebSocket.OPEN) {
+            client.send(message);
+        }
     } catch (err) {
         var group = client.group;
         outClient(client);
