@@ -145,9 +145,11 @@ window.onload = function () {
                 if (message["bottle"]) {
                     // Установить ответ на предложение полцеловать
                     if (message["bottle"]["kiss_offer"] == 0) {
-                        ObjSet("spr_bottle_kiss_left_no", {alp: 1});
+                        console.log('Kiss offer ', message['bottle']['kiss_offer'], ' side: ', message['bottle']['side']);
+                        ObjSet("spr_bottle_kiss_" + message['bottle']['side'] + "_no", {alp: 1});
                     } else if (message["bottle"]["kiss_offer"] == 1) {
-                        ObjSet("spr_bottle_kiss_left_yes", {alp: 1});
+                        ObjSet("spr_bottle_kiss_" + message['bottle']['side'] + "_yes", {alp: 1});
+                        console.log('Kiss offer: ', message['bottle']['kiss_offer'], ' side: ', message['bottle']['side']);
                     }
 
                     // Кто крутит
@@ -160,6 +162,11 @@ window.onload = function () {
 
                         ObjSet("spr_bottle_kiss_yes", {input: 0});
                         ObjSet("spr_bottle_kiss_no", {input: 0});
+
+                        ObjSet('spr_bottle_kiss_left_yes', { alp: 0 });
+                        ObjSet('spr_bottle_kiss_left_no', { alp: 0 });
+                        ObjSet('spr_bottle_kiss_right_yes', { alp: 0 });
+                        ObjSet('spr_bottle_kiss_right_no', { alp: 0 });
                         
                         // Появляется стрелка
                         if (slot == message["bottle"].current) {
@@ -713,7 +720,7 @@ window.onload = function () {
                 socket.send(JSON.stringify({
                     kiss_offer: 1
                 }));
-                ObjSet("spr_bottle_kiss_left_yes", {alp: 1});
+                //ObjSet("spr_bottle_kiss_left_yes", {alp: 1});
             },
             event_mleave: function() {
                 //ButtonLeave("spr_bottle_kiss_yes");

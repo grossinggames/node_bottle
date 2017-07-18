@@ -119,6 +119,10 @@ function clickBottle(group) {
         var partner2 = getPartner(group);
         groups[group].partners[1] = partner2;
         var partner1 = groups[group].partners[0];
+        groups[group].kiss_offer = {
+            'left': 0,
+            'right': 0
+        };
         
         startTimerRotate(group, partner1, partner2);
         startAnimRotate(group, partner1, partner2);
@@ -147,9 +151,15 @@ function offerKissing(group, partner1, partner2) {
 
 // Анимация приближения партнеров
 function setKissOffer(client, kissOffer) {
-    if ( (groups[client.group].partners[0] == client.slot) || 
-        (groups[client.group].partners[1] == client.slot) ) {
-        bus.emit("sendMessageGroup", client.group, { bottle: {kiss_offer: kissOffer} });
+    if ( (!groups[client.group].kiss_offer.left) && (groups[client.group].partners[0] == client.slot) ) {
+        groups[client.group].kiss_offer.left = 1;
+        bus.emit('sendMessageGroup', client.group, { bottle: {kiss_offer: kissOffer, side: "left"} });
     }
+    if ( (!groups[client.group].kiss_offer.right) && (groups[client.group].partners[1] == client.slot) ) {
+        groups[client.group].kiss_offer.right = 1;
+        bus.emit('sendMessageGroup', client.group, { bottle: { kiss_offer: kissOffer, side: "right" } } );
+    }
+    
+    
 }
 module.exports.setKissOffer = setKissOffer;

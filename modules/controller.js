@@ -59,17 +59,9 @@ function addMessage(client, message) {
         routingMessage.clickBottle(client.group);
     }
 
-    // Пользователь кликнул по бутылке
+    // Пользователь принял или отказал в поцелуе
     if ("kiss_offer" in message) {  
-        /*
-        console.log(message["kiss_offer"]);
-        console.log(client.slot);
-        console.log(routingMessage.groups[client.group].partners[0]);
-        console.log(routingMessage.groups[client.group].partners[1]);
-        console.log("");
-        */
-
-        if ((routingMessage.groups[client.group].partners[0] == client.slot) || 
+      if ((routingMessage.groups[client.group].partners[0] == client.slot) || 
             (routingMessage.groups[client.group].partners[1] == client.slot) ) {
             routingMessage.setKissOffer(client, message["kiss_offer"]);
         }

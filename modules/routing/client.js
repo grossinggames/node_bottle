@@ -79,7 +79,11 @@ function addGroup(client) {
         current:  1,
         clickBottle: 0,
         partners: [0, 0],
-        timer:    {}
+        timer:    {},
+        kiss_offer: {
+            'left': 0,
+            'right': 0
+        }
     };
     groups[key] = group;
     availableGroups[key] = [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2];
