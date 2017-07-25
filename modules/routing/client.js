@@ -10,7 +10,7 @@ function addClient(client) {
     if (client.group || client.slot) {
         return false;
     }
-    var group = getAvailableGroup();
+    var group = getAvailableGroup(client);
     if (group) {
         addClientInGroup(group, client);
     } else {
@@ -28,6 +28,7 @@ function removeClient(client) {
         availableGroups[client.group] = availableGroups[client.group] || [];
         availableGroups[client.group].push(client.slot);
         delete groups[client.group].slots[client.slot];
+        client.oldGroup = client.slot;
         client.group = 0;
         client.slot = 0;
         return true;
@@ -45,9 +46,11 @@ function changeGroup(client) {
 
 /* *************** Скрытые методы *************** */
 // Получить свободную группу
-function getAvailableGroup() {
+function getAvailableGroup(client) {
     for (var key in availableGroups) {
-        return key;
+        if (client.oldGroup != key) {
+            return key;
+        }
     }
     return false;
 }
