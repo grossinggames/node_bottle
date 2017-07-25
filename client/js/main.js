@@ -175,6 +175,7 @@ window.onload = function () {
                             
                             // Устанавливаеся кликабельность бутылки
                             ObjSet("spr_bottle_floor_bottle", {input: 1});
+                            PlaySound('sounds/sfx_clink_glasses.mp3');
                         } else {
                             ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,1 ]);
                             ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.1,0,0 ]);
