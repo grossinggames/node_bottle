@@ -48,7 +48,7 @@ function changeGroup(client) {
 // Получить свободную группу
 function getAvailableGroup(client) {
     for (var key in availableGroups) {
-        if (client.oldGroup != key) {
+        if ('g' + client.oldGroup != key) {
             return key;
         }
     }
