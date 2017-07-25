@@ -28,7 +28,7 @@ function removeClient(client) {
         availableGroups[client.group] = availableGroups[client.group] || [];
         availableGroups[client.group].push(client.slot);
         delete groups[client.group].slots[client.slot];
-        client.oldGroup = client.slot;
+        client.oldGroup = client.group;
         client.group = 0;
         client.slot = 0;
         return true;
