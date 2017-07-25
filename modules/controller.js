@@ -50,7 +50,9 @@ function addMessage(client, message) {
 
     // Пользователь хочет сменить стол
     if (message["change_table"] && client.group) {
+        var clientGroup = client.group;
         routingMessage.changeGroup(client);
+        routingMessage.sendStateGroup(clientGroup);
         routingMessage.sendStateGroup(client.group);
     }
 
@@ -61,7 +63,7 @@ function addMessage(client, message) {
 
     // Пользователь принял или отказал в поцелуе
     if ("kiss_offer" in message) {  
-      if ((routingMessage.groups[client.group].partners[0] == client.slot) || 
+      if ((routingMessage.groups[client.group].partners[0] == client.slot) || 
             (routingMessage.groups[client.group].partners[1] == client.slot) ) {
             routingMessage.setKissOffer(client, message["kiss_offer"]);
         }
