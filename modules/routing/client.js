@@ -24,7 +24,7 @@ function addClient(client) {
 function removeClient(client) {
     if (client.group && client.slot) {
         // console.log("Удален из группы: " + client.group + "\n");
-        
+
         availableGroups[client.group] = availableGroups[client.group] || [];
         availableGroups[client.group].push(client.slot);
         delete groups[client.group].slots[client.slot];

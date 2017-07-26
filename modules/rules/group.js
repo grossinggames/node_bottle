@@ -18,11 +18,18 @@ function changeRotating(group) {
     clearTimerGroup(group);
     groups[group].clickBottle = 0;
     var slot = getRotating(group);
+
     if (slot) {
         groups[group].current = slot;
         //console.log('groups[group] = ', groups[group]);
         startTimerClickBottle(group);
         offerClickBottle(group, slot);
+    } else {
+        groups[group].timer = setTimeout( 
+            function() {
+                changeRotating(group);
+            }, 5000
+        );
     }
 }
 
