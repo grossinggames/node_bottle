@@ -397,6 +397,7 @@ window.onload = function () {
             slot = 0;
             socket.send( JSON.stringify({change_table: 1}) );
             //inputText.focus();
+            resetAllState();
         }
 
         /* *************** Глобавльные анимации *************** */
@@ -717,7 +718,6 @@ window.onload = function () {
                 //ButtonUp("spr_bottle_kiss_yes");
                 ObjSet("spr_bottle_kiss_yes", {input: 0});
                 ObjSet("spr_bottle_kiss_no", {input: 0});
-                SendMessage('Согласился поцеловать');
                 socket.send(JSON.stringify({
                     kiss_offer: 1
                 }));
@@ -743,7 +743,6 @@ window.onload = function () {
                 //ButtonUp("spr_bottle_kiss_no");
                 ObjSet("spr_bottle_kiss_yes", {input: 0});
                 ObjSet("spr_bottle_kiss_no", {input: 0});
-                SendMessage('Отказался поцеловать');
                 socket.send( JSON.stringify({kiss_offer: 0}) );
             },
             event_mleave: function() {
@@ -786,6 +785,38 @@ window.onload = function () {
         { posXY: [198, 202], angle: 234  }, // 11
         { posXY: [300, 180], angle: 234  }  // 12
     ];
+
+    function resetAllState() {
+        for (var i = 1; i < 13; i++) {
+            ObjAnimate('spr_bottle_slot_' + i, 'angle', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,slotPositions[i - 1].angle ]);
+
+            ObjAnimate('spr_bottle_slot_' + i, 'pos_x', 0, 0, function() { }, 
+                [ 0,0,'cur', 0.3,0,slotPositions[i - 1]['defPos'][0] ]);
+
+            ObjAnimate('spr_bottle_slot_' + i, 'pos_y', 0, 0, function() { }, 
+                [ 0,0,'cur', 0.3,0,slotPositions[i - 1]['defPos'][1] ]);
+        }
+
+        ObjStopAnimate('spr_bottle_floor_bottle', 'alp');
+        ObjStopAnimate('spr_bottle_floor_bottle', 'angle');
+        ObjSet('spr_bottle_floor_bottle', { angle: 0, alp: 0, input: 0 });
+
+        ObjAnimate('spr_bottle_arrow', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+        ObjAnimate('spr_bottle_rotate_bottle', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+        ObjAnimate('spr_bottle_kiss_or_not', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+        ObjAnimate('spr_bottle_kiss_left_yes', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+        ObjAnimate('spr_bottle_kiss_left_no', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+        ObjAnimate('spr_bottle_kiss_right_yes', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+        ObjAnimate('spr_bottle_kiss_right_no', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+        ObjAnimate('spr_bottle_kiss_time', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+        ObjAnimate('spr_bottle_kiss_your_choice', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+
+        ObjAnimate('spr_bottle_kiss_yes', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+        ObjSet('spr_bottle_kiss_yes', { input: 0 });
+
+        ObjAnimate('spr_bottle_kiss_no', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+        ObjSet('spr_bottle_kiss_no', { input: 0 });
+    }
 
     }, function() {
         // API initialization failed
