@@ -44,6 +44,8 @@ window.onload = function () {
             //console.log('diffTickTime: ', diffTickTime);
         }, TIME_UPDATE);
 
+        var sndCheckBox = document.getElementById('spr_bottle_button_sound_checkbox').checked;
+
         /* *************** Websocket соединение *************** */
         var slot = 0;
         var group = 0;
@@ -175,7 +177,9 @@ window.onload = function () {
                             
                             // Устанавливаеся кликабельность бутылки
                             ObjSet("spr_bottle_floor_bottle", {input: 1});
-                            PlaySound('sounds/sfx_clink_glasses.mp3');
+                            if (sndCheckBox) {
+                                PlaySound('sounds/sfx_clink_glasses.mp3');
+                            }
                         } else {
                             ObjAnimate("spr_bottle_arrow", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,1 ]);
                             ObjAnimate("spr_bottle_rotate_bottle", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.1,0,0 ]);
@@ -247,7 +251,9 @@ window.onload = function () {
                             ObjSet("spr_bottle_kiss_no", {input: 1});
 
                             if (slot == message["bottle"]["start_kissing"][1]) {
-                                PlaySound('sounds/sfx_clink_glasses.mp3');
+                                if (sndCheckBox) {
+                                    PlaySound('sounds/sfx_clink_glasses.mp3');
+                                }
                             }
                         } else {
                             ObjAnimate("spr_bottle_kiss_your_choice", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
@@ -667,7 +673,6 @@ window.onload = function () {
             },
             event_mup: function() {
                 //ButtonUp("spr_bottle_button_sound");
-                clickSoundCheckbox();
             },
             event_mleave: function() {
                 //ButtonLeave("spr_bottle_button_sound");
@@ -678,16 +683,6 @@ window.onload = function () {
                 //ObjSet("spr_bottle_button_sound", { drawoff_x: -35 });
             }
         });
-
-        function clickSoundCheckbox() {
-            var sndCheckBox = document.getElementById('spr_bottle_button_sound_checkbox').checked;
-            console.log(sndCheckBox);
-        }
-
-        setInterval(function () {
-            var sndCheckBox = document.getElementById('spr_bottle_button_sound_checkbox').checked;
-            console.log(sndCheckBox);
-        }, 1000);
 
         ObjSet("spr_bottle_sending_send",
         {
