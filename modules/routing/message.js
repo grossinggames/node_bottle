@@ -90,7 +90,10 @@ function getStateGroup(group) {
     try {
         var result = {slots: {}, group: group};
         for (var key in groups[group]["slots"]) {
-            result.slots[key] = {photo: groups[group].slots[key].photo};
+            result.slots[key] = {
+                photo: groups[group].slots[key].photo,
+                first_name: groups[group].slots[key].first_name
+            };
         }
         return result;
     } catch (err) {
