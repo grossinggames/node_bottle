@@ -44,7 +44,7 @@ window.onload = function () {
             //console.log('diffTickTime: ', diffTickTime);
         }, TIME_UPDATE);
 
-        var sndCheckBox = document.getElementById('spr_bottle_button_sound_checkbox').checked;
+        var sndCheckBox = document.getElementById('spr_bottle_button_sound_checkbox');
 
         /* *************** Websocket соединение *************** */
         var slot = 0;
@@ -177,7 +177,7 @@ window.onload = function () {
                             
                             // Устанавливаеся кликабельность бутылки
                             ObjSet("spr_bottle_floor_bottle", {input: 1});
-                            if (sndCheckBox) {
+                            if (sndCheckBox.checked) {
                                 PlaySound('sounds/sfx_clink_glasses.mp3');
                             }
                         } else {
@@ -251,7 +251,7 @@ window.onload = function () {
                             ObjSet("spr_bottle_kiss_no", {input: 1});
 
                             if (slot == message["bottle"]["start_kissing"][1]) {
-                                if (sndCheckBox) {
+                                if (sndCheckBox.checked) {
                                     PlaySound('sounds/sfx_clink_glasses.mp3');
                                 }
                             }
