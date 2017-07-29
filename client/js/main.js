@@ -96,6 +96,11 @@ window.onload = function () {
                     ClearSlots();
                     for (var key in message["slots"]) {
                         ObjSet("spr_bottle_slot_" + key, {res: message["slots"][key]["photo"]});
+                        
+                        if (message["slots"][key]["first_name"]) {
+                            ObjSet("txt_bottle_slot_" + key, {res: message["slots"][key]["first_name"]});
+                        }
+                        
                         if (message["slots"][key]["photo"] == photo) {
                             slot = key;
                             txtSlot.innerText = "Слот: " + slot;

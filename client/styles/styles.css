@@ -7,7 +7,7 @@
     line-height: inherit;
     font-size: 14px;
     font-weight: inherit;
-    font-family: "Trebuchet MS";
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
 .room {
     width: 1000px;
