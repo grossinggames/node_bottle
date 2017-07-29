@@ -684,6 +684,11 @@ window.onload = function () {
             console.log(sndCheckBox);
         }
 
+        setInterval(function () {
+            var sndCheckBox = document.getElementById('spr_bottle_button_sound_checkbox').checked;
+            console.log(sndCheckBox);
+        }, 1000);
+
         ObjSet("spr_bottle_sending_send",
         {
             cursor: "hand",
