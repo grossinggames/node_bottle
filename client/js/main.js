@@ -667,6 +667,7 @@ window.onload = function () {
             },
             event_mup: function() {
                 //ButtonUp("spr_bottle_button_sound");
+                clickSoundCheckbox();
             },
             event_mleave: function() {
                 //ButtonLeave("spr_bottle_button_sound");
@@ -677,6 +678,11 @@ window.onload = function () {
                 //ObjSet("spr_bottle_button_sound", { drawoff_x: -35 });
             }
         });
+
+        function clickSoundCheckbox() {
+            var sndCheckBox = document.getElementById('spr_bottle_button_sound_checkbox').checked;
+            console.log(sndCheckBox);
+        }
 
         ObjSet("spr_bottle_sending_send",
         {
@@ -756,6 +762,7 @@ window.onload = function () {
                 //ButtonEnter("spr_bottle_kiss_no");
             }
         });
+
 
     /* *************** Позиции *************** */
     // Настройки слотов
