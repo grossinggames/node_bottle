@@ -147,11 +147,9 @@ window.onload = function () {
                 if (message["bottle"]) {
                     // Установить ответ на предложение полцеловать
                     if (message["bottle"]["kiss_offer"] == 0) {
-                        console.log('Kiss offer ', message['bottle']['kiss_offer'], ' side: ', message['bottle']['side']);
                         ObjSet("spr_bottle_kiss_" + message['bottle']['side'] + "_no", {alp: 1});
                     } else if (message["bottle"]["kiss_offer"] == 1) {
                         ObjSet("spr_bottle_kiss_" + message['bottle']['side'] + "_yes", {alp: 1});
-                        console.log('Kiss offer: ', message['bottle']['kiss_offer'], ' side: ', message['bottle']['side']);
                     }
 
                     // Кто крутит
