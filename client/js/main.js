@@ -400,7 +400,7 @@ window.onload = function () {
             if (msg != "") {
                 socket.send( JSON.stringify({msg: msg}) );
                 inputText.value = "";
-                //inputText.focus();
+                inputText.blur();
             }
         }
 
@@ -692,10 +692,10 @@ window.onload = function () {
             cursor: "hand",
             popup: "Отправить сообщение",
             event_mdown: function() {
+                SendMessage();
                 //ButtonDown("spr_bottle_sending_send");
             },
             event_mup: function() {
-                SendMessage();
                 //inputText.scrollTop =  inputText.scrollHeight;
                 //ButtonUp("spr_bottle_sending_send");
             },
