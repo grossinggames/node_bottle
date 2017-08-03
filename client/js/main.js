@@ -400,7 +400,8 @@ window.onload = function () {
             if (msg != "") {
                 socket.send( JSON.stringify({msg: msg}) );
                 inputText.value = "";
-                inputText.blur();
+                var inputTextLabel = window.document.getElementById('spr_bottle_sending_input_label');
+                inputTextLabel.className = "";
             }
         }
 
