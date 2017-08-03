@@ -95,10 +95,10 @@ window.onload = function () {
                 if (message["slots"]) {
                     ClearSlots();
                     for (var key in message["slots"]) {
-                        ObjSet("spr_bottle_slot_" + key, {res: message["slots"][key]["photo"]});
+                        ObjSet('spr_bottle_slot_' + key, {res: message["slots"][key]["photo"]});
                         
                         if (message["slots"][key]["first_name"]) {
-                            ObjSet('txt_bottle_slot_' + key, { text: message["slots"][key]["first_name"] });
+                            ObjSet('txt_bottle_slot_' + key, { text: message["slots"][key]["first_name"], alp: 0.75 });
                         }
                         
                         if (message["slots"][key]["photo"] == photo) {
@@ -389,7 +389,8 @@ window.onload = function () {
         // Очистить слоты от аватарок
         function ClearSlots() {
             for (var i = 1; i < 13; i++) {
-                ObjSet("spr_bottle_slot_" + i, {res: ""});
+                ObjSet('spr_bottle_slot_' + i, {res: ""});
+                ObjSet('txt_bottle_slot_' + i, { text: '', alp: 0 });
             }
         }
 
@@ -803,6 +804,8 @@ window.onload = function () {
     ];
 
     function resetAllState() {
+        ClearSlots();
+
         for (var i = 1; i < 13; i++) {
             ObjAnimate('spr_bottle_slot_' + i, 'angle', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
 
