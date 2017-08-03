@@ -693,10 +693,11 @@ window.onload = function () {
             cursor: "hand",
             popup: "Отправить сообщение",
             event_mdown: function() {
-                SendMessage();
+                // SendMessage();
                 //ButtonDown("spr_bottle_sending_send");
             },
             event_mup: function() {
+                SendMessage();
                 //inputText.scrollTop =  inputText.scrollHeight;
                 //ButtonUp("spr_bottle_sending_send");
             },
