@@ -9,7 +9,6 @@ function clearTimerGroup(group) {
     clearTimeout(groups[group].timer);
 }
 
-
 /* *************** Переход хода *************** */
 bus.on("changeRotating", changeRotating);
 

@@ -15,8 +15,8 @@ function addMessage(client, message) {
     }
     
     // Пользователь указал ссылку на аву и имя
-    if ( (message["photo"]) && (message["first_name"]) && 
-        (message["id"]) ) {
+    if ( (message["photo"]) && (message["first_name"]) 
+        && (message["id"]) ) {
 
         if (clients[ message["id"] ]) {
             routingMessage.outClient(clients[ message["id"] ]);
