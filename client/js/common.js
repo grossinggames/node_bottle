@@ -163,15 +163,18 @@ function ObjSet(objname, params) {
                 break;
             case "angle":
                 //obj.style.transform = obj.style.transform.replace(/rotate\(.?\w+(.\w+)?\)/g, "rotate(" + value + "deg)");
-                obj.style.transform = obj.style.transform.replace(/rotate\(.*\)/g, "rotate(" + value + "deg)");
+                // obj.style.transform = obj.style.transform.replace(/rotate\(.*\)/g, "rotate(" + value + "deg)");
+                obj.style.transform = obj.style.transform.replace(/rotate\(.*?\)/g, "rotate(" + value + "deg)");
                 break;
             case "scale_x":
                 //obj.style.transform = obj.style.transform.replace(/scaleX\(.?\w+(.\w+)?\)/g, "scaleX(" + value + ")");
-                obj.style.transform = obj.style.transform.replace(/scaleX\(.*\)/g, "scaleX(" + value + ")");
+                // obj.style.transform = obj.style.transform.replace(/scaleX\(.*\)/g, "scaleX(" + value + ")");
+                obj.style.transform = obj.style.transform.replace(/scaleX\(.*?\)/g, "scaleX(" + value + ")");
                 break;
             case "scale_y":
                 //obj.style.transform = obj.style.transform.replace(/scaleY\(.?\w+(.\w+)?\)/g, "scaleY(" + value + ")");
-                obj.style.transform = obj.style.transform.replace(/scaleY\(.*\)?\)/g, "scaleY(" + value + ")");
+                // obj.style.transform = obj.style.transform.replace(/scaleY\(.*\)?\)/g, "scaleY(" + value + ")");
+                obj.style.transform = obj.style.transform.replace(/scaleY\(.*?\)/, "scaleY(" + value + ")");
                 break;
             case "input":
                 if (value) {
