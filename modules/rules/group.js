@@ -81,7 +81,7 @@ function getPartner(group) {
             for (var i = 1; i <= maxClientOnGroup; i++) {
                 if ( (groups[group].slots[i]) 
                     && (groups[group].partners[0] != i)
-                    && (groups[group].partners[0].sex != groups[group].slots[i].sex) ) {
+                    && (groups[group].slots[ groups[group].partners[0] ].sex != groups[group].slots[i].sex) ) {
                     // console.log('partners[0] = ' + groups[group].partners[0] + ' i = ' + i);
                     slots.push(i);
                 }
