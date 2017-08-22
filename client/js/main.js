@@ -71,7 +71,7 @@ window.onload = function () {
             // 1 женский
             // 2 мужской
 
-            VK.api("account.getProfileInfo", function(data) { 
+            VK.api("account.getProfileInfo", {}, function(data) { 
                 if (data && data.response) {
                     console.log('Пол пользователя: ', data.response.sex);
                 }
