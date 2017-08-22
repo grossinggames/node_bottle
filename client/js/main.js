@@ -57,7 +57,7 @@ window.onload = function () {
             // 0 не указан
             // 1 женский
             // 2 мужской
-            VK.api("users.get", {fields: "photo_100"}, function(data) { 
+            VK.api("users.get", {fields: "photo_100, sex"}, function(data) { 
                 if (data && data.response && data.response[0] &&
                   data.response[0].photo_100 && data.response[0].first_name && 
                   data.response[0].id && 'sex' in data.response[0]) {
