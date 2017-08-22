@@ -66,6 +66,18 @@ window.onload = function () {
                     }));
                 }
             });
+
+            // 0 не указан
+            // 1 женский
+            // 2 мужской
+
+            VK.api("account.getProfileInfo", function(data) { 
+                if (data && data.response && data.response[0] 
+                    && 'sex' in data.response) {
+                        console.log('Пол пользователя: ', data.response.sex);
+                }
+            });
+
         };
 
         socket.onclose = function(event) {
