@@ -72,6 +72,7 @@ window.onload = function () {
             // 2 мужской
 
             VK.api("account.getProfileInfo", {}, function(data) { 
+                console.log('account.getProfileInfo: ', data);
                 if (data && data.response) {
                     console.log('Пол пользователя: ', data.response.sex);
                 }
