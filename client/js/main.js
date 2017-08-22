@@ -61,8 +61,6 @@ window.onload = function () {
                 if (data && data.response && data.response[0] &&
                   data.response[0].photo_100 && data.response[0].first_name && 
                   data.response[0].id && 'sex' in data.response[0]) {
-                    console.log('!!! sex: ', data.response[0].sex);
-
                     photo = data.response[0].photo_100;
                     socket.send(JSON.stringify({
                         photo: data.response[0].photo_100,
