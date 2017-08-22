@@ -54,29 +54,25 @@ window.onload = function () {
         var socket     = new WebSocket("wss://" + window.location.hostname + ":" + window.location.port);
         socket.onopen  = function() {
             //console.log("Websocket connect");
+            // 0 не указан
+            // 1 женский
+            // 2 мужской
             VK.api("users.get", {fields: "photo_100"}, function(data) { 
                 if (data && data.response && data.response[0] &&
                   data.response[0].photo_100 && data.response[0].first_name && 
-                  data.response[0].id) {
+                  data.response[0].id && 'sex' in data.response[0]) {
+                    console.log('!!! sex: ', data.response[0].sex);
+
                     photo = data.response[0].photo_100;
                     socket.send(JSON.stringify({
                         photo: data.response[0].photo_100,
                         first_name: data.response[0].first_name,
-                        id: data.response[0].id
+                        id: data.response[0].id,
+                        sex: data.response[0].sex
                     }));
                 }
             });
 
-            // 0 не указан
-            // 1 женский
-            // 2 мужской
-
-            VK.api("account.getProfileInfo", {}, function(data) { 
-                console.log('account.getProfileInfo: ', data);
-                if (data && data.response) {
-                    console.log('Пол пользователя: ', data.response.sex);
-                }
-            });
 
         };
 
