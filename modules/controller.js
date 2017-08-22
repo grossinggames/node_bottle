@@ -13,7 +13,7 @@ function addMessage(client, message) {
         console.log("message.js ERROR: JSON.parse(message) description: ", err);
         return false;
     }
-    
+
     // Пользователь указал ссылку на аву и имя
     if ( message["photo"] && message["first_name"] 
         && message["id"] && ('sex' in message)  ) {
