@@ -75,9 +75,9 @@ function getAvailableGroup(client) {
 function addClientInGroup(group, client) {
     if (client.sex == 0) {
         groups[group].sex.trans++;
-    } else if ( (client.sex == 1) && (groups[key].sex.woman < 6) ) {
+    } else if ( (client.sex == 1) && (groups[group].sex.woman < 6) ) {
         groups[group].sex.woman++;
-    } else if ( (client.sex == 2) && (groups[key].sex.man < 6) ) {
+    } else if ( (client.sex == 2) && (groups[group].sex.man < 6) ) {
         groups[group].sex.man++;
     } else {
         return false;
