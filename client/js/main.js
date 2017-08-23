@@ -297,9 +297,9 @@ window.onload = function () {
                             10: [-230, -66]
                         };
                         ObjAnimate("spr_bottle_kiss_time", "drawoff_x", 0, 0, function() {
+                            ObjAnimate("spr_bottle_kiss_you", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
                             ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
                             ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
-                            ObjAnimate("spr_bottle_kiss_you", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
                         }, [ 
                             0,0,timerBackPos['10'][0], 
                             0.72,0,timerBackPos['10'][0], 
