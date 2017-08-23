@@ -301,6 +301,11 @@ window.onload = function () {
                             ObjAnimate("spr_bottle_kiss_yes", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
                             ObjAnimate("spr_bottle_kiss_no", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
                             ObjAnimate('spr_bottle_kiss_your_choice', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+
+                            ObjAnimate('spr_bottle_kiss_left_yes', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+                            ObjAnimate('spr_bottle_kiss_left_no', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+                            ObjAnimate('spr_bottle_kiss_right_yes', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+                            ObjAnimate('spr_bottle_kiss_right_no', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
                         }, [ 
                             0,0,timerBackPos['10'][0], 
                             0.72,0,timerBackPos['10'][0], 
