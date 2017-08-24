@@ -220,6 +220,7 @@ window.onload = function () {
                     if (message["bottle"]["partners"]) {
                         //chatField.innerHTML += "<li> партнеры: " + message["bottle"].partners + "</li>";
                         if (message['bottle'].partners[1] < 1) {
+                            ObjAnimate("spr_bottle_floor_not_partner", "alp", 0, 0, function() { }, [ 0,0,'cur', 0.3,0,1, 2.5,0,1, 3,0,0 ]);
                             return false;
                         }
 
