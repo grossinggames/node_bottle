@@ -32,7 +32,7 @@ function addMessage(client, message) {
 
         routingMessage.addClient(client);
         routingMessage.sendStateGroup(client.group);
-        module.parent.exports.bus.emit("changeRotating", client.group); // addRotating
+        // module.parent.exports.bus.emit("changeRotating", client.group); // addRotating
     }
 
     if ( !(client.group) || !(client.slot) ) {
