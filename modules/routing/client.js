@@ -15,6 +15,7 @@ function addClient(client) {
         addClientInGroup(group, client);
     } else {
         group = addGroup(client);
+        module.parent.exports.bus.emit("changeRotating", client.group); // addRotating
     }
     //console.log("Добавлен в группу: " + group + "\n");
     return true;
