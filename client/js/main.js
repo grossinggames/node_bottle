@@ -668,24 +668,24 @@ window.onload = function () {
             }
         });
 
-        ObjSet("spr_interface_modalwindow_rating_close",
-        {
-            cursor: "hand",
-            popup: "Закрыть",
-            event_mdown: function() {
-                //ButtonDown("spr_interface_modalwindow_rating_close");
-            },
-            event_mup: function() {
-                //ButtonUp("spr_interface_modalwindow_rating_close");
-                HideModalWindow();
-            },
-            event_mleave: function() {
-                //ButtonLeave("spr_interface_modalwindow_rating_close");
-            },
-            event_menter: function() {
-                //ButtonEnter("spr_interface_modalwindow_rating_close");
-            }
-        });
+        // ObjSet("spr_interface_modalwindow_rating_close",
+        // {
+        //     cursor: "hand",
+        //     popup: "Закрыть",
+        //     event_mdown: function() {
+        //         //ButtonDown("spr_interface_modalwindow_rating_close");
+        //     },
+        //     event_mup: function() {
+        //         //ButtonUp("spr_interface_modalwindow_rating_close");
+        //         HideModalWindow();
+        //     },
+        //     event_mleave: function() {
+        //         //ButtonLeave("spr_interface_modalwindow_rating_close");
+        //     },
+        //     event_menter: function() {
+        //         //ButtonEnter("spr_interface_modalwindow_rating_close");
+        //     }
+        // });
 
         ObjSet("spr_bottle_button_sound_btn",
         {
