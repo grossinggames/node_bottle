@@ -33,11 +33,20 @@
             <div id="spr_interface_modalwindow_buy" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 172px; top: 80px; z-index: 100; width: 624px; height: 464px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 0; background-image: url('images/modalwindow_buy.png'); background-position: 0px 0px; display: none">
                 <div id="spr_interface_modalwindow_buy_close" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 321px; top: 354px; z-index: 100; width: 64px; height: 64px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url('images/close.png'); background-position: 0px 0px; display: block"></div>
             </div>
-            <div id="spr_interface_modalwindow_rating" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 172px; top: 80px; z-index: 100; width: 624px; height: 464px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url('images/modalwindow_rating.png'); background-position: 0px 0px; display: none">
+            <!-- <div id="spr_interface_modalwindow_rating" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 172px; top: 80px; z-index: 100; width: 624px; height: 464px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url('images/modalwindow_rating.png'); background-position: 0px 0px; display: none">
                 <div id="spr_interface_modalwindow_rating_close" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 370px; top: 390px; z-index: 100; width: 64px; height: 64px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url('images/close.png'); background-position: 0px 0px; display: block"></div>
+            </div> -->
+            <div id="spr_interface_modalwindow_rating" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                    <h4>Modal Header</h4>
+                    <p>A bunch of text</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+                </div>
             </div>
         </div>
-    </div>
+
     <div id="room_bottle" class="room">
         <div id="spr_bottle_floor" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 0px; top: 0px; z-index: 0; width: 650px; height: 620px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url('images/back.jpg'); background-position: -28px 0px;">
             <div id="spr_bottle_slots" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 0px; top: 0px; z-index: 1; width: 0px; height: 0px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;">
@@ -119,7 +128,8 @@
                     <div id="spr_bottle_button_buy" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 0px; top: 0px; z-index: 0; width: 42px; height: 35px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-image: url('images/buy.png'); background-position: 0px 0px;"></div>
                 </div>
                 <div id="spr_bottle_button_rating_btn" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 26px; top: 13px; z-index: 0; width: 48px; height: 48px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: inherit; opacity: 1; background-image: url(''); background-position: 0px 0px;">
-                    <a class="btn btn-floating btn-large waves-effect waves-light" style="width: 46px; height: 46px;">
+                    <!-- <a class="waves-effect waves-light btn modal-trigger" href="#spr_interface_modalwindow_rating">Modal</a> -->
+                    <a class="btn btn-floating btn-large waves-effect waves-light" style="width: 46px; height: 46px;" href="#spr_interface_modalwindow_rating">
                         <i id="spr_bottle_button_rating" class="material-icons right" style="line-height: 49px; cursor: pointer; font-size: 32px;">assessment</i>
                     </a>
                 </div>
