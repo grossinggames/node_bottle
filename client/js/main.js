@@ -646,7 +646,7 @@ window.onload = function () {
                 //ButtonEnter("spr_interface_modalwindow_buy_close");
             }
         });
-
+/*
         ObjSet("spr_bottle_button_rating_btn",
         {
             cursor: "hand",
@@ -656,7 +656,7 @@ window.onload = function () {
             },
             event_mup: function() {
                 //ButtonUp("spr_bottle_button_rating");
-                // ShowModalWindow("spr_interface_modalwindow_rating");
+                ShowModalWindow("spr_interface_modalwindow_rating");
             },
             event_mleave: function() {
                 //ButtonLeave("spr_bottle_button_rating");
@@ -667,7 +667,7 @@ window.onload = function () {
                 // ObjSet("spr_bottle_button_rating", { drawoff_x: -35 });
             }
         });
-
+*/
         // ObjSet("spr_interface_modalwindow_rating_close",
         // {
         //     cursor: "hand",
