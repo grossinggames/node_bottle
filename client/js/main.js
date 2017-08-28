@@ -805,76 +805,105 @@ window.onload = function () {
         });
 
 
-    /* *************** Позиции *************** */
-    // Настройки слотов
-    var slotPositions = [
-        { defPos: [347,  40], angle: 18 },  // 1
-        { defPos: [441,  74], angle: 41  },  // 2
-        { defPos: [537, 208], angle: 77  },  // 3
-        { defPos: [532, 347], angle: 110 }, // 4
-        { defPos: [439, 442], angle: 135 }, // 5
-        { defPos: [346, 473], angle: 165 }, // 6
-        { defPos: [244, 470], angle: 200 }, // 7
-        { defPos: [153, 431], angle: 224 }, // 8
-        { defPos: [65,  343], angle: 262 }, // 9
-        { defPos: [68,  195], angle: 297 }, // 10
-        { defPos: [160,  67], angle: 322 }, // 11
-        { defPos: [250,  38], angle: 350 }  // 12
-    ];
+        /* *************** Позиции *************** */
+        // Настройки слотов
+        var slotPositions = [
+            { defPos: [347,  40], angle: 18 },  // 1
+            { defPos: [441,  74], angle: 41  },  // 2
+            { defPos: [537, 208], angle: 77  },  // 3
+            { defPos: [532, 347], angle: 110 }, // 4
+            { defPos: [439, 442], angle: 135 }, // 5
+            { defPos: [346, 473], angle: 165 }, // 6
+            { defPos: [244, 470], angle: 200 }, // 7
+            { defPos: [153, 431], angle: 224 }, // 8
+            { defPos: [65,  343], angle: 262 }, // 9
+            { defPos: [68,  195], angle: 297 }, // 10
+            { defPos: [160,  67], angle: 322 }, // 11
+            { defPos: [250,  38], angle: 350 }  // 12
+        ];
 
-    // Настройки стрелки
-    var arrowSettings = [
-        { posXY: [308, 177], angle: -69  }, // 1
-        { posXY: [344, 184], angle: -27  }, // 2
-        { posXY: [389, 253], angle: -6   }, // 3
-        { posXY: [390, 355], angle: 0    }, // 4
-        { posXY: [347, 356], angle: 42   }, // 5
-        { posXY: [316, 357], angle: 77   }, // 6
-        { posXY: [224, 357], angle: 77   }, // 7
-        { posXY: [224, 357], angle: 134  }, // 8
-        { posXY: [197, 320], angle: 162  }, // 9
-        { posXY: [197, 224], angle: 182  }, // 10
-        { posXY: [198, 202], angle: 234  }, // 11
-        { posXY: [300, 180], angle: 234  }  // 12
-    ];
+        // Настройки стрелки
+        var arrowSettings = [
+            { posXY: [308, 177], angle: -69  }, // 1
+            { posXY: [344, 184], angle: -27  }, // 2
+            { posXY: [389, 253], angle: -6   }, // 3
+            { posXY: [390, 355], angle: 0    }, // 4
+            { posXY: [347, 356], angle: 42   }, // 5
+            { posXY: [316, 357], angle: 77   }, // 6
+            { posXY: [224, 357], angle: 77   }, // 7
+            { posXY: [224, 357], angle: 134  }, // 8
+            { posXY: [197, 320], angle: 162  }, // 9
+            { posXY: [197, 224], angle: 182  }, // 10
+            { posXY: [198, 202], angle: 234  }, // 11
+            { posXY: [300, 180], angle: 234  }  // 12
+        ];
 
-    function resetAllState() {
-        ClearSlots();
+        function resetAllState() {
+            ClearSlots();
 
-        for (var i = 1; i < 13; i++) {
-            ObjAnimate('spr_bottle_slot_' + i, 'angle', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+            for (var i = 1; i < 13; i++) {
+                ObjAnimate('spr_bottle_slot_' + i, 'angle', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
 
-            ObjAnimate('spr_bottle_slot_' + i, 'pos_x', 0, 0, function() { }, 
-                [ 0,0,'cur', 0.3,0,slotPositions[i - 1]['defPos'][0] ]);
+                ObjAnimate('spr_bottle_slot_' + i, 'pos_x', 0, 0, function() { }, 
+                    [ 0,0,'cur', 0.3,0,slotPositions[i - 1]['defPos'][0] ]);
 
-            ObjAnimate('spr_bottle_slot_' + i, 'pos_y', 0, 0, function() { }, 
-                [ 0,0,'cur', 0.3,0,slotPositions[i - 1]['defPos'][1] ]);
+                ObjAnimate('spr_bottle_slot_' + i, 'pos_y', 0, 0, function() { }, 
+                    [ 0,0,'cur', 0.3,0,slotPositions[i - 1]['defPos'][1] ]);
+            }
+
+            ObjStopAnimate('spr_bottle_floor_bottle', 'alp');
+            ObjStopAnimate('spr_bottle_floor_bottle', 'angle');
+            ObjSet('spr_bottle_floor_bottle', { angle: 0, alp: 0, input: 0 });
+
+            ObjAnimate('spr_bottle_arrow', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+            ObjAnimate('spr_bottle_rotate_bottle', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+            ObjAnimate('spr_bottle_kiss_or_not', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+            ObjAnimate('spr_bottle_kiss_left_yes', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+            ObjAnimate('spr_bottle_kiss_left_no', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+            ObjAnimate('spr_bottle_kiss_right_yes', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+            ObjAnimate('spr_bottle_kiss_right_no', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+            ObjAnimate('spr_bottle_kiss_time', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+            ObjAnimate('spr_bottle_kiss_your_choice', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+
+            ObjAnimate('spr_bottle_kiss_yes', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+            ObjSet('spr_bottle_kiss_yes', { input: 0 });
+
+            ObjAnimate('spr_bottle_kiss_no', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+            ObjSet('spr_bottle_kiss_no', { input: 0 });
+
+            while (chatField.firstChild) {
+                chatField.removeChild(chatField.firstChild);
+            }
+        }
+        
+        var modalWindowRating = window.document.getElementById('modal_window_rating');
+        while (modalWindowRating.firstChild) {
+            modalWindowRating.removeChild(modalWindowRating.firstChild);
         }
 
-        ObjStopAnimate('spr_bottle_floor_bottle', 'alp');
-        ObjStopAnimate('spr_bottle_floor_bottle', 'angle');
-        ObjSet('spr_bottle_floor_bottle', { angle: 0, alp: 0, input: 0 });
+        var idUserRating = 1;
+        var linkUserRating = 'https://vk.com/grossinggames';
+        var avatarUserRating = 'images/on_bottom.png';
+        var firstNameUserRating = 'images/on_bottom.png';
+        var ageUserRating = 32;
+        var pointUserRating = 33333;
 
-        ObjAnimate('spr_bottle_arrow', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
-        ObjAnimate('spr_bottle_rotate_bottle', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
-        ObjAnimate('spr_bottle_kiss_or_not', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
-        ObjAnimate('spr_bottle_kiss_left_yes', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
-        ObjAnimate('spr_bottle_kiss_left_no', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
-        ObjAnimate('spr_bottle_kiss_right_yes', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
-        ObjAnimate('spr_bottle_kiss_right_no', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
-        ObjAnimate('spr_bottle_kiss_time', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
-        ObjAnimate('spr_bottle_kiss_your_choice', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
+        var ratingUser = '<a href=' + linkUserRating + '" target="_blank" class="collection-item" style="cursor: pointer; font-size: xx-large; height: 50px;">' +
+            '<div id="spr_interface_modalwindow_rating_contener_user1_id" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 0px; top: 14px; z-index: 2; width: 100px; height: 50px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; text-align: right;">' + 
+                '<span style="position: relative; font-size: xx-large;">' + idUserRating + '</span>' +
+            '</div>' +
+            '<div id="spr_interface_modalwindow_rating_contener_user1_avatar" class="spr" onmousedown="" onmouseup="" onmouseover="" onmouseout="" title="" style="left: 110px; top: 3px; z-index: 2; width: 50px; height: 50px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; background-image: url("");">' +
+                '<img src="' + avatarUserRating + '" alt="" class="circle" style="height: 45px; width: 45px; border-radius: 6px;">' +
+            '</div>' +
+            '<div id="spr_interface_modalwindow_rating_contener_user1_first_name" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 165px; top: 14px; z-index: 2; width: 200px; height: 27px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; text-align: left; overflow: hidden;">' +
+                '<span style="position: relative; font-size: 21px;">' + firstNameUserRating + ', ' + ageUserRating + '</span>' +
+            '</div>' +
+            '<div id="spr_interface_modalwindow_rating_contener_user1_kiss" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 405px; top: 14px; z-index: 2; width: 140px; height: 27px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; text-align: left;">' +
+                '<span style="position: relative; font-size: 21px;">' + pointUserRating + '</span>' +
+            '</div>' +
+        '</a>';
 
-        ObjAnimate('spr_bottle_kiss_yes', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
-        ObjSet('spr_bottle_kiss_yes', { input: 0 });
-
-        ObjAnimate('spr_bottle_kiss_no', 'alp', 0, 0, function() { }, [ 0,0,'cur', 0.3,0,0 ]);
-        ObjSet('spr_bottle_kiss_no', { input: 0 });
-
-        while (chatField.firstChild) {
-            chatField.removeChild(chatField.firstChild);
-        }
-    }
+        modalWindowRating.innerHTML += ratingUser;
 
     }, function() {
         // API initialization failed
