@@ -888,7 +888,7 @@ window.onload = function () {
         var pointUserRating = 33333;
         var stepUserRaiting = 50;
 
-        for (var i = 0; i < 11; i++) {
+        for (var i = 0; i < 10; i++) {
             var ratingUser = '<a href="' + linkUserRating + '" target="_blank" class="collection-item" style="cursor: pointer; font-size: xx-large; height: 50px;">' +
                 '<div id="spr_interface_modalwindow_rating_contener_user1_id" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 0px; top: ' + Number(stepUserRaiting * i + 14) + 'px; z-index: 2; width: 100px; height: 50px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; text-align: right;">' + 
                     '<span style="position: relative; font-size: xx-large;">' + Number(i + 1) + '</span>' +
