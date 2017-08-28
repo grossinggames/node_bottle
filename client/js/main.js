@@ -670,7 +670,7 @@ window.onload = function () {
             }
         });
 
-        ObjAnimate('spr_interface_modalwindow_rating_close', "alp", 1, 0, function() {  }, [ 0,0,0, 1,0,1, 2,0,0 ]);
+        ObjAnimate('spr_interface_modalwindow_rating_close', "alp", 1, 0, function() { console.log('ObjAnimate CB!!!') }, [ 0,0,0.5, 1,0,1, 2,0,0 ]);
 
         ObjSet("spr_interface_modalwindow_rating_close",
         {
