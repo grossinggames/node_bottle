@@ -507,6 +507,8 @@ window.onload = function () {
             }
         });
 
+
+
         ObjSet("spr_interface_modalwindow_change_bottle_close",
         {
             cursor: "hand",
@@ -667,6 +669,8 @@ window.onload = function () {
                 // ObjSet("spr_bottle_button_rating", { drawoff_x: -35 });
             }
         });
+
+        ObjAnimate('spr_interface_modalwindow_rating_close', "alp", 1, 0, function() {  }, [ 0,0,0, 1,0,1, 2,0,0 ]);
 
         ObjSet("spr_interface_modalwindow_rating_close",
         {
