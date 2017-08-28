@@ -678,7 +678,9 @@ window.onload = function () {
             event_mup: function() {
                 //ButtonUp("spr_interface_modalwindow_rating_close");
                 // HideModalWindow();
-                ObjAnimate('spr_interface_modalwindow_change_bottle_close', "scale_x", 0, 0, function() {  }, [ 0,0,ObjGet('spr_interface_modalwindow_change_bottle_close').scale_x, 1,0,1 ]);
+                // ObjAnimate('spr_interface_modalwindow_change_bottle_close', "scale_x", 0, 0, function() {  }, [ 0,0,ObjGet('spr_interface_modalwindow_change_bottle_close').scale_x, 1,0,1 ]);
+                console.log('123');
+                ObjAnimate('spr_interface_modalwindow_change_bottle_close', "alp", 0, 0, function() {  }, [ 0,0,ObjGet('spr_interface_modalwindow_change_bottle_close').alp, 1,0,0 ]);
             },
             event_mleave: function() {
                 console.log('spr_interface_modalwindow_rating_close leave');
