@@ -477,7 +477,6 @@ function ObjAnimate(obj, type, loop, relative, cb, anm) {
             return len - 1;
         }        
 
-
         // Установить новые значения
         function stepAnim(event) {
             totalTime += event.diffMs;
@@ -511,6 +510,7 @@ function ObjAnimate(obj, type, loop, relative, cb, anm) {
             tmr_global.removeEventListener(room, anims[obj][type]);
         }
         anims[obj][type] = stepAnim;
+        console.log('ObjAnimate room: ', room);
         tmr_global.addEventListener(room, stepAnim);
     }
 }
