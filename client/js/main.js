@@ -884,7 +884,7 @@ window.onload = function () {
         var idUserRating = 1;
         var linkUserRating = 'https://vk.com/grossinggames';
         var avatarUserRating = 'images/on_bottom.png';
-        var firstNameUserRating = 'images/on_bottom.png';
+        var firstNameUserRating = 'Имя пользователя';
         var ageUserRating = 32;
         var pointUserRating = 33333;
 
