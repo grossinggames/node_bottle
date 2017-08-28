@@ -141,7 +141,7 @@ window.onload = function () {
                     var timeMsg = hours + ":" + minutes + ":" + seconds;
 
                     chatField.innerHTML += [
-                        '<li class="collection-item avatar" style="word-wrap: break-word; overflow-wrap: break-word; width: 92%; margin: 3px auto; -webkit-user-select: none; -moz-user-select: none; background-color: #c5e4cf">',
+                        '<li class="collection-item avatar" style="word-wrap: break-word; overflow-wrap: break-word; width: 92%; margin: 3px auto; -webkit-user-select: none; -moz-user-select: none; background-color: #c5e4cf;">',
                             '<img src="' + message.photo + '" alt="" class="circle">',
                             '<span class="title">' + message.first_name + '</span>',
                             '<span style="margin-left: 7px;">' + timeMsg + '</span>',
