@@ -546,7 +546,7 @@ function ShowModalWindow(modalWindow) {
 
     var modalWindowHub = "spr_interface_modalwindow";
     ObjSet(modalWindowHub, { active: 1 });
-    ObjAnimate(modalWindowHub, "alp", 0, 0, function() {  }, [ 0,0,ObjGet(modalWindowHub).alp, timeAnmModWin,0,0.98 ]);
+    ObjAnimate(modalWindowHub, "alp", 0, 0, function() {  }, [ 0,0,ObjGet(modalWindowHub).alp, timeAnmModWin,0,1 ]);
 
     if (shownModalWindows.length > 0) {
         var curModalWindow = shownModalWindows[shownModalWindows.length - 1];
@@ -558,7 +558,7 @@ function ShowModalWindow(modalWindow) {
 
     ObjSet(modalWindow, { active: 1 });
     ObjSet(modalWindow, { input: 1 });
-    ObjAnimate(modalWindow, "alp", 0, 0, function() {  }, [ 0,0,ObjGet(modalWindow).alp, timeAnmModWin,0,0.98 ]);
+    ObjAnimate(modalWindow, "alp", 0, 0, function() {  }, [ 0,0,ObjGet(modalWindow).alp, timeAnmModWin,0,1 ]);
 }
 
 function HideModalWindow() {
