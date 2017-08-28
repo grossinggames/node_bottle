@@ -891,20 +891,20 @@ window.onload = function () {
 
         for (var i = 0; i < 11; i++) {
             var ratingUser = '<a href="' + linkUserRating + '" target="_blank" class="collection-item" style="cursor: pointer; font-size: xx-large; height: 50px;">' +
-                '<div id="spr_interface_modalwindow_rating_contener_user1_id" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 0px; top: ' + (stepUserRaiting * i) + 14 + 'px; z-index: 2; width: 100px; height: 50px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; text-align: right;">' + 
+                '<div id="spr_interface_modalwindow_rating_contener_user1_id" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 0px; top: ' + Number(stepUserRaiting * i) + 14 + 'px; z-index: 2; width: 100px; height: 50px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; text-align: right;">' + 
                     '<span style="position: relative; font-size: xx-large;">' + idUserRating + '</span>' +
                 '</div>' +
-                '<div id="spr_interface_modalwindow_rating_contener_user1_avatar" class="spr" onmousedown="" onmouseup="" onmouseover="" onmouseout="" title="" style="left: 110px; top: ' + (stepUserRaiting * i) +  3 + 'px; z-index: 2; width: 50px; height: 50px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; background-image: url("");">' +
+                '<div id="spr_interface_modalwindow_rating_contener_user1_avatar" class="spr" onmousedown="" onmouseup="" onmouseover="" onmouseout="" title="" style="left: 110px; top: ' + Number(stepUserRaiting * i +3) + 'px; z-index: 2; width: 50px; height: 50px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; background-image: url("");">' +
                     '<img src="' + avatarUserRating + '" alt="" class="circle" style="height: 45px; width: 45px; border-radius: 6px;">' +
                 '</div>' +
-                '<div id="spr_interface_modalwindow_rating_contener_user1_first_name" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 165px; top: ' + (stepUserRaiting * i) + 14 + 'px; z-index: 2; width: 200px; height: 27px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; text-align: left; overflow: hidden;">' +
+                '<div id="spr_interface_modalwindow_rating_contener_user1_first_name" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 165px; top: ' + Number(stepUserRaiting * i + 14) + 'px; z-index: 2; width: 200px; height: 27px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; text-align: left; overflow: hidden;">' +
                     '<span style="position: relative; font-size: 21px;">' + firstNameUserRating + ', ' + ageUserRating + '</span>' +
                 '</div>' +
-                '<div id="spr_interface_modalwindow_rating_contener_user1_kiss" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 405px; top: ' + (stepUserRaiting * i) + 14 + 'px; z-index: 2; width: 140px; height: 27px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; text-align: left;">' +
+                '<div id="spr_interface_modalwindow_rating_contener_user1_kiss" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 405px; top: ' + Number(stepUserRaiting * i + 14) + 'px; z-index: 2; width: 140px; height: 27px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; text-align: left;">' +
                     '<span style="position: relative; font-size: 21px;">' + pointUserRating + '</span>' +
                 '</div>' +
             '</a>';
-            
+
             modalWindowRating.innerHTML += ratingUser;
         }
 
