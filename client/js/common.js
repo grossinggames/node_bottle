@@ -535,7 +535,7 @@ var modalWindows = [
     "spr_interface_modalwindow_rating"
 ];
 
-var timeAnmModWin = 0.5;
+var timeAnmModWin = 0.25;
 
 function ShowModalWindow(modalWindow) {
     for (var i = 0, len = shownModalWindows.length; i < len; i++) {
