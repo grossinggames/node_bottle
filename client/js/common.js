@@ -480,6 +480,7 @@ function ObjAnimate(obj, type, loop, relative, cb, anm) {
         // Установить новые значения
         function stepAnim(event) {
             totalTime += event.diffMs;
+            console.log('totalTime: ', totalTime);
 
             if (totalTime <= timeLineTotal) {
                 //console.log('timeLine[cursor] = ', timeLine[cursor], ' ------totalTime: ', totalTime);
