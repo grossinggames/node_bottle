@@ -38,7 +38,7 @@ window.onload = function () {
             }
 
             ticks[currentRoom]['diffMs'] = diffTickTime;
-            ticks["room_interface"]['diffMs'] = diffTickTime;
+            ticks['room_interface']['diffMs'] = diffTickTime;
             tmrGlobal.dispatchEvent(ticks[currentRoom]);
             tmrGlobal.dispatchEvent(ticks["room_interface"]);
 
