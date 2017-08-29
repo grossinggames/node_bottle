@@ -12,7 +12,7 @@ console.log('start db');
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-var promise = mongoose.connect('mongodb://localhost2/local', {
+var promise = mongoose.connect('mongodb://localhost/local', {
     useMongoClient: true,
 });
 promise.then(function(db) {
