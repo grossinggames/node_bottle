@@ -67,7 +67,9 @@ mongoose.connection.on('connected', () => {
     console.log(testUser);
 
     testUser.save((err, user, affected)=> {
-        console.log(user);
+        console.log('err: ', err);
+        console.log('user: ', user);
+        console.log('affected: ', affected);
     });
 }); 
 
