@@ -22,16 +22,30 @@ promise.then((db) => {
 mongoose.connection.on('connected', () => {  
     console.log('MongoDb connect!');
 
-    let Schema = mongoose.Schema;
-    let vkSchema = new Schema({
-        id: String,
+    let User = mongoose.model('vk_bottle', {
+        id: { 
+            type: String, 
+            unique: true 
+        },
         money: Number,
         kiss: Number,
         first_name: String,
         age: Number
     });
 
-    let vk_bottle = mongoose.model('vk_bottle', vkSchema);
+    let testUser = new User({
+        id: 'testId',
+        money: 'testMonet',
+        kiss: 'testKiss',
+        first_name: 'testFirstName',
+        age: 'testAge'
+    });
+
+    console.log(testUser);
+
+    testUser.save((err, user, affected)=> {
+        console.log(user);
+    });
 }); 
 
 // If the connection throws an error
