@@ -69,7 +69,7 @@ window.onload = function () {
                         var bdate = data.response[0].bdate.split('.');
 
                         if ( (bdate.length == 3) && bdate[0] && bdate[1] && bdate[2] ) {
-                            var curDate = new Data();
+                            var curDate = new Date();
                             curDate = [
                                 curDate.getDay(),
                                 curDate.getMonth(),
