@@ -69,6 +69,10 @@ window.onload = function () {
                         var bdate = data.response[0].bdate.split('.');
 
                         if ( (bdate.length == 3) && bdate[0] && bdate[1] && bdate[2] ) {
+                            bdate[0] = Number(bdate[0]);
+                            bdate[1] = Number(bdate[1]);
+                            bdate[2] = Number(bdate[2]);
+
                             var curDate = new Date();
                             curDate = [
                                 Number( curDate.getDay() ),
@@ -76,6 +80,20 @@ window.onload = function () {
                                 Number( curDate.getFullYear() )
                             ];
                             console.log('split curDate: ', curDate);
+
+                            if (curDate[1] < bdate[1]) {
+                                age = Number(curDate[2] - bdate[2] - 1);
+                            }
+
+                            if (curDate[1] == bdate[1] && curDate[0] < bdate[1]) {
+                                age = Number(curDate[2] - bdate[2] - 1);
+                            }
+
+                            if (age == 0) {
+                                age = Number(curDate[2] - bdate[2]);
+                            }
+
+                            console.log('age: ', age);
                         }
                         console.log('split bdate: ', bdate);
                     }
