@@ -25,17 +25,40 @@ mongoose.connection.on('connected', () => {
     let User = mongoose.model('vk_bottles', {
         id: { 
             type: String, 
-            unique: true 
+            unique: true,
+            required: true
         },
-        money: Number,
-        kiss: Number,
-        first_name: String,
-        age: Number
+        first_name: {
+            type: String,
+            required: true,
+            default: ''
+        },
+        photo: {
+            type: String,
+            required: true,
+            default: ''
+        },
+        money: {
+            type: Number,
+            default: 0,
+            min: 0
+        },
+        kiss: { 
+            type: Number,
+            default: 0,
+            min: 0
+        },
+        age: {
+            type: Number,
+            default: 0,
+            min: 0
+        }
     });
 
     let testUser = new User({
         id: '22',
         first_name: 'testFirstName',
+        photo: 'https://pp.userapi.com/c638719/v638719645/cea0/OwhnQKdK3Pw.jpg',
         money: 22,
         kiss: 22,
         age: 22
