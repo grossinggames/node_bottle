@@ -75,7 +75,7 @@ window.onload = function () {
 
                             var curDate = new Date();
                             curDate = [
-                                Number( curDate.getDay() ),
+                                Number( curDate.getDate() ),
                                 Number( curDate.getMonth() + 1 ),
                                 Number( curDate.getFullYear() )
                             ];
