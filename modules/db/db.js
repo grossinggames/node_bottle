@@ -8,8 +8,16 @@ process.on('uncaughtException', function (err) {
 });
 
 console.log('start db');
+
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/vk_bottle');
+mongoose.connect('');
+
+var promise = mongoose.connect('mongodb://localhost/local', {
+    useMongoClient: true,
+});
+promise.then(function(db) {
+    console.log('Promise db: ', db);
+});
 
 // var Cat = mongoose.model('Cat', { name: String });
 
