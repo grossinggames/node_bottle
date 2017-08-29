@@ -2,7 +2,8 @@
     "name": "ws_server",
     "dependencies": {
         "express": "2.5.10",
-        "ws"     : "1.1.1"
+        "mongoose": "^4.11.9",
+        "ws": "1.1.1"
     },
     "scripts": {
         "start": "node server.js"

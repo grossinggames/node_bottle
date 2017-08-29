@@ -1,4 +1,4 @@
 
 // Получить рейтинг игроков
-// db.getCollection('vk_bottle').find({}).sort({point: -1}).limit(10)
+// db.getCollection('vk_bottle').find({}).sort({kiss: -1}).limit(10);
 
