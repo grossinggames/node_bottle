@@ -2,6 +2,12 @@
 // Получить рейтинг игроков
 // db.getCollection('vk_bottle').find({}).sort({kiss: -1}).limit(10);
 
+process.on('uncaughtException', function (err) {
+    console.log("Неотловленное исключения: ");
+    console.log(err);
+});
+
+console.log('start db');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/vk_bottle');
 
@@ -15,3 +21,5 @@ mongoose.connect('mongodb://localhost/vk_bottle');
 //     console.log('meow');
 //   }
 // });
+
+console.log('end db');
