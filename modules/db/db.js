@@ -21,6 +21,17 @@ promise.then((db) => {
 // When successfully connected
 mongoose.connection.on('connected', () => {  
     console.log('MongoDb connect!');
+
+    let Schema = mongoose.Schema;
+    let vkSchema = new Schema({
+        id: String,
+        money: Number,
+        kiss: Number,
+        first_name: String,
+        age: Number
+    });
+
+    let vk_bottle = mongoose.model('vk_bottle', vkSchema);
 }); 
 
 // If the connection throws an error
