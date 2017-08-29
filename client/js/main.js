@@ -63,8 +63,10 @@ window.onload = function () {
                   && data.response[0].photo_100 && data.response[0].first_name 
                   && data.response[0].id && 'sex' in data.response[0]) {
 
-                    if ('bdate' in data.response[0]) {
+                    if ('bdate' in data.response[0] && data.response[0].bdate) {
                         console.log('bdate: ', data.response[0].bdate);
+                        var bdate = data.response[0].bdate.split('.');
+                        console.log('split bdate: ', bdate);
                     }
 
                     photo = data.response[0].photo_100;
@@ -72,7 +74,8 @@ window.onload = function () {
                         photo: data.response[0].photo_100,
                         first_name: data.response[0].first_name,
                         id: data.response[0].id,
-                        sex: data.response[0].sex
+                        sex: data.response[0].sex,
+                        age: 
                     }));
                 }
             });
