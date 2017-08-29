@@ -10,7 +10,6 @@ process.on('uncaughtException', function (err) {
 console.log('start db');
 
 var mongoose = require('mongoose');
-mongoose.connect('');
 
 var promise = mongoose.connect('mongodb://localhost/local', {
     useMongoClient: true,
