@@ -2,12 +2,10 @@
 // Получить рейтинг игроков
 // db.getCollection('vk_bottle').find({}).sort({kiss: -1}).limit(10);
 
-process.on('uncaughtException', function (err) {
+process.on('uncaughtException', (err) => {
     console.log("Неотловленное исключения: ");
     console.log(err);
 });
-
-console.log('start db');
 
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -15,33 +13,35 @@ mongoose.Promise = global.Promise;
 var promise = mongoose.connect('mongodb://localhost/local', {
     useMongoClient: true,
 });
-promise.then(function(db) {
-    console.log('Promise db: ');
+promise.then((db) => {
+    console.log('Promise db');
 });
 
 // CONNECTION EVENTS
 // When successfully connected
-mongoose.connection.on('connected', function () {  
-    console.log('Mongoose default connection open to ');
-  }); 
-  
-  // If the connection throws an error
-  mongoose.connection.on('error',function (err) {  
-    console.log('Mongoose default connection error: ' + err);
-  }); 
-  
-  // When the connection is disconnected
-  mongoose.connection.on('disconnected', function () {  
-    console.log('Mongoose default connection disconnected'); 
-  });
-  
-  // If the Node process ends, close the Mongoose connection 
-  process.on('SIGINT', function() {  
-    mongoose.connection.close(function () { 
-      console.log('Mongoose default connection disconnected through app termination'); 
-      process.exit(0); 
+mongoose.connection.on('connected', () => {  
+    console.log('MongoDb connect!');
+}); 
+
+// If the connection throws an error
+mongoose.connection.on('error', (err) => {  
+    console.log('MongoDb error: ' + err + ' Process exit!');
+    process.exit();
+}); 
+
+// When the connection is disconnected
+mongoose.connection.on('disconnected', () => {  
+    console.log('MongoDb disconnect. Process exit!'); 
+    process.exit();
+});
+
+// If the Node process ends, close the Mongoose connection 
+process.on('SIGINT', () => {  
+    mongoose.connection.close( () => { 
+        console.log('Mongodb disconnect through app termination'); 
+        process.exit(0); 
     }); 
-  }); 
+}); 
 
 // var Cat = mongoose.model('Cat', { name: String });
 
