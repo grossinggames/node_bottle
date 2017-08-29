@@ -22,7 +22,7 @@ promise.then((db) => {
 mongoose.connection.on('connected', () => {  
     console.log('MongoDb connect!');
 
-    let User = mongoose.model('vk_bottle', {
+    let User = mongoose.model('vk_bottles', {
         id: { 
             type: String, 
             unique: true 
