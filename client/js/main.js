@@ -63,11 +63,20 @@ window.onload = function () {
                   && data.response[0].photo_100 && data.response[0].first_name 
                   && data.response[0].id && 'sex' in data.response[0]) {
 
-                    if ( ('bdate' in data.response[0]) && (data.response[0].bdate) ) {
-                        console.log('bdate: ', data.response[0].bdate);
+                    var age = 0;
 
+                    if ( ('bdate' in data.response[0]) && (data.response[0].bdate) ) {
                         var bdate = data.response[0].bdate.split('.');
 
+                        if ( (bdate.length == 3) && bdate[0] && bdate[1] && bdate[2] ) {
+                            var curDate = new Data();
+                            curDate = [
+                                curDate.getDay(),
+                                curDate.getMonth(),
+                                curDate.getFullYear()
+                            ];
+                            console.log('split curDate: ', curDate);
+                        }
                         console.log('split bdate: ', bdate);
                     }
 
@@ -77,7 +86,7 @@ window.onload = function () {
                         first_name: data.response[0].first_name,
                         id: data.response[0].id,
                         sex: data.response[0].sex,
-                        age: 0
+                        age: age
                     }));
                 }
             });
