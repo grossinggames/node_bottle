@@ -85,7 +85,7 @@ window.onload = function () {
                                 age = Number(curDate[2] - bdate[2] - 1);
                             }
 
-                            if (curDate[1] == bdate[1] && bdate[1] < curDate[0]) {
+                            if (curDate[1] == bdate[1] && bdate[0] < curDate[0]) {
                                 age = Number(curDate[2] - bdate[2] - 1);
                             }
 
