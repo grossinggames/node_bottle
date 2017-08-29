@@ -71,9 +71,9 @@ window.onload = function () {
                         if ( (bdate.length == 3) && bdate[0] && bdate[1] && bdate[2] ) {
                             var curDate = new Date();
                             curDate = [
-                                curDate.getDay(),
-                                curDate.getMonth(),
-                                curDate.getFullYear()
+                                Number( curDate.getDay() ),
+                                Number( curDate.getMonth() + 1 ),
+                                Number( curDate.getFullYear() )
                             ];
                             console.log('split curDate: ', curDate);
                         }
