@@ -9,8 +9,8 @@ process.on('uncaughtException', function (err) {
 
 console.log('start db');
 
-mongoose.Promise = global.Promise;
 var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 
 var promise = mongoose.connect('mongodb://localhost/local', {
     useMongoClient: true,
