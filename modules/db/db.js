@@ -34,11 +34,11 @@ mongoose.connection.on('connected', () => {
     });
 
     let testUser = new User({
-        id: 'testId',
-        money: 'testMonet',
-        kiss: 'testKiss',
+        id: '22',
         first_name: 'testFirstName',
-        age: 'testAge'
+        money: 22,
+        kiss: 22,
+        age: 22
     });
 
     console.log(testUser);
