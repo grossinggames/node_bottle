@@ -79,7 +79,6 @@ window.onload = function () {
                                 Number( curDate.getMonth() + 1 ),
                                 Number( curDate.getFullYear() )
                             ];
-                            console.log('split curDate: ', curDate);
 
                             if (bdate[1] > curDate[1]) {
                                 age = Number(curDate[2] - bdate[2] - 1);
@@ -93,9 +92,7 @@ window.onload = function () {
                                 age = Number(curDate[2] - bdate[2]);
                             }
 
-                            console.log('age: ', age);
                         }
-                        console.log('split bdate: ', bdate);
                     }
 
                     photo = data.response[0].photo_100;
