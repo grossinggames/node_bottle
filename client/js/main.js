@@ -58,10 +58,15 @@ window.onload = function () {
             // 0 не указан
             // 1 женский
             // 2 мужской
-            VK.api("users.get", {fields: "photo_100, sex"}, function(data) { 
-                if (data && data.response && data.response[0] &&
-                  data.response[0].photo_100 && data.response[0].first_name && 
-                  data.response[0].id && 'sex' in data.response[0]) {
+            VK.api("users.get", {fields: "photo_100, sex, bdate"}, function(data) { 
+                if (data && data.response && data.response[0] 
+                  && data.response[0].photo_100 && data.response[0].first_name 
+                  && data.response[0].id && 'sex' in data.response[0]) {
+
+                    if ('bdate' in data.response[0]) {
+                        console.log('bdate: ', data.response[0].bdate);
+                    }
+
                     photo = data.response[0].photo_100;
                     socket.send(JSON.stringify({
                         photo: data.response[0].photo_100,
