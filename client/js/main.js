@@ -81,7 +81,7 @@ window.onload = function () {
                             ];
                             console.log('split curDate: ', curDate);
 
-                            if (bdate[1] < curDate[1]) {
+                            if (bdate[1] > curDate[1]) {
                                 age = Number(curDate[2] - bdate[2] - 1);
                             }
 
