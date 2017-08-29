@@ -15,7 +15,7 @@ var promise = mongoose.connect('mongodb://localhost/local', {
     useMongoClient: true,
 });
 promise.then(function(db) {
-    console.log('Promise db: ', db);
+    console.log('Promise db: ');
 });
 
 // var Cat = mongoose.model('Cat', { name: String });
