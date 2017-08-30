@@ -94,7 +94,7 @@ function createOrUpdateUser(user) {
                     runValidators: true 
                 }, (err, doc) => { // callback
                     console.log('doc: ', doc);
-                    
+
                     if (err) {
                         resolve(false);
                         throw err;
@@ -105,6 +105,8 @@ function createOrUpdateUser(user) {
                     resolve(false);
                 }
             );
+        } else {
+            resolve(false);
         }
     });
 }
