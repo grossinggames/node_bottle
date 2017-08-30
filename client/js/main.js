@@ -708,7 +708,7 @@ window.onload = function () {
                 ShowModalWindow("spr_interface_modalwindow_rating");
 
                 socket.send(JSON.stringify({
-                    rating: 1
+                    rating: id
                 }));
             },
             event_mleave: function() {

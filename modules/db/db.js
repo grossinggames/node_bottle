@@ -106,7 +106,7 @@ function createOrUpdateUser(user) {
 }
 
 /* *************** Рейтинг *************** */
-function getRating() {
+function getRating(idUser) {
     return new Promise(function(resolve) {
         User.find()
         .sort({kiss: -1})
@@ -119,7 +119,20 @@ function getRating() {
                 return false;
             }
             if (result) {
-                return resolve(result);
+                User.findOne({ id: idUser })
+                    .select({ id: 1, first_name: 1, age: 1, photo: 1, kiss: 1 })
+                    .exec((err, resultMe) => {
+                        if (err) {
+                            console.log('db.js getRating err: ', err)
+                            resolve(result);
+                            return true;
+                        }
+                        if (resultMe) {
+                            result.push(resultMe);
+                            return resolve(result);
+                        }
+                        resolve(false);
+                    });
             }
             resolve(false);
         });

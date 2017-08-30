@@ -46,7 +46,7 @@ async function addMessage(client, message) {
     
     // Пользователь запросил рейтинг
     if (message["rating"]) {
-        let ratingList = await db.getRating();
+        let ratingList = await db.getRating(message["rating"]);
 
         try {
             if (ratingList) {
