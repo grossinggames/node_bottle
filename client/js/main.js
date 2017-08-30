@@ -948,7 +948,7 @@ window.onload = function () {
                 var active = '';
 
                 if (!ageUserRating) {
-                    ageUserRating = ', ' + ageUserRating;
+                    // ageUserRating = ', ' + ageUserRating;
                 }
 
                 if (id == rating[i].id) {
