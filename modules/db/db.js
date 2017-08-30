@@ -91,20 +91,33 @@ createOrUpdateUser({
 function createOrUpdateUser(user) {
     if (user && user.id && user.first_name && user.photo && user.age) {
 
-        User.update({ 
-            id: user.id 
-        }, { 
-            $set: {
+        User.findOneAndUpdate(
+            // filter find
+            {
+                id: user.id
+            }, 
+
+            // document to insert when nothing was found
+            {
                 id: user.id,
                 first_name: user.first_name,
                 photo: user.photo,
-                age: user.age,
+                age: user.age,  
+            }, 
+
+            // options
+            {
+                upsert: true, 
+                new: true, 
+                runValidators: true 
+            }, 
+
+            // callback
+            (err, doc) => {
+                if (err) throw err;
+                console.log('doc: ', doc);
             }
-        },
-        (err, result) => {
-            console.log('update err: ', err);
-            console.log('update result: ', result);
-        });
+        );
 
         // User.update({ 
         //         id: user.id 
