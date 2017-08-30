@@ -70,7 +70,6 @@ let UserSchema = new Schema({
     money: {
         type: Number,
         default: 0,
-        required: true,
         min: 0
     },
     kiss: { 
@@ -82,14 +81,9 @@ let UserSchema = new Schema({
 
 let User = mongoose.model('vk_bottles', UserSchema);
 
-createOrUpdateUser({
-    id: 123,
-    first_name: 'first_name1234',
-    photo: 'photo1234',
-    age: 124
-});
-
 /* *************** Запросы *************** */
+
+/* *************** Профиль *************** */
 function createOrUpdateUser(user) {
     if (user && user.id && user.first_name && user.photo && user.age) {
 
@@ -121,35 +115,16 @@ function createOrUpdateUser(user) {
 
             }
         );
-
-        // User.update({ 
-        //         id: user.id 
-        //     }, { 
-        //         $set: { 
-        //             size: 'large' 
-        //         }
-        //     }, (err, result) => {
-
-        //     }
-        // );
-
-        // let userUpdate = new User({
-        //     id: user.id,
-        //     first_name: user.first_name,
-        //     photo: user.photo,
-        //     age: user.age
-        // });
-
-        // userUpdate.save((err, userEdit, affected)=> {
-        //     console.log('\r\n err: ', err);
-        //     console.log('\r\n user: ', userEdit);
-        //     console.log('\r\n affected: ', affected);
-
-        //     if (err) throw err;
-
-        //     if (userEdit && affected) {
-
-        //     }
-        // });
     }
 }
+
+/* *************** Деньги *************** */
+// Инкремент, декремент
+
+/* *************** Поцелуи *************** */
+// Инкремент
+
+/* *************** Экспорт данных и методов *************** */
+module.exports = {
+    createOrUpdateUser: createOrUpdateUser
+};
