@@ -105,8 +105,6 @@ function createOrUpdateUser(user) {
     });
 }
 
-getRating();
-
 /* *************** Рейтинг *************** */
 function getRating() {
     return new Promise(function(resolve) {
