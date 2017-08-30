@@ -155,6 +155,11 @@ window.onload = function () {
                 }
 
                 // Новое сообщение
+                if (message["rating"]) {
+                    console.log('rating: ', message.msg);
+                }
+
+                // Новое сообщение
                 if (message["msg"]) {
                     //chatField.innerHTML += "<li>" + message.first_name + ": " + message.msg + "</li>";
                     //chatField.scrollTop = chatField.scrollHeight;
@@ -694,6 +699,10 @@ window.onload = function () {
             event_mup: function() {
                 //ButtonUp("spr_bottle_button_rating");
                 ShowModalWindow("spr_interface_modalwindow_rating");
+
+                socket.send(JSON.stringify({
+                    rating: 1
+                }));
             },
             event_mleave: function() {
                 //ButtonLeave("spr_bottle_button_rating");
