@@ -52,6 +52,7 @@ window.onload = function () {
         var slot = 0;
         var group = 0;
         var photo = "";
+        var id = "";
 
         var socket     = new WebSocket("wss://" + window.location.hostname + ":" + window.location.port);
         socket.onopen  = function() {
@@ -97,6 +98,8 @@ window.onload = function () {
                     }
 
                     photo = data.response[0].photo_100;
+                    id = data.response[0].id;
+
                     socket.send(JSON.stringify({
                         photo: data.response[0].photo_100,
                         first_name: data.response[0].first_name,
@@ -941,8 +944,13 @@ window.onload = function () {
                 var ageUserRating = rating[i].age;
                 var kissUserRating = rating[i].kiss;
                 var stepUserRaiting = 50;
+                var active = '';
 
-                var ratingUser = '<a href="' + linkUserRating + '" target="_blank" class="collection-item" style="cursor: pointer; font-size: xx-large; height: 50px;">' +
+                if (id == rating[i].id) {
+                    active = ' active';
+                }
+                
+                var ratingUser = '<a href="' + linkUserRating + '" target="_blank" class="collection-item' + active + '" style="cursor: pointer; font-size: xx-large; height: 50px;">' +
                     '<div id="spr_interface_modalwindow_rating_contener_user1_id" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 0px; top: ' + Number(stepUserRaiting * i + 14) + 'px; z-index: 2; width: 100px; height: 50px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; text-align: right;">' + 
                         '<span style="position: relative; font-size: xx-large;">' + Number(i + 1) + '</span>' +
                     '</div>' +
