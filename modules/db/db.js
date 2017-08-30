@@ -99,10 +99,7 @@ function createOrUpdateUser(user) {
                         resolve(false);
                         throw err;
                     }
-                    if (doc) {
-                        return resolve(true)
-                    }
-                    resolve(false);
+                    return resolve(true)
                 }
             );
         } else {
