@@ -83,7 +83,7 @@ let UserSchema = new Schema({
 let User = mongoose.model('vk_bottles', UserSchema);
 
 createOrUpdateUser({
-    id: 321,
+    id: 123,
     first_name: 'first_name123',
     photo: 'photo123',
     age: 0123
