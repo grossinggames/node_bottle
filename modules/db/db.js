@@ -81,7 +81,7 @@ let User = mongoose.model('vk_bottles', UserSchema);
 /* *************** Профиль *************** */
 function createOrUpdateUser(user) {
     return new Promise(function(resolve) {
-        if (user && user.id && user.first_name && user.photo && user.age) {
+        if (user && user.id && user.first_name && user.photo && 'age' in user) {
             User.findOneAndUpdate({ // find
                     id: user.id
                 }, { // document to insert when nothing was found
