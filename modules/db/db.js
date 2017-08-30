@@ -9,12 +9,7 @@ process.on('uncaughtException', (err) => {
 let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-let promise = mongoose.connect('mongodb://localhost/local', {
-    useMongoClient: true,
-});
-promise.then((db) => {
-    console.log('Promise db');
-});
+
 
 // CONNECTION EVENTS
 // When successfully connected
@@ -129,3 +124,10 @@ function createOrUpdateUser(user) {
         // });
     }
 }
+
+let promise = mongoose.connect('mongodb://localhost/local', {
+    useMongoClient: true,
+});
+promise.then((db) => {
+    console.log('Promise db');
+});
