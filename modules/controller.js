@@ -3,10 +3,10 @@ var clients = {};
 
 // Маршрутизация сообщений
 var routingMessage = require("./routing/message.js");
-
+var db = require("./db/db.js");
 
 /* *************** Новое сообщение от клиента *************** */
-function addMessage(client, message) {
+async function addMessage(client, message) {
     try {
         message = JSON.parse(message);
     } catch (err) {
@@ -30,8 +30,12 @@ function addMessage(client, message) {
         client.id = message.id;
         client.sex = message.sex;
 
-        routingMessage.addClient(client);
-        routingMessage.sendStateGroup(client.group);
+        let isAddUser = await db.createOrUpdateUser(client);
+
+        if (isAddUser) {
+            routingMessage.addClient(client);
+            routingMessage.sendStateGroup(client.group);
+        }
         // module.parent.exports.bus.emit("changeRotating", client.group); // addRotating
     }
 

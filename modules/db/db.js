@@ -1,11 +1,6 @@
 // Получить рейтинг игроков
 // db.getCollection('vk_bottle').find({}).sort({kiss: -1}).limit(10);
 
-process.on('uncaughtException', (err) => {
-    console.log("Неотловленное исключения: ");
-    console.log(err);
-});
-
 let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
@@ -85,37 +80,31 @@ let User = mongoose.model('vk_bottles', UserSchema);
 
 /* *************** Профиль *************** */
 function createOrUpdateUser(user) {
-    if (user && user.id && user.first_name && user.photo && user.age) {
-
-        User.findOneAndUpdate(
-            // filter find
-            {
-                id: user.id
-            }, 
-
-            // document to insert when nothing was found
-            {
-                id: user.id,
-                first_name: user.first_name,
-                photo: user.photo,
-                age: user.age
-            }, 
-
-            // options
-            {
-                upsert: true, 
-                runValidators: true 
-            }, 
-
-            // callback
-            (err, doc) => {
-                if (err) throw err;
-                console.log('doc: ', doc);
-
-
-            }
-        );
-    }
+    return new Promise(function(resolve) {
+        if (user && user.id && user.first_name && user.photo && user.age) {
+            User.findOneAndUpdate({ // find
+                    id: user.id
+                }, { // document to insert when nothing was found
+                    id: user.id,
+                    first_name: user.first_name,
+                    photo: user.photo,
+                    age: user.age
+                }, { // options
+                    upsert: true, 
+                    runValidators: true 
+                }, (err, doc) => { // callback
+                    if (err) {
+                        resolve(false);
+                        throw err;
+                    }
+                    if (doc) {
+                        return resolve(true)
+                    }
+                    resolve(false);
+                }
+            );
+        }
+    });
 }
 
 /* *************** Деньги *************** */
