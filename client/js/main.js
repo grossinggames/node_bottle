@@ -156,7 +156,7 @@ window.onload = function () {
 
                 // Новое сообщение
                 if (message["rating"]) {
-                    console.log('rating: ', message.msg);
+                    console.log('rating: ', message.rating);
                 }
 
                 // Новое сообщение
