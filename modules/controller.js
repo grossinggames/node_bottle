@@ -31,9 +31,7 @@ async function addMessage(client, message) {
         client.sex = message.sex;
         client.age = message.age;
 
-        console.log('1 isAddUser start');
         let isAddUser = await db.createOrUpdateUser(client);
-        console.log('2 isAddUser: ', isAddUser);
 
         if (isAddUser) {
             routingMessage.addClient(client);
