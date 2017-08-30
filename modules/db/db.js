@@ -110,7 +110,6 @@ function createOrUpdateUser(user) {
             // options
             {
                 upsert: true, 
-                new: true, 
                 runValidators: true 
             }, 
 
