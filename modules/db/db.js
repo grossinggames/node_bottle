@@ -91,11 +91,18 @@ createOrUpdateUser({
 function createOrUpdateUser(user) {
     if (user && user.id && user.first_name && user.photo && user.age) {
 
-        User.findOne({
-            id: user.id
-        }, (err, obj) => {
-            if (err) throw err;
-            console.log('find one obj: ', obj);
+        User.update({ 
+            id: user.id 
+        }, { 
+            $set: {
+                id: user.id,
+                first_name: user.first_name,
+                photo: user.photo,
+                age: user.age,
+            }
+        }, (err, result) => {
+            console.log('update err: ', err);
+            console.log('update result: ', result);
         });
 
         // User.update({ 
