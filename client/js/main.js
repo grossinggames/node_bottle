@@ -947,8 +947,10 @@ window.onload = function () {
                 var stepUserRaiting = 50;
                 var active = '';
 
-                if (!ageUserRating) {
-                    // ageUserRating = ', ' + ageUserRating;
+                if (ageUserRating) {
+                    ageUserRating = ', ' + ageUserRating;
+                } else {
+                    ageUserRating = '';
                 }
 
                 if (id == rating[i].id) {
