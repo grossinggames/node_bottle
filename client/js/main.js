@@ -947,6 +947,10 @@ window.onload = function () {
                 var stepUserRaiting = 50;
                 var active = '';
 
+                if (!ageUserRating) {
+                    ageUserRating = ', ' + ageUserRating;
+                }
+
                 if (id == rating[i].id) {
                     active = ' active';
 
@@ -963,7 +967,7 @@ window.onload = function () {
                         '<img src="' + avatarUserRating + '" alt="" class="circle" style="height: 45px; width: 45px; border-radius: 6px;">' +
                     '</div>' +
                     '<div id="spr_interface_modalwindow_rating_contener_user1_first_name" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 165px; top: ' + Number(stepUserRaiting * i + 14) + 'px; z-index: 2; width: 200px; height: 27px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; text-align: left; overflow: hidden;">' +
-                        '<span style="position: relative; font-size: 21px;">' + firstNameUserRating + ', ' + ageUserRating + '</span>' +
+                        '<span style="position: relative; font-size: 21px;">' + firstNameUserRating + ageUserRating + '</span>' +
                     '</div>' +
                     '<div id="spr_interface_modalwindow_rating_contener_user1_kiss" class="spr" onmousedown="" onmouseup="" onmouseover=""  onmouseout="" title="" style="left: 405px; top: ' + Number(stepUserRaiting * i + 14) + 'px; z-index: 2; width: 140px; height: 27px; transform: scaleX(1) scaleY(1) rotate(0deg); pointer-events: none; opacity: 1; background-position: 0px 0px; display: block; text-align: left;">' +
                         '<span style="position: relative; font-size: 21px;">' + kissUserRating + '</span>' +
