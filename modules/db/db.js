@@ -133,8 +133,9 @@ function getRating(idUser) {
                         }
                         resolve(false);
                     });
+            } else {
+                resolve(false);
             }
-            resolve(false);
         });
     });
 }
