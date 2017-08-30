@@ -110,7 +110,7 @@ function getRating() {
     return new Promise(function(resolve) {
         User.find()
         .sort({kiss: -1})
-        .limit(10)
+        .limit(15)
         .select({ id: 1, first_name: 1, age: 1, photo: 1, kiss: 1 })
         .exec((err, result) => {
             if (err) {

@@ -929,12 +929,12 @@ window.onload = function () {
                 modalWindowRating.removeChild(modalWindowRating.firstChild);
             }
 
-            if (rating.length <= 0) {
+            if ( !rating || (rating && rating.length <= 0) ) {
                 console.log('Массив рейтинга пуст');
                 return false;
             }
 
-            for (var i = 0; i < rating.length - 1; i++) {
+            for (var i = 0; i < rating.length; i++) {
                 var linkUserRating =  'https://vk.com/id' + rating[i].id;
                 var avatarUserRating = rating[i].photo;
                 var firstNameUserRating = rating[i].first_name;
