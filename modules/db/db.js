@@ -95,7 +95,7 @@ function createOrUpdateUser(user) {
             id: user.id
         }, (err, obj) => {
             if (err) throw err;
-            console.log(obj);
+            console.log('find one obj: ', obj);
         });
 
         // User.update({ 
