@@ -1,4 +1,3 @@
-
 // Получить рейтинг игроков
 // db.getCollection('vk_bottle').find({}).sort({kiss: -1}).limit(10);
 
@@ -7,10 +6,10 @@ process.on('uncaughtException', (err) => {
     console.log(err);
 });
 
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-var promise = mongoose.connect('mongodb://localhost/local', {
+let promise = mongoose.connect('mongodb://localhost/local', {
     useMongoClient: true,
 });
 promise.then((db) => {
@@ -21,56 +20,6 @@ promise.then((db) => {
 // When successfully connected
 mongoose.connection.on('connected', () => {  
     console.log('MongoDb connect!');
-
-    let User = mongoose.model('vk_bottles', {
-        id: { 
-            type: String, 
-            unique: true,
-            required: true
-        },
-        first_name: {
-            type: String,
-            required: true,
-            default: ''
-        },
-        photo: {
-            type: String,
-            required: true,
-            default: ''
-        },
-        money: {
-            type: Number,
-            default: 0,
-            min: 0
-        },
-        kiss: { 
-            type: Number,
-            default: 0,
-            min: 0
-        },
-        age: {
-            type: Number,
-            default: 0,
-            min: 0
-        }
-    });
-
-    let testUser = new User({
-        id: '22',
-        first_name: 'testFirstName',
-        photo: 'https://pp.userapi.com/c638719/v638719645/cea0/OwhnQKdK3Pw.jpg',
-        money: 22,
-        kiss: 22,
-        age: 22
-    });
-
-    console.log(testUser);
-
-    testUser.save((err, user, affected)=> {
-        console.log('err: ', err);
-        console.log('user: ', user);
-        console.log('affected: ', affected);
-    });
 }); 
 
 // If the connection throws an error
@@ -93,15 +42,90 @@ process.on('SIGINT', () => {
     }); 
 }); 
 
-// var Cat = mongoose.model('Cat', { name: String });
+/* *************** Модели *************** */
+let Schema = mongoose.Schema;
 
-// var kitty = new Cat({ name: 'Zildjian' });
-// kitty.save(function (err) {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log('meow');
-//   }
-// });
+let UserSchema = new Schema({
+    id: { 
+        type: String, 
+        unique: true,
+        required: true
+    },
+    first_name: {
+        type: String,
+        required: true,
+        default: ''
+    },
+    photo: {
+        type: String,
+        required: true,
+        default: ''
+    },
+    money: {
+        type: Number,
+        default: 0,
+        min: 0
+    },
+    kiss: { 
+        type: Number,
+        default: 0,
+        min: 0
+    },
+    age: {
+        type: Number,
+        default: 0,
+        min: 0
+    }
+});
 
-console.log('end db');
+let User = mongoose.model('vk_bottles', UserSchema);
+
+createOrUpdateUser({
+    id: 123,
+    first_name: 'first_name123',
+    photo: 'photo123',
+    age: 0123
+});
+
+/* *************** Запросы *************** */
+function createOrUpdateUser(user) {
+    if (user && user.id && user.first_name && user.photo && user.age) {
+
+        User.findOne({
+            id: user.id
+        }, (err, obj) => {
+            if (err) throw err;
+            console.log(obj);
+        });
+
+        // User.update({ 
+        //         id: user.id 
+        //     }, { 
+        //         $set: { 
+        //             size: 'large' 
+        //         }
+        //     }, (err, result) => {
+
+        //     }
+        // );
+
+        // let userUpdate = new User({
+        //     id: user.id,
+        //     first_name: user.first_name,
+        //     photo: user.photo,
+        //     age: user.age
+        // });
+
+        // userUpdate.save((err, userEdit, affected)=> {
+        //     console.log('\r\n err: ', err);
+        //     console.log('\r\n user: ', userEdit);
+        //     console.log('\r\n affected: ', affected);
+
+        //     if (err) throw err;
+
+        //     if (userEdit && affected) {
+
+        //     }
+        // });
+    }
+}
