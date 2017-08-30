@@ -112,7 +112,7 @@ function getRating() {
     User.find()
         .sort({kiss: -1})
         .limit(10)
-        .select({ name: 1, occupation: 1 })
+        .select({ id: 1, first_name: 1, age: 1, photo: 1, kiss: 1 })
         .exec( (err, result) => {
             if (err) {
                 console.log('db.js getRating err: ', err)
