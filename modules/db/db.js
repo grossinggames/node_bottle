@@ -64,16 +64,19 @@ let UserSchema = new Schema({
     money: {
         type: Number,
         default: 0,
+        required: true,
         min: 0
     },
     kiss: { 
         type: Number,
         default: 0,
+        required: true,
         min: 0
     },
     age: {
         type: Number,
         default: 0,
+        required: true,
         min: 0
     }
 });
@@ -102,7 +105,7 @@ function createOrUpdateUser(user) {
                 id: user.id,
                 first_name: user.first_name,
                 photo: user.photo,
-                age: user.age,  
+                age: user.age
             }, 
 
             // options
