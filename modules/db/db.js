@@ -93,6 +93,8 @@ function createOrUpdateUser(user) {
                     upsert: true, 
                     runValidators: true 
                 }, (err, doc) => { // callback
+                    console.log('doc: ', doc);
+                    
                     if (err) {
                         resolve(false);
                         throw err;
