@@ -935,11 +935,11 @@ window.onload = function () {
             }
 
             for (var i = 0; i < rating.length - 1; i++) {
-                var linkUserRating =  'https://vk.com/id' + rating.id;
-                var avatarUserRating = rating.photo;
-                var firstNameUserRating = rating.first_name;
-                var ageUserRating = rating.age;
-                var kissUserRating = rating.kiss;
+                var linkUserRating =  'https://vk.com/id' + rating[i].id;
+                var avatarUserRating = rating[i].photo;
+                var firstNameUserRating = rating[i].first_name;
+                var ageUserRating = rating[i].age;
+                var kissUserRating = rating[i].kiss;
                 var stepUserRaiting = 50;
 
                 var ratingUser = '<a href="' + linkUserRating + '" target="_blank" class="collection-item" style="cursor: pointer; font-size: xx-large; height: 50px;">' +
