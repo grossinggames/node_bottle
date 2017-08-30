@@ -10,6 +10,7 @@ const WebSocket = require('ws');
 module.exports = {
     groups:           groups,
     maxClientOnGroup: maxClientOnGroup,
+    sendMessageClient: sendMessageClient,
     sendMessageGroup: sendMessageGroup,
     sendStateGroup:   sendStateGroup,
     traceState:       traceState,

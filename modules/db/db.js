@@ -1,5 +1,4 @@
 // Получить рейтинг игроков
-// db.getCollection('vk_bottle').find({}).sort({kiss: -1}).limit(10);
 
 let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -106,6 +105,48 @@ function createOrUpdateUser(user) {
     });
 }
 
+getRating();
+
+/* *************** Рейтинг *************** */
+function getRating() {
+    User.find()
+        .sort({kiss: -1})
+        .limit(10)
+        .select({ name: 1, occupation: 1 })
+        .exec( (err, result) => {
+            if (err) {
+                console.log('db.js getRating err: ', err)
+                return false;
+            }
+            console.log('getRating rating: ', result);
+        });
+
+    // return new Promise(function(resolve) {
+    //     if (user && user.id && user.first_name && user.photo && 'age' in user) {
+    //         User.findOneAndUpdate({ // find
+    //                 id: user.id
+    //             }, { // document to insert when nothing was found
+    //                 id: user.id,
+    //                 first_name: user.first_name,
+    //                 photo: user.photo,
+    //                 age: user.age
+    //             }, { // options
+    //                 upsert: true, 
+    //                 runValidators: true 
+    //             }, (err, doc) => { // callback
+    //                 if (err) {
+    //                     console.log('DB createOrUpdateUser err: ', user.id, ' ', err);
+    //                     return resolve(false);
+    //                 }
+    //                 return resolve(true)
+    //             }
+    //         );
+    //     } else {
+    //         resolve(false);
+    //     }
+    // });
+}
+
 /* *************** Деньги *************** */
 // Инкремент, декремент
 
@@ -114,5 +155,6 @@ function createOrUpdateUser(user) {
 
 /* *************** Экспорт данных и методов *************** */
 module.exports = {
-    createOrUpdateUser: createOrUpdateUser
+    createOrUpdateUser: createOrUpdateUser,
+    getRating: getRating
 };

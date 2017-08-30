@@ -44,6 +44,21 @@ async function addMessage(client, message) {
         return false;
     }
     
+    // Пользователь запросил рейтинг
+    if (message["rating"]) {
+        let ratingList = await db.getRating();
+
+        try {
+            if (ratingList) {
+                routingMessage.sendMessageClient(client, {
+                    rating: JSON.stringify(ratingList)
+                });
+            }
+        } catch (err) {
+            console.log('Send rating err: ' + err);
+        }
+    }
+
     // Пользователь отправил сообщение
     if (message["msg"]) {
         routingMessage.sendMessageGroup(client.group, {
