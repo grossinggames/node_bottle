@@ -56,6 +56,12 @@ let UserSchema = new Schema({
         required: true,
         default: ''
     },
+    age: {
+        type: Number,
+        default: 0,
+        required: true,
+        min: 0
+    },
     photo: {
         type: String,
         required: true,
@@ -70,13 +76,6 @@ let UserSchema = new Schema({
     kiss: { 
         type: Number,
         default: 0,
-        required: true,
-        min: 0
-    },
-    age: {
-        type: Number,
-        default: 0,
-        required: true,
         min: 0
     }
 });
@@ -84,7 +83,7 @@ let UserSchema = new Schema({
 let User = mongoose.model('vk_bottles', UserSchema);
 
 createOrUpdateUser({
-    id: 123,
+    id: 321,
     first_name: 'first_name123',
     photo: 'photo123',
     age: 0123
@@ -119,6 +118,8 @@ function createOrUpdateUser(user) {
             (err, doc) => {
                 if (err) throw err;
                 console.log('doc: ', doc);
+
+
             }
         );
 
