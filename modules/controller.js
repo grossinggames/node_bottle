@@ -53,6 +53,10 @@ async function addMessage(client, message) {
                 routingMessage.sendMessageClient(client, {
                     rating: JSON.stringify(ratingList)
                 });
+            } else {
+                routingMessage.sendMessageClient(client, {
+                    rating: JSON.stringify(false)
+                });
             }
         } catch (err) {
             console.log('Send rating err: ' + err);

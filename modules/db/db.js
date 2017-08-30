@@ -109,42 +109,23 @@ getRating();
 
 /* *************** Рейтинг *************** */
 function getRating() {
-    User.find()
+    return new Promise(function(resolve) {
+        User.find()
         .sort({kiss: -1})
         .limit(10)
         .select({ id: 1, first_name: 1, age: 1, photo: 1, kiss: 1 })
-        .exec( (err, result) => {
+        .exec((err, result) => {
             if (err) {
                 console.log('db.js getRating err: ', err)
+                resolve(false);
                 return false;
             }
-            console.log('getRating rating: ', result);
+            if (result) {
+                return resolve(result);
+            }
+            resolve(false);
         });
-
-    // return new Promise(function(resolve) {
-    //     if (user && user.id && user.first_name && user.photo && 'age' in user) {
-    //         User.findOneAndUpdate({ // find
-    //                 id: user.id
-    //             }, { // document to insert when nothing was found
-    //                 id: user.id,
-    //                 first_name: user.first_name,
-    //                 photo: user.photo,
-    //                 age: user.age
-    //             }, { // options
-    //                 upsert: true, 
-    //                 runValidators: true 
-    //             }, (err, doc) => { // callback
-    //                 if (err) {
-    //                     console.log('DB createOrUpdateUser err: ', user.id, ' ', err);
-    //                     return resolve(false);
-    //                 }
-    //                 return resolve(true)
-    //             }
-    //         );
-    //     } else {
-    //         resolve(false);
-    //     }
-    // });
+    });
 }
 
 /* *************** Деньги *************** */
