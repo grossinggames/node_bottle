@@ -100,7 +100,7 @@ function createOrUpdateUser(user) {
                 photo: user.photo,
                 age: user.age,
             }
-        }, true,
+        },
         (err, result) => {
             console.log('update err: ', err);
             console.log('update result: ', result);
