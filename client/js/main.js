@@ -989,15 +989,16 @@ window.onload = function () {
 
         // Заполняем ассациативный массив событиями для смены бутылки
         for (var i = 1; i < 4; i++) {
+            var bottleId = JSON.stringify({
+                set_bottle: i
+            });
             ObjSet('spr_interface_modalwindow_change_bottle_contener_' + i, {
                 cursor: "hand",
                 popup: "Выбрать бутылочку",
                 event_mdown: function() {
                 },
                 event_mup: function() {
-                    socket.send(JSON.stringify({
-                        set_bottle: i
-                    }));
+                    socket.send(bottleId);
                 },
                 event_mleave: function() {
                 },
