@@ -988,7 +988,7 @@ window.onload = function () {
         }
 
         // Заполняем ассациативный массив событиями для смены бутылки
-        for (var i = 1; i < 4; i++) {
+        for (var i = 1; i < 12; i++) {
             (function() {
                 var bottleId = JSON.stringify({
                     set_bottle: i
