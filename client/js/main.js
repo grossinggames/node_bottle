@@ -565,10 +565,12 @@ window.onload = function () {
                 HideModalWindow();
             },
             event_mleave: function() {
-                //ButtonLeave("spr_interface_modalwindow_change_bottle_close");
+                ObjAnimate('spr_interface_modalwindow_change_bottle_close', 'scale_x', 0, 0, function() {}, [ 0,0,'cur', 0.2,0,0.8 ]);
+                ObjAnimate('spr_interface_modalwindow_change_bottle_close', 'scale_y', 0, 0, function() {}, [ 0,0,'cur', 0.2,0,0.8 ]);
             },
             event_menter: function() {
-                //ButtonEnter("spr_interface_modalwindow_change_bottle_close");
+                ObjAnimate('spr_interface_modalwindow_change_bottle_close', 'scale_x', 0, 0, function() {}, [ 0,0,'cur', 0.2,0,1 ]);
+                ObjAnimate('spr_interface_modalwindow_change_bottle_close', 'scale_y', 0, 0, function() {}, [ 0,0,'cur', 0.2,0,1 ]);
             }
         });
 
