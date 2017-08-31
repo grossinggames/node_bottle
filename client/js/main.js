@@ -990,7 +990,7 @@ window.onload = function () {
         // Заполняем ассациативный массив событиями для смены бутылки
         for (var i = 1; i < 4; i++) {
             var bottleId = JSON.stringify({
-                set_bottle: i
+                set_bottle: String(i)
             });
             ObjSet('spr_interface_modalwindow_change_bottle_contener_' + i, {
                 cursor: "hand",
