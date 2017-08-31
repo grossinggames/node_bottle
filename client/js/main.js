@@ -551,10 +551,23 @@ window.onload = function () {
             }
         });
 
+        spr_interface_modalwindow_change_bottle_contener_1
 
+        ObjSet("spr_interface_modalwindow_change_bottle_contener_1", {
+            cursor: "hand",
+            popup: "Выбрать бутылочку",
+            event_mdown: function() {
+            },
+            event_mup: function() {
+                console.log('Выбрать бутылочку 1');
+            },
+            event_mleave: function() {
+            },
+            event_menter: function() {
+            }
+        });
 
-        ObjSet("spr_interface_modalwindow_change_bottle_close",
-        {
+        ObjSet("spr_interface_modalwindow_change_bottle_close", {
             cursor: "hand",
             popup: "Закрыть",
             event_mdown: function() {
