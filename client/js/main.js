@@ -1000,7 +1000,6 @@ window.onload = function () {
                     event_mdown: function() {
                     },
                     event_mup: function() {
-                        console.log('bottleId: ', bottleId);
                         socket.send(bottleId);
                     },
                     event_mleave: function() {
@@ -1012,7 +1011,6 @@ window.onload = function () {
         }
 
         function setBottle(bottle) {
-            console.log('setBottle ' + bottle);
             ObjSet('spr_bottle_floor_bottle', { res: 'images/bottle' + bottle + '.png' });
         }
 
