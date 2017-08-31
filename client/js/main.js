@@ -998,6 +998,7 @@ window.onload = function () {
                 event_mdown: function() {
                 },
                 event_mup: function() {
+                    console.log('bottleId: ', bottleId);
                     socket.send(bottleId);
                 },
                 event_mleave: function() {
