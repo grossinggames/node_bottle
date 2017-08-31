@@ -995,7 +995,6 @@ window.onload = function () {
                 event_mdown: function() {
                 },
                 event_mup: function() {
-                    console.log('Выбрать бутылочку ' + i);
                     socket.send(JSON.stringify({
                         set_bottle: i
                     }));
@@ -1008,6 +1007,7 @@ window.onload = function () {
         }
 
         function setBottle(bottle) {
+            console.log('setBottle ' + bottle);
             ObjSet('spr_bottle_floor_bottle', { res: 'images/bottle' + bottle + '.png' });
         }
 
