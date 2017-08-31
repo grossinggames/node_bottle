@@ -158,9 +158,14 @@ window.onload = function () {
                     return;
                 }
 
-                // Новое сообщение
+                // Показать рейтинг
                 if (message["rating"]) {
                     showRatingList(message.rating);
+                }
+
+                // Смена бутылки
+                if (message['set_bottle']) {
+                    setBottle(message.set_bottle);
                 }
 
                 // Новое сообщение
@@ -548,20 +553,6 @@ window.onload = function () {
             event_menter: function() {
                 //ButtonEnter("spr_bottle_button_change_bottle");
                 // ObjSet("spr_bottle_button_change_bottle", { drawoff_x: -35 });
-            }
-        });
-
-        ObjSet("spr_interface_modalwindow_change_bottle_contener_1", {
-            cursor: "hand",
-            popup: "Выбрать бутылочку",
-            event_mdown: function() {
-            },
-            event_mup: function() {
-                console.log('Выбрать бутылочку 1');
-            },
-            event_mleave: function() {
-            },
-            event_menter: function() {
             }
         });
 
@@ -994,6 +985,30 @@ window.onload = function () {
 
                 modalWindowRating.innerHTML += ratingUser;
             }
+        }
+
+        // Заполняем ассациативный массив событиями для смены бутылки
+        for (var i = 1; i < 4; i++) {
+            ObjSet('spr_interface_modalwindow_change_bottle_contener_' + i, {
+                cursor: "hand",
+                popup: "Выбрать бутылочку",
+                event_mdown: function() {
+                },
+                event_mup: function() {
+                    console.log('Выбрать бутылочку ' + i);
+                    socket.send(JSON.stringify({
+                        set_bottle: i
+                    }));
+                },
+                event_mleave: function() {
+                },
+                event_menter: function() {
+                }
+            });
+        }
+
+        function setBottle(bottle) {
+            ObjSet('spr_bottle_floor_bottle', { res: 'images/bottle' + bottle + '.png' });
         }
 
     }, function() {

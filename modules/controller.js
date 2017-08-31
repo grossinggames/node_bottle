@@ -63,6 +63,13 @@ async function addMessage(client, message) {
         }
     }
 
+    // Пользователь сменил бутылку
+    if (message['set_bottle']) {
+        routingMessage.sendMessageGroup(client.group, {
+            set_bottle: message['set_bottle']
+        });
+    }
+
     // Пользователь отправил сообщение
     if (message["msg"]) {
         routingMessage.sendMessageGroup(client.group, {
