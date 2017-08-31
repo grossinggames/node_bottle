@@ -551,8 +551,6 @@ window.onload = function () {
             }
         });
 
-        spr_interface_modalwindow_change_bottle_contener_1
-
         ObjSet("spr_interface_modalwindow_change_bottle_contener_1", {
             cursor: "hand",
             popup: "Выбрать бутылочку",
