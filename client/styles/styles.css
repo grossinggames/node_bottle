@@ -67,3 +67,11 @@
     left: 0px;
     position: absolute;
 }
+
+.btn-floating {
+    background-color: #eaeaea !important; 
+}
+
+.btn-floating:hover {
+    background-color: #eee !important; 
+}
