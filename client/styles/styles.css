@@ -66,3 +66,11 @@
     left: 0px;
     position: absolute;
 }
+
+.btn-floating {
+    background-color: #bf360c;
+}
+
+.btn-floating:hover {
+    background-color: #f4511e;
+}
