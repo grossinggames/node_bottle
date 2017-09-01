@@ -56,6 +56,7 @@
     top: 8px;
     cursor: text;
 }
+
 .send_message {
     width:          296px;
     height:         52px;
@@ -67,10 +68,10 @@
     position: absolute;
 }
 
-.btn-floating {
+.btn-color-red {
     background-color: #bf360c;
 }
 
-.btn-floating:hover {
+.btn-color-red:hover {
     background-color: #f4511e;
 }
