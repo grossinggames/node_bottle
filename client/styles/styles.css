@@ -67,11 +67,3 @@
     left: 0px;
     position: absolute;
 }
-
-.btn-color-red {
-    background-color: #bf360c;
-}
-
-.btn-color-red:hover {
-    background-color: #f4511e;
-}
