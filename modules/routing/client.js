@@ -119,7 +119,8 @@ function addGroup(client) {
             man: 0,
             woman: 0,
             trans: 0
-        }
+        },
+        bottle: 9
     };
 
     if (client.sex == 0) { // Пол не указан
