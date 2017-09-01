@@ -39,6 +39,7 @@ module.exports.changeGroup = routingClients.changeGroup;
 var rulesGroup = require("../rules/group.js");
 module.exports.clickBottle = rulesGroup.clickBottle;
 module.exports.setKissOffer = rulesGroup.setKissOffer;
+module.exports.setBottle = rulesGroup.setBottle;
 
 
 /* *************** Маршрутизация сообщений *************** */
@@ -89,7 +90,7 @@ function sendMessageClient(client, message) {
 // Состояние слотов в группе
 function getStateGroup(group) {
     try {
-        var result = {slots: {}, group: group};
+        var result = {slots: {}, group: group, set_bottle: groups[group].bottle};
         for (var key in groups[group]["slots"]) {
             result.slots[key] = {
                 photo: groups[group].slots[key].photo,

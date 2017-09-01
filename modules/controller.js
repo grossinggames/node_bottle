@@ -65,9 +65,8 @@ async function addMessage(client, message) {
 
     // Пользователь сменил бутылку
     if (message['set_bottle']) {
-        routingMessage.sendMessageGroup(client.group, {
-            set_bottle: message['set_bottle']
-        });
+        routingMessage.setBottle(client);
+        routingMessage.sendStateGroup(client.group);
     }
 
     // Пользователь отправил сообщение

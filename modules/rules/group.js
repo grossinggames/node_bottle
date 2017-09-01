@@ -171,3 +171,29 @@ function setKissOffer(client, kissOffer) {
     
 }
 module.exports.setKissOffer = setKissOffer;
+
+/* *************** Установить бутылочку *************** */
+// Установить бутылочку
+function setBottle(client, bottle) {
+    if (!client){
+        console.log('group.js setBottle not client');
+        return false;
+    }
+
+    if (!client.group){
+        console.log('group.js setBottle not client.group');
+        return false;
+    }
+
+    if (!bottle) {
+        console.log('group.js setBottle not bottle');
+        return false;
+    }
+
+    let group = client.group;
+
+    if (groups[group] && (groups[group].bottle != bottle) ) {
+        groups[group].bottle = bottle;
+    }
+}
+module.exports.setBottle = setBottle;
