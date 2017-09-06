@@ -2,7 +2,7 @@ var parent = module.parent.exports;
 var bus = parent.bus;
 var groups = parent.groups;
 var maxClientOnGroup = parent.maxClientOnGroup;
-
+var db = require("../db/db.js");
 
 /* *************** Остановка таймера в группе *************** */
 function clearTimerGroup(group) {
@@ -162,10 +162,18 @@ function setKissOffer(client, kissOffer) {
     if ( (!groups[client.group].kiss_offer.left) && (groups[client.group].partners[0] == client.slot) ) {
         groups[client.group].kiss_offer.left = 1;
         bus.emit('sendMessageGroup', client.group, { bottle: {kiss_offer: kissOffer, side: "left"} });
+
+        if (groups[client.group].partners[1]) {
+            db.incrementKissUser(groups[client.group].partners[1]);
+        }
     }
     if ( (!groups[client.group].kiss_offer.right) && (groups[client.group].partners[1] == client.slot) ) {
         groups[client.group].kiss_offer.right = 1;
         bus.emit('sendMessageGroup', client.group, { bottle: { kiss_offer: kissOffer, side: "right" } } );
+
+        if (groups[client.group].partners[0]) {
+            db.incrementKissUser(groups[client.group].partners[0]);
+        }
     }
     
     

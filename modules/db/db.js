@@ -145,9 +145,32 @@ function getRating(idUser) {
 
 /* *************** Поцелуи *************** */
 // Инкремент
+function incrementKissUser(user) {
+    return new Promise(function(resolve) {
+        if (user && user.id) {
+            User.findOneAndUpdate({ 
+                    id: user.id 
+                }, {
+                    $inc: { 
+                        kiss: 1 
+                    } 
+                }, (err, doc) => { // callback
+                    if (err) {
+                        console.log('DB IncrementKissUser err: ', user.id, ' ', err);
+                        return resolve(false);
+                    }
+                    return resolve(true)
+                }
+            );
+        } else {
+            resolve(false);
+        }
+    });
+}
 
 /* *************** Экспорт данных и методов *************** */
 module.exports = {
     createOrUpdateUser: createOrUpdateUser,
-    getRating: getRating
+    getRating: getRating,
+    incrementKissUser: incrementKissUser
 };
