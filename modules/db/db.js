@@ -159,10 +159,12 @@ function incrementKissUser(user) {
                         console.log('DB IncrementKissUser err: ', user.id, ' ', err);
                         return resolve(false);
                     }
-                    return resolve(true)
+                    console.log('incrementKissUser true');
+                    return resolve(true);
                 }
             );
         } else {
+            console.log('incrementKissUser false user: ', user);
             resolve(false);
         }
     });
