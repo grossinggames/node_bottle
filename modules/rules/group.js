@@ -163,7 +163,7 @@ function setKissOffer(client, kissOffer) {
         groups[client.group].kiss_offer.left = 1;
         bus.emit('sendMessageGroup', client.group, { bottle: {kiss_offer: kissOffer, side: "left"} });
 
-        if (groups[group].slots[ groups[client.group].partners[1] ]) {
+        if (groups[client.group].slots[ groups[client.group].partners[1] ]) {
             db.incrementKissUser(groups[client.group].partners[1]);
         }
     }
@@ -171,7 +171,7 @@ function setKissOffer(client, kissOffer) {
         groups[client.group].kiss_offer.right = 1;
         bus.emit('sendMessageGroup', client.group, { bottle: { kiss_offer: kissOffer, side: "right" } } );
 
-        if (groups[group].slots[ groups[client.group].partners[0] ]) {
+        if (groups[client.group].slots[ groups[client.group].partners[0] ]) {
             db.incrementKissUser(groups[client.group].partners[0]);
         }
     }
