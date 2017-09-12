@@ -98,6 +98,7 @@ function getStateGroup(group) {
                 count_kissing: groups[group].slots[key].count_kissing
             };
         }
+        console.log('*** slot: ', groups[group].slots['1']);
         console.log('getStateGroup: ', result);
         return result;
     } catch (err) {
