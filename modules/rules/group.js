@@ -166,7 +166,7 @@ function setKissOffer(client, kissOffer) {
     if ( (!groups[client.group].kiss_offer.left) && (groups[client.group].partners[0] == client.slot) ) {
         groups[client.group].kiss_offer.left = 1;
 
-        if (groups[client.group].slots[ groups[client.group].partners[1] ]) {
+        if (kissOffer && groups[client.group].slots[ groups[client.group].partners[1] ]) {
             groups[client.group].slots[ groups[client.group].partners[1] ].counter_kissing++;
             db.incrementKissUser(groups[client.group].slots[ groups[client.group].partners[1] ]);
         }
@@ -177,7 +177,7 @@ function setKissOffer(client, kissOffer) {
     if ( (!groups[client.group].kiss_offer.right) && (groups[client.group].partners[1] == client.slot) ) {
         groups[client.group].kiss_offer.right = 1;
 
-        if (groups[client.group].slots[ groups[client.group].partners[0] ]) {
+        if (kissOffer && groups[client.group].slots[ groups[client.group].partners[0] ]) {
             groups[client.group].slots[ groups[client.group].partners[0] ].counter_kissing++;
             db.incrementKissUser(groups[client.group].slots[ groups[client.group].partners[0] ]);
         }
