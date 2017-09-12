@@ -163,24 +163,25 @@ function setKissOffer(client, kissOffer) {
         return false;
     }
 
-    client.counter_kissing++;
-
     if ( (!groups[client.group].kiss_offer.left) && (groups[client.group].partners[0] == client.slot) ) {
         groups[client.group].kiss_offer.left = 1;
-        bus.emit('sendMessageGroup', client.group, { bottle: {kiss_offer: kissOffer, side: "left"} });
 
         if (groups[client.group].slots[ groups[client.group].partners[1] ]) {
+            groups[client.group].slots[ groups[client.group].partners[1] ].counter_kissing++;
             db.incrementKissUser(groups[client.group].slots[ groups[client.group].partners[1] ]);
         }
+
+        bus.emit('sendMessageGroup', client.group, { bottle: {kiss_offer: kissOffer, side: "left" } });
     }
 
     if ( (!groups[client.group].kiss_offer.right) && (groups[client.group].partners[1] == client.slot) ) {
         groups[client.group].kiss_offer.right = 1;
-        bus.emit('sendMessageGroup', client.group, { bottle: { kiss_offer: kissOffer, side: "right" } } );
 
         if (groups[client.group].slots[ groups[client.group].partners[0] ]) {
+            groups[client.group].slots[ groups[client.group].partners[0] ].counter_kissing++;
             db.incrementKissUser(groups[client.group].slots[ groups[client.group].partners[0] ]);
         }
+        bus.emit('sendMessageGroup', client.group, { bottle: { kiss_offer: kissOffer, side: "right" } } );
     }
     
     
