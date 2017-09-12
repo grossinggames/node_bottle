@@ -138,7 +138,6 @@ window.onload = function () {
 
                 // Состояние в слотах
                 if (message["slots"]) {
-                    console.log(message["slots"]);
                     ClearSlots();
                     for (var key in message["slots"]) {
                         ObjSet('spr_bottle_slot_' + key, {res: message["slots"][key]["photo"]});
