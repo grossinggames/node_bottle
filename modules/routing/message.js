@@ -98,8 +98,8 @@ function getStateGroup(group) {
                 count_kissing: groups[group].slots[key].count_kissing
             };
         }
-        return result;
         console.log('getStateGroup: ', result);
+        return result;
     } catch (err) {
         console.log("getStateGroup err:" + err + " Group: " + group);
     }
