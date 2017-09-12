@@ -159,6 +159,12 @@ function offerKissing(group, partner1, partner2) {
 
 // Анимация приближения партнеров
 function setKissOffer(client, kissOffer) {
+    if (!client) {
+        return false;
+    }
+
+    client.count_kissing++;
+
     if ( (!groups[client.group].kiss_offer.left) && (groups[client.group].partners[0] == client.slot) ) {
         groups[client.group].kiss_offer.left = 1;
         bus.emit('sendMessageGroup', client.group, { bottle: {kiss_offer: kissOffer, side: "left"} });
@@ -167,6 +173,7 @@ function setKissOffer(client, kissOffer) {
             db.incrementKissUser(groups[client.group].slots[ groups[client.group].partners[1] ]);
         }
     }
+
     if ( (!groups[client.group].kiss_offer.right) && (groups[client.group].partners[1] == client.slot) ) {
         groups[client.group].kiss_offer.right = 1;
         bus.emit('sendMessageGroup', client.group, { bottle: { kiss_offer: kissOffer, side: "right" } } );

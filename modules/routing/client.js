@@ -10,6 +10,7 @@ function addClient(client) {
     if (client.group || client.slot) {
         return false;
     }
+    client.counter_kissing = 0;
     var group = getAvailableGroup(client);
     if (group) {
         addClientInGroup(group, client);

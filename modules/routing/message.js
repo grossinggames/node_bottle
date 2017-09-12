@@ -94,7 +94,8 @@ function getStateGroup(group) {
         for (var key in groups[group]["slots"]) {
             result.slots[key] = {
                 photo: groups[group].slots[key].photo,
-                first_name: groups[group].slots[key].first_name
+                first_name: groups[group].slots[key].first_name,
+                count_kissing: groups[group].slots[key].count_kissing
             };
         }
         return result;

@@ -97,6 +97,7 @@ async function addMessage(client, message) {
       if ((routingMessage.groups[client.group].partners[0] == client.slot) || 
             (routingMessage.groups[client.group].partners[1] == client.slot) ) {
             routingMessage.setKissOffer(client, message["kiss_offer"]);
+            routingMessage.sendStateGroup(client.group);
         }
     }
 }
