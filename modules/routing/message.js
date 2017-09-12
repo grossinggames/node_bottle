@@ -99,6 +99,7 @@ function getStateGroup(group) {
             };
         }
         return result;
+        console.log('getStateGroup: ', result);
     } catch (err) {
         console.log("getStateGroup err:" + err + " Group: " + group);
     }
