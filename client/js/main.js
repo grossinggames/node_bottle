@@ -138,6 +138,7 @@ window.onload = function () {
 
                 // Состояние в слотах
                 if (message["slots"]) {
+                    console.log(message["slots"]);
                     ClearSlots();
                     for (var key in message["slots"]) {
                         ObjSet('spr_bottle_slot_' + key, {res: message["slots"][key]["photo"]});
@@ -145,7 +146,7 @@ window.onload = function () {
                         if (message["slots"][key]["first_name"]) {
                             ObjSet('txt_bottle_slot_' + key, { text: message["slots"][key]["first_name"], alp: 0.75 });
                         }
-                        
+
                         if (message["slots"][key]["count_kissing"]) {
                             ObjSet('txt_bottle_slot_' + key + '_count_kissing', { text: message["slots"][key]["count_kissing"], alp: 0.75 });
                         }
