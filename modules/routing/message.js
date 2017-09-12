@@ -95,11 +95,9 @@ function getStateGroup(group) {
             result.slots[key] = {
                 photo: groups[group].slots[key].photo,
                 first_name: groups[group].slots[key].first_name,
-                count_kissing: groups[group].slots[key].count_kissing
+                counter_kissing: groups[group].slots[key].counter_kissing
             };
         }
-        console.log('*** slot: ', groups[group].slots['1']);
-        console.log('getStateGroup: ', result);
         return result;
     } catch (err) {
         console.log("getStateGroup err:" + err + " Group: " + group);

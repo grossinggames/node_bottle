@@ -147,8 +147,8 @@ window.onload = function () {
                             ObjSet('txt_bottle_slot_' + key, { text: message["slots"][key]["first_name"], alp: 0.75 });
                         }
 
-                        if (message["slots"][key]["count_kissing"]) {
-                            ObjSet('txt_bottle_slot_' + key + '_count_kissing', { text: message["slots"][key]["count_kissing"], alp: 0.75 });
+                        if (message["slots"][key]["counter_kissing"]) {
+                            ObjSet('txt_bottle_slot_' + key + '_counter_kissing', { text: message["slots"][key]["counter_kissing"], alp: 0.75 });
                         }
 
                         if (message["slots"][key]["photo"] == photo) {

@@ -163,7 +163,7 @@ function setKissOffer(client, kissOffer) {
         return false;
     }
 
-    client.count_kissing++;
+    client.counter_kissing++;
 
     if ( (!groups[client.group].kiss_offer.left) && (groups[client.group].partners[0] == client.slot) ) {
         groups[client.group].kiss_offer.left = 1;
